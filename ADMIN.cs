@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace ChatApplicationLearningSocket
 {
-    public partial class Form2 : Form
+    public partial class ADMIN : Form
     {
-        public Form2()
+        public ADMIN()
         {
             InitializeComponent();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
