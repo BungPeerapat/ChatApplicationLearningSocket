@@ -9,7 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
-using System.Media;
 using WMPLib;
 
 
@@ -17,16 +16,9 @@ namespace ChatApplicationLearningSocket
 {
     public partial class Login : Form
     {
-        WMPLib.WindowsMediaPlayer PlayerLogin;
         public Login()
         {
             InitializeComponent();
-        }
-
-        private void LoginMusic(String url)
-        {
-            PlayerLogin = new WMPLib.WindowsMediaPlayer();
-            PlayerLogin.URL = url;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -40,8 +32,7 @@ namespace ChatApplicationLearningSocket
                 MessageBox.Show("Welcome Admin");
                 ADMINSIZE ADMINSIZEOPEN = new ADMINSIZE();
                 ADMINSIZEOPEN.Show();
-                LoginMusic(@"C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\Sound\Loading Sound.wav");
-                
+
 
 
             }
