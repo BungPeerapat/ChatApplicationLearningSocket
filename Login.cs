@@ -4,28 +4,29 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
+using System.Media;
 using WMPLib;
+
 
 namespace ChatApplicationLearningSocket
 {
     public partial class Login : Form
     {
+        WMPLib.WindowsMediaPlayer PlayerLogin;
         public Login()
         {
             InitializeComponent();
         }
 
-        WMPLib.WindowsMediaPlayer FS1;
-
-        private void SpeakerCute1(string url)
+        private void LoginMusic(String url)
         {
-            FS1 = new WMPLib.WindowsMediaPlayer();
-            FS1.URL = url;
-            FS1.controls.play();
-            FS1.settings.volume = 20;
+            PlayerLogin = new WMPLib.WindowsMediaPlayer();
+            PlayerLogin.URL = url;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -39,7 +40,8 @@ namespace ChatApplicationLearningSocket
                 MessageBox.Show("Welcome Admin");
                 ADMINSIZE ADMINSIZEOPEN = new ADMINSIZE();
                 ADMINSIZEOPEN.Show();
-                SpeakerCute1(@"C:\\Users\\BungK\\source\\repos\\ChatApplicationLearningSocket\\ChatApplicationLearningSocket\\Sound\\Loading Sound.wav");
+                LoginMusic(@"C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\Sound\Loading Sound.wav");
+                
 
 
             }
