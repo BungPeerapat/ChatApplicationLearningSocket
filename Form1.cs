@@ -25,6 +25,8 @@ namespace ChatApplicationLearningSocket
                 PASSWORDTEXT.ForeColor = Color.Green;
                 Console.Beep();
                 MessageBox.Show("Welcome Admin");
+                ADMINSIZE ADMINSIZEOPEN = new ADMINSIZE();
+                ADMINSIZEOPEN.Show();
             }
             if (USERNAMETEXT.Text == "QUEST" && PASSWORDTEXT.Text == "QUEST")
             {
