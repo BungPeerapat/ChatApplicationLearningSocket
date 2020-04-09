@@ -54,17 +54,17 @@
             // USERNAMETEXT
             // 
             this.USERNAMETEXT.Font = new System.Drawing.Font("Franklin Gothic Medium", 22.2F);
-            this.USERNAMETEXT.Location = new System.Drawing.Point(254, 207);
+            this.USERNAMETEXT.Location = new System.Drawing.Point(288, 207);
             this.USERNAMETEXT.Name = "USERNAMETEXT";
-            this.USERNAMETEXT.Size = new System.Drawing.Size(316, 49);
+            this.USERNAMETEXT.Size = new System.Drawing.Size(282, 49);
             this.USERNAMETEXT.TabIndex = 1;
             // 
             // PASSWORDTEXT
             // 
             this.PASSWORDTEXT.Font = new System.Drawing.Font("Franklin Gothic Medium", 22.2F);
-            this.PASSWORDTEXT.Location = new System.Drawing.Point(254, 285);
+            this.PASSWORDTEXT.Location = new System.Drawing.Point(288, 285);
             this.PASSWORDTEXT.Name = "PASSWORDTEXT";
-            this.PASSWORDTEXT.Size = new System.Drawing.Size(316, 49);
+            this.PASSWORDTEXT.Size = new System.Drawing.Size(282, 49);
             this.PASSWORDTEXT.TabIndex = 1;
             // 
             // USERNAME

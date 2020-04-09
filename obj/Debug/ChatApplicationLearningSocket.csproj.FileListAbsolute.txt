@@ -1,0 +1,10 @@
+C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\bin\Debug\ChatApplicationLearningSocket.exe.config
+C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\bin\Debug\ChatApplicationLearningSocket.exe
+C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\bin\Debug\ChatApplicationLearningSocket.pdb
+C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\obj\Debug\ChatApplicationLearningSocket.csprojAssemblyReference.cache
+C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\obj\Debug\ChatApplicationLearningSocket.Login.resources
+C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\obj\Debug\ChatApplicationLearningSocket.Properties.Resources.resources
+C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\obj\Debug\ChatApplicationLearningSocket.csproj.GenerateResource.cache
+C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\obj\Debug\ChatApplicationLearningSocket.csproj.CoreCompileInputs.cache
+C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\obj\Debug\ChatApplicationLearningSocket.exe
+C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\obj\Debug\ChatApplicationLearningSocket.pdb
