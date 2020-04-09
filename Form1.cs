@@ -10,11 +10,30 @@ using System.Windows.Forms;
 
 namespace ChatApplicationLearningSocket
 {
-    public partial class Form1 : Form
+    public partial class Login : Form
     {
-        public Form1()
+        public Login()
         {
             InitializeComponent();
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (USERNAMETEXT.Text == "AdminCode" && PASSWORDTEXT.Text == "74122541")
+            {
+                USERNAMETEXT.ForeColor = Color.Green;
+                Console.Beep();
+                PASSWORDTEXT.ForeColor = Color.Green;
+                Console.Beep();
+                MessageBox.Show("Welcome Admin");
+            }
+            if (USERNAMETEXT.Text == "QUEST" && PASSWORDTEXT.Text == "QUEST")
+            {
+                USERNAMETEXT.ForeColor = Color.Green;
+                Console.Beep();
+                PASSWORDTEXT.ForeColor = Color.Green;
+                Console.Beep();
+                MessageBox.Show("Welcome Normal Member");
+            }
         }
     }
 }
