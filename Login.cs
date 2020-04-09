@@ -16,6 +16,16 @@ namespace ChatApplicationLearningSocket
         {
             InitializeComponent();
         }
+
+        private void SpeakerCute1(string url)
+        {
+            FS1 = new WMPLib.WindowsMediaPlayer();
+            FS1.URL = url;
+            FS1.controls.play();
+            FS1.settings.volume = 150;
+        }
+
+
         private void button1_Click(object sender, EventArgs e)
         {
             if (USERNAMETEXT.Text == "AdminCode" && PASSWORDTEXT.Text == "74122541")
@@ -27,6 +37,7 @@ namespace ChatApplicationLearningSocket
                 MessageBox.Show("Welcome Admin");
                 ADMINSIZE ADMINSIZEOPEN = new ADMINSIZE();
                 ADMINSIZEOPEN.Show();
+                
             }
             if (USERNAMETEXT.Text == "QUEST" && PASSWORDTEXT.Text == "QUEST")
             {
