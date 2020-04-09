@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ChatApplicationLearningSocket
 {
-    public partial class ADMIN : Form
+    public partial class ADMINSIZE : Form
     {
-        public ADMIN()
+        public ADMINSIZE()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace ChatApplicationLearningSocket
 {
-    partial class ADMIN
+    partial class ADMINSIZE
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ADMIN));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ADMINSIZE));
             this.USERNAME = new System.Windows.Forms.TextBox();
             this.header = new System.Windows.Forms.Panel();
             this.chatzonebutton = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -52,9 +52,10 @@
             this.USERNAME.ForeColor = System.Drawing.Color.Transparent;
             this.USERNAME.Location = new System.Drawing.Point(87, 15);
             this.USERNAME.Name = "USERNAME";
-            this.USERNAME.Size = new System.Drawing.Size(190, 49);
+            this.USERNAME.Size = new System.Drawing.Size(236, 49);
             this.USERNAME.TabIndex = 0;
             this.USERNAME.Text = "YOURNAME";
+            this.USERNAME.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // header
             // 
@@ -68,7 +69,7 @@
             this.header.Controls.Add(this.USERNAME);
             this.header.Location = new System.Drawing.Point(0, 0);
             this.header.Name = "header";
-            this.header.Size = new System.Drawing.Size(297, 603);
+            this.header.Size = new System.Drawing.Size(381, 603);
             this.header.TabIndex = 2;
             // 
             // chatzonebutton
@@ -100,7 +101,7 @@
             this.chatzonebutton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
             this.chatzonebutton.OnHoverTextColor = System.Drawing.Color.White;
             this.chatzonebutton.selected = false;
-            this.chatzonebutton.Size = new System.Drawing.Size(258, 52);
+            this.chatzonebutton.Size = new System.Drawing.Size(304, 52);
             this.chatzonebutton.TabIndex = 1;
             this.chatzonebutton.Text = "    Chat Zone";
             this.chatzonebutton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -154,7 +155,7 @@
             this.bunifuFlatButton1.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
             this.bunifuFlatButton1.OnHoverTextColor = System.Drawing.Color.White;
             this.bunifuFlatButton1.selected = false;
-            this.bunifuFlatButton1.Size = new System.Drawing.Size(258, 52);
+            this.bunifuFlatButton1.Size = new System.Drawing.Size(304, 52);
             this.bunifuFlatButton1.TabIndex = 1;
             this.bunifuFlatButton1.Text = "    Come soon";
             this.bunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -190,7 +191,7 @@
             this.bunifuFlatButton2.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
             this.bunifuFlatButton2.OnHoverTextColor = System.Drawing.Color.White;
             this.bunifuFlatButton2.selected = false;
-            this.bunifuFlatButton2.Size = new System.Drawing.Size(258, 52);
+            this.bunifuFlatButton2.Size = new System.Drawing.Size(304, 52);
             this.bunifuFlatButton2.TabIndex = 1;
             this.bunifuFlatButton2.Text = "    Come soon";
             this.bunifuFlatButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -226,7 +227,7 @@
             this.bunifuFlatButton3.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
             this.bunifuFlatButton3.OnHoverTextColor = System.Drawing.Color.White;
             this.bunifuFlatButton3.selected = false;
-            this.bunifuFlatButton3.Size = new System.Drawing.Size(258, 52);
+            this.bunifuFlatButton3.Size = new System.Drawing.Size(304, 52);
             this.bunifuFlatButton3.TabIndex = 1;
             this.bunifuFlatButton3.Text = "    Come soon";
             this.bunifuFlatButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -262,7 +263,7 @@
             this.bunifuFlatButton4.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
             this.bunifuFlatButton4.OnHoverTextColor = System.Drawing.Color.White;
             this.bunifuFlatButton4.selected = false;
-            this.bunifuFlatButton4.Size = new System.Drawing.Size(258, 52);
+            this.bunifuFlatButton4.Size = new System.Drawing.Size(304, 52);
             this.bunifuFlatButton4.TabIndex = 1;
             this.bunifuFlatButton4.Text = "    Come soon";
             this.bunifuFlatButton4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -276,7 +277,7 @@
             this.bunifuDragControl1.TargetControl = this.header;
             this.bunifuDragControl1.Vertical = true;
             // 
-            // ADMIN
+            // ADMINSIZE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -286,7 +287,7 @@
             this.Controls.Add(this.header);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "ADMIN";
+            this.Name = "ADMINSIZE";
             this.Text = "USER : ADMIN";
             this.header.ResumeLayout(false);
             this.header.PerformLayout();

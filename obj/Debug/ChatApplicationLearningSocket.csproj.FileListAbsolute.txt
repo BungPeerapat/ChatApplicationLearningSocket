@@ -8,3 +8,6 @@ C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearnin
 C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\obj\Debug\ChatApplicationLearningSocket.csproj.CoreCompileInputs.cache
 C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\obj\Debug\ChatApplicationLearningSocket.exe
 C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\obj\Debug\ChatApplicationLearningSocket.pdb
+C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\bin\Debug\Bunifu_UI_v1.52.dll
+C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\obj\Debug\ChatApplicationLearningSocket.ADMINSIZE.resources
+C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\obj\Debug\ChatApplicationLearningSocket.csproj.CopyComplete
