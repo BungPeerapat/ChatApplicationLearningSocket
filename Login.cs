@@ -18,12 +18,14 @@ namespace ChatApplicationLearningSocket
             InitializeComponent();
         }
 
+        WMPLib.WindowsMediaPlayer FS1;
+
         private void SpeakerCute1(string url)
         {
-            WMPLib.WindowsMediaPlayer SC1 = new WMPLib.WindowsMediaPlayer();
-            SC1.URL = url;
-            SC1.controls.play();
-            SC1.settings.volume = 20;
+            FS1 = new WMPLib.WindowsMediaPlayer();
+            FS1.URL = url;
+            FS1.controls.play();
+            FS1.settings.volume = 20;
         }
 
         private void button1_Click(object sender, EventArgs e)
