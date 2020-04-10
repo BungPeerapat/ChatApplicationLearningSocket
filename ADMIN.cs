@@ -16,6 +16,7 @@ namespace ChatApplicationLearningSocket
     public partial class ADMINSIZE : Form
     {
         public string CO = "Close"; //เปิดปิด Menu
+        public string Namesend; //ส่งชื่อ
 
         public void PM(string CodeSend)
         {
@@ -83,7 +84,12 @@ namespace ChatApplicationLearningSocket
         {
             if (Permission.Text == "AdminCode")
             {
+                Namesend = USERNAME.Text;
 
+                ChatSizeADMIN.ChatAppAdminSize CSA = new ChatSizeADMIN.ChatAppAdminSize();
+                ChatSizeADMIN.ChatAppAdminSize(Namesend);
+                ChatSizeADMIN.ChatAppAdminSize.PM(Namesend);
+                CSA.Show();
             }
         }
 
