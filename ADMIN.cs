@@ -83,8 +83,7 @@ namespace ChatApplicationLearningSocket
         {
             if (Permission.Text == "AdminCode")
             {
-                ChatZoneADMIN ChatZoneopen = new ChatZoneADMIN();
-                ChatZoneopen.Show();
+
             }
         }
 
