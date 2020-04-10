@@ -25,11 +25,11 @@ namespace ChatApplicationLearningSocket
 
         async private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
+            MenuOpen();
             chatzonebutton.Visible = true;
             await Task.Delay(500);
             bunifuFlatButton1.Visible = true;
             await Task.Delay(500);
-            MenuOpen();
         }
 
         private void MenuOpen()
