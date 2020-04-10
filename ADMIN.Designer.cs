@@ -61,7 +61,7 @@
             // 
             // MenuSlip
             // 
-            this.MenuSlip.BackColor = System.Drawing.Color.Transparent;
+            this.MenuSlip.BackColor = System.Drawing.Color.White;
             this.MenuSlip.Controls.Add(this.bunifuImageButton1);
             this.MenuSlip.Controls.Add(this.bunifuFlatButton4);
             this.MenuSlip.Controls.Add(this.bunifuFlatButton3);
@@ -71,7 +71,7 @@
             this.MenuSlip.Controls.Add(this.USERNAME);
             this.MenuSlip.Location = new System.Drawing.Point(0, 0);
             this.MenuSlip.Name = "MenuSlip";
-            this.MenuSlip.Size = new System.Drawing.Size(337, 603);
+            this.MenuSlip.Size = new System.Drawing.Size(79, 603);
             this.MenuSlip.TabIndex = 2;
             // 
             // bunifuImageButton1

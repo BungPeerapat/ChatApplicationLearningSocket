@@ -27,7 +27,7 @@ namespace ChatApplicationLearningSocket
             timer1.Start();
             if (MenuSlip.Width <= 603)
             {
-                MenuSlip.Width += 1;
+                MenuSlip.Width += 2;
             }
             else
             {
