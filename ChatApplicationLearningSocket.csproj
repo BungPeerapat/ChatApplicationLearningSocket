@@ -93,5 +93,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ChatSize[ADMIN]\ChatSizeAdmin.csproj">
+      <Project>{ab21098d-22bd-498e-b620-4537131e7d41}</Project>
+      <Name>ChatSizeAdmin</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
