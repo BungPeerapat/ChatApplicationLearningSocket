@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ADMINSIZE));
             this.USERNAME = new System.Windows.Forms.TextBox();
             this.MenuZone = new System.Windows.Forms.Panel();
+            this.Permission = new System.Windows.Forms.Label();
             this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
             this.bunifuFlatButton4 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton3 = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -65,6 +66,7 @@
             // MenuZone
             // 
             this.MenuZone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(19)))), ((int)(((byte)(13)))));
+            this.MenuZone.Controls.Add(this.Permission);
             this.MenuZone.Controls.Add(this.bunifuImageButton1);
             this.MenuZone.Controls.Add(this.bunifuFlatButton4);
             this.MenuZone.Controls.Add(this.bunifuFlatButton3);
@@ -74,8 +76,18 @@
             this.MenuZone.Controls.Add(this.USERNAME);
             this.MenuZone.Location = new System.Drawing.Point(0, 0);
             this.MenuZone.Name = "MenuZone";
-            this.MenuZone.Size = new System.Drawing.Size(80, 603);
+            this.MenuZone.Size = new System.Drawing.Size(343, 603);
             this.MenuZone.TabIndex = 2;
+            // 
+            // Permission
+            // 
+            this.Permission.AutoSize = true;
+            this.Permission.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.Permission.Location = new System.Drawing.Point(84, 67);
+            this.Permission.Name = "Permission";
+            this.Permission.Size = new System.Drawing.Size(0, 17);
+            this.Permission.TabIndex = 3;
+            this.Permission.Click += new System.EventHandler(this.Permission_Click);
             // 
             // bunifuImageButton1
             // 
@@ -353,5 +365,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox RealtimeChat;
+        private System.Windows.Forms.Label Permission;
     }
 }

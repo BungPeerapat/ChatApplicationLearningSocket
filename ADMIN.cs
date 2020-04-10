@@ -16,54 +16,11 @@ namespace ChatApplicationLearningSocket
     public partial class ADMINSIZE : Form
     {
         public string CO = "Close"; //เปิดปิด Menu
-        //Server Zone============================================
-        private static byte[] buffer = new byte[1024];
-        private static List<Socket> clientsockets = new List<Socket>();
-        private static Socket SocketServer = new Socket (AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
-        //Server Zone============================================
-
-
-        private void SetupServer()
+        public void PM(string CodeSend)
         {
-            RealtimeChat = ("Server Setting...\n");
-            SocketServer.Bind(new IPEndPoint(IPAddress.Any, 1443));
-            SocketServer.BeginAccept(new AsyncCallback(AcceptCallback), null);
+            Permission.Text = CodeSend.ToString();
         }
-
-        private static void AcceptCallback(IAsyncResult AR)
-        {
-            Socket socket = SocketServer.EndAccept(AR);
-            clientsockets.Add(socket);
-            socket.BeginReceive(buffer, 0,buffer.Length, SocketFlags.None, new AsyncCallback(SendCallback), socket);
-            SocketServer.BeginAccept(new AsyncCallback(AcceptCallback), null);
-
-        }
-
-        private static void ReceiveCallback(IAsyncResult AR)
-        {
-            Socket socket = (Socket)AR.AsyncState;
-            int received = socket.EndReceive(AR);
-            byte[] dataBuf = new byte[received];
-            Array.Copy(buffer, dataBuf, received);
-            string text = Encoder.ASCII.GetString(dataBuf);
-            string ShowTextinRealtimechat = text;                   //*****************
-            RealtimeChat.Text += ShowTextinRealtimechat + "\r\n";  //*****************
-
-
-
-            byte[] data = Encoding.ASCII.GetBytes(text);
-            socket.BeginSend(data, 0, data.Length, SocketFlags.None, new AsyncCallback);
-
-        }
-        private static void SendCallback(IAsyncResult AR)
-        {
-            Socket socket = (Socket)AR.AsyncState;
-            socket.EndSend(AR);
-        }
-
-
-        //Server Zone============================================
 
         public ADMINSIZE()
         {
@@ -126,6 +83,11 @@ namespace ChatApplicationLearningSocket
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Permission_Click(object sender, EventArgs e)
         {
 
         }

@@ -16,6 +16,7 @@ namespace ChatApplicationLearningSocket
 {
     public partial class Login : Form
     {
+        String CodeSend;
         public Login()
         {
             InitializeComponent();
@@ -31,6 +32,8 @@ namespace ChatApplicationLearningSocket
                 Console.Beep();
                 MessageBox.Show("Welcome Admin");
                 ADMINSIZE ADMINSIZEOPEN = new ADMINSIZE();
+                CodeSend = USERNAMETEXT.Text;
+                ADMINSIZEOPEN.PM(CodeSend);
                 ADMINSIZEOPEN.Show();
                 this.Hide();
 
