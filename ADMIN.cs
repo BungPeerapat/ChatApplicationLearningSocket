@@ -22,6 +22,12 @@ namespace ChatApplicationLearningSocket
         private void SetupServer()
         {
             SocketServer.Bind(new IPEndPoint(IPAddress.Any, 1443));
+            SocketServer.BeginAccept(new AsyncCallback(AcceptCallback), null);
+        }
+
+        private static void AcceptCallback(IAsyncResult AR)
+        {
+
         }
 
         public ADMINSIZE()
