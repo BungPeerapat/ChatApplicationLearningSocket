@@ -42,6 +42,7 @@
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.RealtimeChat = new System.Windows.Forms.TextBox();
             this.MenuZone.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -301,6 +302,19 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // RealtimeChat
+            // 
+            this.RealtimeChat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(19)))), ((int)(((byte)(13)))));
+            this.RealtimeChat.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.RealtimeChat.Font = new System.Drawing.Font("Franklin Gothic Medium", 10.2F);
+            this.RealtimeChat.ForeColor = System.Drawing.Color.Maroon;
+            this.RealtimeChat.Location = new System.Drawing.Point(703, 407);
+            this.RealtimeChat.Multiline = true;
+            this.RealtimeChat.Name = "RealtimeChat";
+            this.RealtimeChat.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.RealtimeChat.Size = new System.Drawing.Size(315, 169);
+            this.RealtimeChat.TabIndex = 4;
+            // 
             // ADMINSIZE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -308,6 +322,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1030, 588);
+            this.Controls.Add(this.RealtimeChat);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.MenuZone);
             this.Cursor = System.Windows.Forms.Cursors.Default;
@@ -319,6 +334,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -336,5 +352,6 @@
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox RealtimeChat;
     }
 }

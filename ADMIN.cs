@@ -17,22 +17,40 @@ namespace ChatApplicationLearningSocket
     {
         public string CO = "Close"; //เปิดปิด Menu
         //Server Zone============================================
-        private List<Socket> clientsockets = new List<Socket>();
-        private Socket SocketServer = new Socket (AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+        private static byte[] buffer = new byte[1024];
+        private static List<Socket> clientsockets = new List<Socket>();
+        private static Socket SocketServer = new Socket (AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
         //Server Zone============================================
 
 
         private void SetupServer()
         {
+            RealtimeChat.Text ("Server Setting...")
             SocketServer.Bind(new IPEndPoint(IPAddress.Any, 1443));
             SocketServer.BeginAccept(new AsyncCallback(AcceptCallback), null);
         }
 
         private static void AcceptCallback(IAsyncResult AR)
         {
+            Socket socket = SocketServer.EndAccept(AR);
+            clientsockets.Add(socket);
+            socket.BeginReceive(buffer, 0,buffer.Length, SocketFlags.None, new AsyncCallback(), socket);
+            SocketServer.BeginAccept(new AsyncCallback(AcceptCallback), null);
 
         }
+
+        private static void ReceiveCallback(IAsyncResult AR)
+        {
+            Socket socket = (socket)AR.AsyncState;
+            int received = socket.EndReceive(AR);
+            byte[] dataBuf = new byte[received];
+            Array.Copy(buffer, dataBuf, received);
+            string text = Encoder.ASCII.GetString(dataBuf);
+
+        }
+
+        //Server Zone============================================
 
         public ADMINSIZE()
         {
