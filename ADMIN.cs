@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Sockets;
 using System.Windows.Forms;
+using ChatSize_ADMIN_;
 
 namespace ChatApplicationLearningSocket
 {
@@ -88,7 +89,7 @@ namespace ChatApplicationLearningSocket
 
                 ChatSizeADMIN.ChatAppAdminSize CSA = new ChatSizeADMIN.ChatAppAdminSize();
                 ChatSizeADMIN.ChatAppAdminSize(Namesend);
-                ChatSizeADMIN.ChatAppAdminSize.PM(Namesend);
+                ChatSizeADMIN.ChatAppAdminSize.ADMINNAME(Namesend);
                 CSA.Show();
             }
         }
