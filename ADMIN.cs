@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BunifuAnimatorNS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,14 +25,14 @@ namespace ChatApplicationLearningSocket
 
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
-            timer1.Start();
-            if (MenuSlip.Width <= 603)
+            MenuOpen();
+        }
+
+        private void MenuOpen()
+        {
+            while(MenuSlip.Width >= 603)
             {
-                MenuSlip.Width += 2;
-            }
-            else
-            {
-                timer1.Stop();
+                MenuSlip.Width += 1;
             }
         }
     }
