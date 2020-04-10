@@ -32,7 +32,7 @@ namespace ChatApplicationLearningSocket
                 MessageBox.Show("Welcome Admin");
                 ADMINSIZE ADMINSIZEOPEN = new ADMINSIZE();
                 ADMINSIZEOPEN.Show();
-
+                this.Hide();
 
 
             }
