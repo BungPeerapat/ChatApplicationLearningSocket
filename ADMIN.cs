@@ -20,6 +20,7 @@ namespace ChatApplicationLearningSocket
         public void PM(string CodeSend)
         {
             Permission.Text = CodeSend.ToString();
+            Permission.Visible = false;
         }
 
         public ADMINSIZE()
@@ -49,6 +50,7 @@ namespace ChatApplicationLearningSocket
                 await Task.Delay(250);
                 bunifuFlatButton4.Visible = true;
                 await Task.Delay(250);
+                Permission.Visible = true;
                 CO = "Open";
             }else if ( CO == "Open")
             {
@@ -58,6 +60,7 @@ namespace ChatApplicationLearningSocket
                 bunifuFlatButton2.Visible = false;
                 bunifuFlatButton3.Visible = false;
                 bunifuFlatButton4.Visible = false;
+                Permission.Visible = false;
                 MenuClose();
                 CO = "Close";
             }
