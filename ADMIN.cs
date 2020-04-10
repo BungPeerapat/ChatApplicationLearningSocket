@@ -39,6 +39,7 @@ namespace ChatApplicationLearningSocket
             {
                 MenuOpen();
                 USERNAME.Visible = true;
+                Permission.Visible = true;
                 await Task.Delay(250);
                 chatzonebutton.Visible = true;
                 await Task.Delay(250);
@@ -50,7 +51,6 @@ namespace ChatApplicationLearningSocket
                 await Task.Delay(250);
                 bunifuFlatButton4.Visible = true;
                 await Task.Delay(250);
-                Permission.Visible = true;
                 CO = "Open";
             }else if ( CO == "Open")
             {
@@ -68,7 +68,7 @@ namespace ChatApplicationLearningSocket
 
         private void MenuOpen()
         {
-            while(MenuZone.Width <= 300)
+            while(MenuZone.Width <= 270)
             {
                 MenuZone.Width += 1;
                 Task.Delay(500);
@@ -81,8 +81,11 @@ namespace ChatApplicationLearningSocket
 
         private void chatzonebutton_Click(object sender, EventArgs e)
         {
-            ChatZone ChatZoneopen = new ChatZone();
-            ChatZoneopen.Show();
+            if (Permission.Text == "AdminCode")
+            {
+                ChatZoneADMIN ChatZoneopen = new ChatZoneADMIN();
+                ChatZoneopen.Show();
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
