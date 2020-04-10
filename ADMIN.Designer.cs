@@ -61,7 +61,7 @@
             // 
             // MenuZone
             // 
-            this.MenuZone.BackColor = System.Drawing.Color.Black;
+            this.MenuZone.BackColor = System.Drawing.Color.SaddleBrown;
             this.MenuZone.Controls.Add(this.bunifuImageButton1);
             this.MenuZone.Controls.Add(this.bunifuFlatButton4);
             this.MenuZone.Controls.Add(this.bunifuFlatButton3);
@@ -71,7 +71,7 @@
             this.MenuZone.Controls.Add(this.USERNAME);
             this.MenuZone.Location = new System.Drawing.Point(0, 0);
             this.MenuZone.Name = "MenuZone";
-            this.MenuZone.Size = new System.Drawing.Size(336, 603);
+            this.MenuZone.Size = new System.Drawing.Size(80, 603);
             this.MenuZone.TabIndex = 2;
             // 
             // bunifuImageButton1

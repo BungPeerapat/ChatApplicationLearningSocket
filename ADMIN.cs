@@ -27,17 +27,23 @@ namespace ChatApplicationLearningSocket
         {
             MenuOpen();
             USERNAME.Visible = true;
-            await Task.Delay(500);
+            Console.Beep();
+            await Task.Delay(250);
             chatzonebutton.Visible = true;
-            await Task.Delay(500);
+            Console.Beep();
+            await Task.Delay(250);
             bunifuFlatButton1.Visible = true;
-            await Task.Delay(500);
+            Console.Beep();
+            await Task.Delay(250);
             bunifuFlatButton2.Visible = true;
-            await Task.Delay(500);
+            Console.Beep();
+            await Task.Delay(250);
             bunifuFlatButton3.Visible = true;
-            await Task.Delay(500);
+            Console.Beep();
+            await Task.Delay(250);
             bunifuFlatButton4.Visible = true;
-            await Task.Delay(500);
+            Console.Beep();
+            await Task.Delay(250);
         }
 
         private void MenuOpen()
@@ -45,7 +51,7 @@ namespace ChatApplicationLearningSocket
             while(MenuZone.Width <= 300)
             {
                 MenuZone.Width += 1;
-                Task.Delay(10);
+                Task.Delay(500);
             }
         }
 
