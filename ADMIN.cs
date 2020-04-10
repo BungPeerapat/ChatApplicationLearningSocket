@@ -30,7 +30,7 @@ namespace ChatApplicationLearningSocket
 
         private void MenuOpen()
         {
-            while(MenuZone.Width <= 603)
+            while(MenuZone.Width <= 332)
             {
                 MenuZone.Width += 1;
             }
