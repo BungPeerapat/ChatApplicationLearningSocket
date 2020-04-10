@@ -71,7 +71,7 @@
             this.MenuSlip.Controls.Add(this.USERNAME);
             this.MenuSlip.Location = new System.Drawing.Point(0, 0);
             this.MenuSlip.Name = "MenuSlip";
-            this.MenuSlip.Size = new System.Drawing.Size(78, 603);
+            this.MenuSlip.Size = new System.Drawing.Size(337, 603);
             this.MenuSlip.TabIndex = 2;
             // 
             // bunifuImageButton1
