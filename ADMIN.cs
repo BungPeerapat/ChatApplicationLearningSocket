@@ -5,8 +5,10 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net.Sockets;
 using System.Windows.Forms;
 
 namespace ChatApplicationLearningSocket
@@ -14,6 +16,13 @@ namespace ChatApplicationLearningSocket
     public partial class ADMINSIZE : Form
     {
         public string CO = "Close"; //เปิดปิด Menu
+
+        private Socket SocketServer = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+
+        private void SetupServer()
+        {
+            SocketServer.Bind(new IPEndPoint(IPAddress.Any, 1443));
+        }
 
         public ADMINSIZE()
         {
@@ -73,6 +82,11 @@ namespace ChatApplicationLearningSocket
         {
             ChatZone ChatZoneopen = new ChatZone();
             ChatZoneopen.Show();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
