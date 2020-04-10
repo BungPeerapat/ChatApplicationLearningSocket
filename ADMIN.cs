@@ -16,8 +16,12 @@ namespace ChatApplicationLearningSocket
     public partial class ADMINSIZE : Form
     {
         public string CO = "Close"; //เปิดปิด Menu
+        //Server Zone============================================
+        private List<Socket> clientsockets = new List<Socket>();
+        private Socket SocketServer = new Socket (AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
-        private Socket SocketServer = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+        //Server Zone============================================
+
 
         private void SetupServer()
         {
