@@ -1,6 +1,6 @@
 ﻿namespace ChatApplicationLearningSocket
 {
-    partial class Form1
+    partial class ChatZone
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChatZone));
             this.tcpserverbotton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -46,7 +46,7 @@
             this.tcpserverbotton.Text = "TCP";
             this.tcpserverbotton.UseVisualStyleBackColor = false;
             // 
-            // Form1
+            // ChatZone
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -55,7 +55,7 @@
             this.ClientSize = new System.Drawing.Size(1136, 619);
             this.Controls.Add(this.tcpserverbotton);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Name = "Form1";
+            this.Name = "ChatZone";
             this.Text = "Chat Zone";
             this.ResumeLayout(false);
 

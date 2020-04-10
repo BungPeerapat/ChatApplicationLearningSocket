@@ -13,6 +13,8 @@ namespace ChatApplicationLearningSocket
 {
     public partial class ADMINSIZE : Form
     {
+        public string CO = "Close"; //เปิดปิด Menu
+
         public ADMINSIZE()
         {
             InitializeComponent();
@@ -25,25 +27,43 @@ namespace ChatApplicationLearningSocket
 
         async private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
-            MenuOpen();
-            USERNAME.Visible = true;
-            Console.Beep();
-            await Task.Delay(250);
-            chatzonebutton.Visible = true;
-            Console.Beep();
-            await Task.Delay(250);
-            bunifuFlatButton1.Visible = true;
-            Console.Beep();
-            await Task.Delay(250);
-            bunifuFlatButton2.Visible = true;
-            Console.Beep();
-            await Task.Delay(250);
-            bunifuFlatButton3.Visible = true;
-            Console.Beep();
-            await Task.Delay(250);
-            bunifuFlatButton4.Visible = true;
-            Console.Beep();
-            await Task.Delay(250);
+            if (CO == "Open")
+            {
+                CO = "Close";
+            }
+            if (CO == "Close")
+            {
+                MenuOpen();
+                USERNAME.Visible = true;
+                await Task.Delay(250);
+                chatzonebutton.Visible = true;
+                await Task.Delay(250);
+                bunifuFlatButton1.Visible = true;
+                await Task.Delay(250);
+                bunifuFlatButton2.Visible = true;
+                await Task.Delay(250);
+                bunifuFlatButton3.Visible = true;
+                await Task.Delay(250);
+                bunifuFlatButton4.Visible = true;
+                await Task.Delay(250);
+                CO = "Open";
+            }
+            else
+            {
+                MenuClose();
+                USERNAME.Visible = false;
+                await Task.Delay(250);
+                chatzonebutton.Visible = false;
+                await Task.Delay(250);
+                bunifuFlatButton1.Visible = false;
+                await Task.Delay(250);
+                bunifuFlatButton2.Visible = false;
+                await Task.Delay(250);
+                bunifuFlatButton3.Visible = false;
+                await Task.Delay(250);
+                bunifuFlatButton4.Visible = false;
+                await Task.Delay(250);
+            }
         }
 
         private void MenuOpen()
@@ -54,10 +74,19 @@ namespace ChatApplicationLearningSocket
                 Task.Delay(500);
             }
         }
+        private void MenuClose()
+        {
+            while(MenuZone.Width >= 10)
+            {
+                MenuZone.Width -= 1;
+                Task.Delay(500);
+            }
+        }
 
         private void chatzonebutton_Click(object sender, EventArgs e)
         {
-
+            ChatZone ChatZoneopen = new ChatZone();
+            ChatZoneopen.Show();
         }
     }
 }
