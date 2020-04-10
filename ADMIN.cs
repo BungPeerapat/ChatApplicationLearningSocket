@@ -26,11 +26,11 @@ namespace ChatApplicationLearningSocket
         async private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
             MenuOpen();
+            USERNAME.Visible = true;
+            await Task.Delay(500);
             chatzonebutton.Visible = true;
             await Task.Delay(500);
             bunifuFlatButton1.Visible = true;
-            await Task.Delay(500);
-            USERNAME.Visible = true;
             await Task.Delay(500);
             bunifuFlatButton2.Visible = true;
             await Task.Delay(500);
