@@ -87,9 +87,8 @@ namespace ChatApplicationLearningSocket
             {
                 Namesend = USERNAME.Text;
 
-                ChatSizeADMIN.ChatAppAdminSize CSA = new ChatSizeADMIN.ChatAppAdminSize();
-                ChatSizeADMIN.ChatAppAdminSize(Namesend);
-                ChatSizeADMIN.ChatAppAdminSize.ADMINNAME(Namesend);
+                ChatSize_ADMIN_.ChatAppAdminSize CSA = new ChatSize_ADMIN_.ChatAppAdminSize();
+                CSA.ADMINNAME(Namesend);
                 CSA.Show();
             }
         }
