@@ -31,13 +31,21 @@ namespace ChatApplicationLearningSocket
             bunifuFlatButton1.Visible = true;
             await Task.Delay(500);
             USERNAME.Visible = true;
+            await Task.Delay(500);
+            bunifuFlatButton2.Visible = true;
+            await Task.Delay(500);
+            bunifuFlatButton3.Visible = true;
+            await Task.Delay(500);
+            bunifuFlatButton4.Visible = true;
+            await Task.Delay(500);
         }
 
         private void MenuOpen()
         {
-            while(MenuZone.Width <= 325)
+            while(MenuZone.Width <= 300)
             {
                 MenuZone.Width += 1;
+                Task.Delay(10);
             }
         }
 
