@@ -26,7 +26,7 @@ namespace ChatApplicationLearningSocket
 
         private void SetupServer()
         {
-            RealtimeChat.Text ("Server Setting...")
+            RealtimeChat = ("Server Setting...\n");
             SocketServer.Bind(new IPEndPoint(IPAddress.Any, 1443));
             SocketServer.BeginAccept(new AsyncCallback(AcceptCallback), null);
         }
@@ -35,20 +35,33 @@ namespace ChatApplicationLearningSocket
         {
             Socket socket = SocketServer.EndAccept(AR);
             clientsockets.Add(socket);
-            socket.BeginReceive(buffer, 0,buffer.Length, SocketFlags.None, new AsyncCallback(), socket);
+            socket.BeginReceive(buffer, 0,buffer.Length, SocketFlags.None, new AsyncCallback(SendCallback), socket);
             SocketServer.BeginAccept(new AsyncCallback(AcceptCallback), null);
 
         }
 
         private static void ReceiveCallback(IAsyncResult AR)
         {
-            Socket socket = (socket)AR.AsyncState;
+            Socket socket = (Socket)AR.AsyncState;
             int received = socket.EndReceive(AR);
             byte[] dataBuf = new byte[received];
             Array.Copy(buffer, dataBuf, received);
             string text = Encoder.ASCII.GetString(dataBuf);
+            string ShowTextinRealtimechat = text;                   //*****************
+            RealtimeChat.Text += ShowTextinRealtimechat + "\r\n";  //*****************
+
+
+
+            byte[] data = Encoding.ASCII.GetBytes(text);
+            socket.BeginSend(data, 0, data.Length, SocketFlags.None, new AsyncCallback);
 
         }
+        private static void SendCallback(IAsyncResult AR)
+        {
+            Socket socket = (Socket)AR.AsyncState;
+            socket.EndSend(AR);
+        }
+
 
         //Server Zone============================================
 
