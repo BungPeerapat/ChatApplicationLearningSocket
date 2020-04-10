@@ -66,10 +66,7 @@ namespace ChatApplicationLearningSocket
         }
         private void MenuClose()
         {
-            while(MenuZone.Width >= 10)
-            {
-                MenuZone.Width -= 1;
-            }
+                MenuZone.Width -= 240;
         }
 
         private void chatzonebutton_Click(object sender, EventArgs e)
