@@ -27,10 +27,6 @@ namespace ChatApplicationLearningSocket
 
         async private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
-            if (CO == "Open")
-            {
-                CO = "Close";
-            }
             if (CO == "Close")
             {
                 MenuOpen();
@@ -47,22 +43,16 @@ namespace ChatApplicationLearningSocket
                 bunifuFlatButton4.Visible = true;
                 await Task.Delay(250);
                 CO = "Open";
-            }
-            else
+            }else if ( CO == "Open")
             {
-                MenuClose();
                 USERNAME.Visible = false;
-                await Task.Delay(250);
                 chatzonebutton.Visible = false;
-                await Task.Delay(250);
                 bunifuFlatButton1.Visible = false;
-                await Task.Delay(250);
                 bunifuFlatButton2.Visible = false;
-                await Task.Delay(250);
                 bunifuFlatButton3.Visible = false;
-                await Task.Delay(250);
                 bunifuFlatButton4.Visible = false;
-                await Task.Delay(250);
+                MenuClose();
+                CO = "Close";
             }
         }
 
@@ -79,7 +69,6 @@ namespace ChatApplicationLearningSocket
             while(MenuZone.Width >= 10)
             {
                 MenuZone.Width -= 1;
-                Task.Delay(500);
             }
         }
 
