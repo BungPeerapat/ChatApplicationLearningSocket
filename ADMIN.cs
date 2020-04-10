@@ -24,7 +24,8 @@ namespace ChatApplicationLearningSocket
 
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
-
+            if ()
+            MenuSlip.Height = 10;
         }
     }
 }

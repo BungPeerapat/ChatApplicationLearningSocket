@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ADMINSIZE));
             this.USERNAME = new System.Windows.Forms.TextBox();
-            this.Menu = new System.Windows.Forms.Panel();
+            this.MenuSlip = new System.Windows.Forms.Panel();
             this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
             this.bunifuFlatButton4 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton3 = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -40,7 +40,8 @@
             this.chatzonebutton = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.Menu.SuspendLayout();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.MenuSlip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,20 +59,20 @@
             this.USERNAME.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.USERNAME.Visible = false;
             // 
-            // Menu
+            // MenuSlip
             // 
-            this.Menu.BackColor = System.Drawing.Color.Transparent;
-            this.Menu.Controls.Add(this.bunifuImageButton1);
-            this.Menu.Controls.Add(this.bunifuFlatButton4);
-            this.Menu.Controls.Add(this.bunifuFlatButton3);
-            this.Menu.Controls.Add(this.bunifuFlatButton2);
-            this.Menu.Controls.Add(this.bunifuFlatButton1);
-            this.Menu.Controls.Add(this.chatzonebutton);
-            this.Menu.Controls.Add(this.USERNAME);
-            this.Menu.Location = new System.Drawing.Point(0, 0);
-            this.Menu.Name = "Menu";
-            this.Menu.Size = new System.Drawing.Size(82, 603);
-            this.Menu.TabIndex = 2;
+            this.MenuSlip.BackColor = System.Drawing.Color.Transparent;
+            this.MenuSlip.Controls.Add(this.bunifuImageButton1);
+            this.MenuSlip.Controls.Add(this.bunifuFlatButton4);
+            this.MenuSlip.Controls.Add(this.bunifuFlatButton3);
+            this.MenuSlip.Controls.Add(this.bunifuFlatButton2);
+            this.MenuSlip.Controls.Add(this.bunifuFlatButton1);
+            this.MenuSlip.Controls.Add(this.chatzonebutton);
+            this.MenuSlip.Controls.Add(this.USERNAME);
+            this.MenuSlip.Location = new System.Drawing.Point(0, 0);
+            this.MenuSlip.Name = "MenuSlip";
+            this.MenuSlip.Size = new System.Drawing.Size(78, 603);
+            this.MenuSlip.TabIndex = 2;
             // 
             // bunifuImageButton1
             // 
@@ -281,7 +282,7 @@
             // 
             this.bunifuDragControl1.Fixed = true;
             this.bunifuDragControl1.Horizontal = true;
-            this.bunifuDragControl1.TargetControl = this.Menu;
+            this.bunifuDragControl1.TargetControl = this.MenuSlip;
             this.bunifuDragControl1.Vertical = true;
             // 
             // ADMINSIZE
@@ -291,13 +292,13 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1030, 588);
-            this.Controls.Add(this.Menu);
+            this.Controls.Add(this.MenuSlip);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ADMINSIZE";
             this.Text = "USER : ADMIN";
-            this.Menu.ResumeLayout(false);
-            this.Menu.PerformLayout();
+            this.MenuSlip.ResumeLayout(false);
+            this.MenuSlip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
             this.ResumeLayout(false);
 
@@ -306,7 +307,7 @@
         #endregion
 
         private System.Windows.Forms.TextBox USERNAME;
-        private System.Windows.Forms.Panel Menu;
+        private System.Windows.Forms.Panel MenuSlip;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private Bunifu.Framework.UI.BunifuFlatButton chatzonebutton;
         private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton1;
@@ -315,5 +316,6 @@
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton2;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
