@@ -61,7 +61,7 @@
             // 
             // MenuZone
             // 
-            this.MenuZone.BackColor = System.Drawing.Color.White;
+            this.MenuZone.BackColor = System.Drawing.Color.Black;
             this.MenuZone.Controls.Add(this.bunifuImageButton1);
             this.MenuZone.Controls.Add(this.bunifuFlatButton4);
             this.MenuZone.Controls.Add(this.bunifuFlatButton3);
@@ -71,7 +71,7 @@
             this.MenuZone.Controls.Add(this.USERNAME);
             this.MenuZone.Location = new System.Drawing.Point(0, 0);
             this.MenuZone.Name = "MenuZone";
-            this.MenuZone.Size = new System.Drawing.Size(79, 603);
+            this.MenuZone.Size = new System.Drawing.Size(336, 603);
             this.MenuZone.TabIndex = 2;
             // 
             // bunifuImageButton1
@@ -264,6 +264,7 @@
             this.chatzonebutton.Normalcolor = System.Drawing.Color.Maroon;
             this.chatzonebutton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
             this.chatzonebutton.OnHoverTextColor = System.Drawing.Color.White;
+            this.chatzonebutton.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.chatzonebutton.selected = false;
             this.chatzonebutton.Size = new System.Drawing.Size(304, 52);
             this.chatzonebutton.TabIndex = 1;
@@ -272,6 +273,7 @@
             this.chatzonebutton.Textcolor = System.Drawing.Color.White;
             this.chatzonebutton.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chatzonebutton.Visible = false;
+            this.chatzonebutton.Click += new System.EventHandler(this.chatzonebutton_Click);
             // 
             // bunifuElipse1
             // 

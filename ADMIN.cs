@@ -30,6 +30,7 @@ namespace ChatApplicationLearningSocket
             await Task.Delay(500);
             bunifuFlatButton1.Visible = true;
             await Task.Delay(500);
+            USERNAME.Visible = true;
         }
 
         private void MenuOpen()
@@ -38,6 +39,11 @@ namespace ChatApplicationLearningSocket
             {
                 MenuZone.Width += 1;
             }
+        }
+
+        private void chatzonebutton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
