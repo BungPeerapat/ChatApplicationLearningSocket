@@ -72,7 +72,13 @@ namespace ChatApplicationLearningSocket
         {
             InitializeComponent();
             this.StatusServer.Image = (Image) Properties.Resources.ResourceManager.GetObject("Red Point");
-            StartSever();
+            if (Permission.Text == "AdminCode")
+            {
+                StartSever();
+            }else
+            {
+                MessageBox.Show("Hello");
+            }
         }
 
         public static void MultiUser(object connection)
