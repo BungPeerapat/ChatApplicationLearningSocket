@@ -34,51 +34,46 @@ namespace ChatApplicationLearningSocket
         {
             try
             {
-                IPAddress SetupServer = IPAddress.Parse("127.0.0.1");
-                IPEndPoint SetupServerEP = new IPEndPoint(SetupServer, 1433);
-                Socket sock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-
-                sock.Bind(SetupServerEP);
-                sock.Listen(5);
-
-                while (true)
-                {
-                    Socket connection = sock.Accept();
-
-                    Connect = sock.Accept();
-
-                    Thread clientThread = new Thread(new ParameterizedThreadStart(MultiUser));
-                    clientThread.Start(Connect);
-
-                    if (sock.Connected)
-                    {
-                        this.StatusServer.Load(@"Green_Point.png");
-                        StatusServer.Refresh();
-                    }
-                }
+                Thread serverThread = new Thread(listenToClient);
+                serverThread.Start();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
-
-
         }
 
-        ADMINSIZE()
+        public void listenToClient()
+        {
+            IPAddress SetupServer = IPAddress.Parse("127.0.0.1");
+            IPEndPoint SetupServerEP = new IPEndPoint(SetupServer, 1433);
+            Socket sock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+
+
+            sock.Bind(SetupServerEP);
+            sock.Listen(5);
+            while (true)
+            {
+                Socket connection = sock.Accept();
+
+                Thread clientThread = new Thread(new ParameterizedThreadStart(MultiUser));
+                clientThread.Start(connection);
+
+                if (sock.Connected)
+                {
+                    this.StatusServer.Load(@"C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\Picture\Green Point.png");
+                    StatusServer.Refresh();
+                }
+            }
+        }
+        public ADMINSIZE()
         {
             InitializeComponent();
-            // SetUpServer ====================
-
-            // SetUpServer ====================
+            StartSever();
         }
-
-
 
         public static void MultiUser(object connection)
         {
-
             byte[] serverBuffer = new byte[10025];
             string message = string.Empty;
 
@@ -89,7 +84,6 @@ namespace ChatApplicationLearningSocket
             TcpClient client = new TcpClient();
             client.Client = ((Socket)connection);
             IntPtr handle = client.Client.Handle;
-
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -101,7 +95,6 @@ namespace ChatApplicationLearningSocket
         {
             if (CO == "Close")
             {
-                this.StatusServer.Load(@"Green_Point.png");
                 MenuOpen();
                 USERNAME.Visible = true;
                 Permission.Visible = true;
