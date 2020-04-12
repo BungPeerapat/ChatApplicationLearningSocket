@@ -24,8 +24,8 @@ namespace ChatApplicationLearningSocket
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (USERNAMETEXT.Text == "AdminCode" && PASSWORDTEXT.Text == "")
-            {74122541
+            if (USERNAMETEXT.Text == "AdminCode" && PASSWORDTEXT.Text == "74122541")
+            {
                 USERNAMETEXT.ForeColor = Color.Green;
                 Console.Beep();
                 PASSWORDTEXT.ForeColor = Color.Green;

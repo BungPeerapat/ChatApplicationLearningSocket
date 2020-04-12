@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using System.Net.Sockets;
 using System.Windows.Forms;
 using ChatSize_ADMIN_;
+using System.Threading;
+using Microsoft.AspNet.SignalR.Infrastructure;
 
 namespace ChatApplicationLearningSocket
 {
@@ -19,6 +21,8 @@ namespace ChatApplicationLearningSocket
         public string CO = "Close"; //เปิดปิด Menu
         public string Namesend; //ส่งชื่อ
 
+        public Socket Connection { get; }
+
         public void PM(string CodeSend) //ส่ง Code
         {
             Permission.Text = CodeSend.ToString();
@@ -26,9 +30,49 @@ namespace ChatApplicationLearningSocket
 
         }
 
+
         public ADMINSIZE()
         {
             InitializeComponent();
+            // SetUpServer ====================
+
+            IPAddress SetupServer = IPAddress.Parse("127.0.0.1");
+            IPEndPoint SetupServerEP = new IPEndPoint(SetupServer, 1433);
+            Socket sock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+
+            sock.Bind(SetupServerEP);
+            sock.Listen(5);
+
+            while (true)
+            {
+                //Socket connection = serverSocket.Accept();
+
+                Connection = sock.Accept();
+
+                Thread clientThread = new Thread(new ParameterizedThreadStart(MultiUser));
+                clientThread.Start(Connection);
+
+            }
+
+            // SetUpServer ====================
+        }
+
+
+
+        public static void MultiUser(object connection)
+        {
+
+            byte[] serverBuffer = new byte[10025];
+            string message = string.Empty;
+
+            int bytes = ((Socket)connection).Receive(serverBuffer, serverBuffer.Length, 0);
+            message += Encoding.ASCII.GetString(serverBuffer, 0, bytes);
+            Console.WriteLine(message);
+
+            TcpClient client = new TcpClient();
+            client.Client = ((Socket)connection);
+            IntPtr handle = client.Client.Handle;
+
         }
 
         private void label1_Click(object sender, EventArgs e)
