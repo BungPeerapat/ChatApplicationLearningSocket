@@ -35,24 +35,31 @@ namespace ChatApplicationLearningSocket
         {
             InitializeComponent();
             // SetUpServer ====================
-
-            IPAddress SetupServer = IPAddress.Parse("127.0.0.1");
-            IPEndPoint SetupServerEP = new IPEndPoint(SetupServer, 1433);
-            Socket sock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-
-            sock.Bind(SetupServerEP);
-            sock.Listen(5);
-
-            while (true)
+            try
             {
-                //Socket connection = serverSocket.Accept();
+                IPAddress SetupServer = IPAddress.Parse("127.0.0.1");
+                IPEndPoint SetupServerEP = new IPEndPoint(SetupServer, 1433);
+                Socket sock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
-                Connection = sock.Accept();
+                sock.Bind(SetupServerEP);
+                sock.Listen(5);
 
-                Thread clientThread = new Thread(new ParameterizedThreadStart(MultiUser));
-                clientThread.Start(Connection);
+                while (true)
+                {
+                    //Socket connection = serverSocket.Accept();
 
+                    Connection = sock.Accept();
+
+                    Thread clientThread = new Thread(new ParameterizedThreadStart(MultiUser));
+                    clientThread.Start(Connection);
+
+                }
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
+
+
 
             // SetUpServer ====================
         }
