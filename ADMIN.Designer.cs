@@ -44,7 +44,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.StatusServer = new System.Windows.Forms.PictureBox();
             this.RealtimeChat = new System.Windows.Forms.TextBox();
-            this.StatusText = new System.Windows.Forms.TextBox();
+            this.ShowStatus = new System.Windows.Forms.Label();
             this.MenuZone.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StatusServer)).BeginInit();
@@ -328,19 +328,14 @@
             this.RealtimeChat.Size = new System.Drawing.Size(315, 169);
             this.RealtimeChat.TabIndex = 4;
             // 
-            // StatusText
+            // ShowStatus
             // 
-            this.StatusText.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.StatusText.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.StatusText.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StatusText.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.StatusText.Location = new System.Drawing.Point(890, 90);
-            this.StatusText.Name = "StatusText";
-            this.StatusText.ReadOnly = true;
-            this.StatusText.Size = new System.Drawing.Size(128, 23);
-            this.StatusText.TabIndex = 5;
-            this.StatusText.Text = "Status";
-            this.StatusText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ShowStatus.AutoSize = true;
+            this.ShowStatus.Font = new System.Drawing.Font("Franklin Gothic Medium", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ShowStatus.Location = new System.Drawing.Point(886, 96);
+            this.ShowStatus.Name = "ShowStatus";
+            this.ShowStatus.Size = new System.Drawing.Size(0, 21);
+            this.ShowStatus.TabIndex = 5;
             // 
             // ADMINSIZE
             // 
@@ -349,7 +344,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1030, 588);
-            this.Controls.Add(this.StatusText);
+            this.Controls.Add(this.ShowStatus);
             this.Controls.Add(this.RealtimeChat);
             this.Controls.Add(this.StatusServer);
             this.Controls.Add(this.MenuZone);
@@ -382,6 +377,6 @@
         private System.Windows.Forms.PictureBox StatusServer;
         private System.Windows.Forms.TextBox RealtimeChat;
         private System.Windows.Forms.Label Permission;
-        private System.Windows.Forms.TextBox StatusText;
+        private System.Windows.Forms.Label ShowStatus;
     }
 }

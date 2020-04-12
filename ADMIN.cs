@@ -25,23 +25,24 @@ namespace ChatApplicationLearningSocket
 
 
 
-
         //Server Zone ==============================================================================================================
 
+        public String Setupserverstatus = "Setup Server";
+        public String Setupnowserverstatus = "Server setup complete";
         private static readonly Socket serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         private static readonly List<Socket> clientSockets = new List<Socket>();
         private const int BUFFER_SIZE = 2048;
         private const int PORT = 100;
         private static readonly byte[] buffer = new byte[BUFFER_SIZE];
-        public string Status_Text;
 
         private static void SetupServer() //สร้าง Server
         {
-            StatusText.Text = "Setting up server";
+            Console.Beep();
             serverSocket.Bind(new IPEndPoint(IPAddress.Any, PORT));
             serverSocket.Listen(5);
             serverSocket.BeginAccept(AcceptCallback, null);
-            Console.WriteLine("Server setup complete");
+            Console.Beep();
+            Console.Beep();
         }
 
         private static void AcceptCallback(IAsyncResult AR)
@@ -130,15 +131,17 @@ namespace ChatApplicationLearningSocket
 
 
 
-        public void PM(string CodeSend)
+        public void PM(string CodeSend) //ส่ง Code
         {
             Permission.Text = CodeSend.ToString();
             Permission.Visible = false;
+
         }
 
         public ADMINSIZE()
         {
             InitializeComponent();
+            SetupServer();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -150,6 +153,7 @@ namespace ChatApplicationLearningSocket
         {
             if (CO == "Close")
             {
+
                 MenuOpen();
                 USERNAME.Visible = true;
                 Permission.Visible = true;
