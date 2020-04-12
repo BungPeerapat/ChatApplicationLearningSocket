@@ -306,7 +306,7 @@
             // StatusServer
             // 
             this.StatusServer.BackColor = System.Drawing.Color.Transparent;
-            this.StatusServer.Image = ((System.Drawing.Image)(resources.GetObject("StatusServer.Image")));
+            this.StatusServer.Image = global::ChatApplicationLearningSocket.Properties.Resources.Red_Point;
             this.StatusServer.Location = new System.Drawing.Point(890, 12);
             this.StatusServer.Name = "StatusServer";
             this.StatusServer.Size = new System.Drawing.Size(128, 72);

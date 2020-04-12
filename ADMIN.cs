@@ -55,14 +55,15 @@ namespace ChatApplicationLearningSocket
             sock.Listen(5);
             while (true)
             {
-                this.StatusServer.Load(@"C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\Picture\Green Point.png");
+                this.StatusServer.Image = (Image) Properties.Resources.ResourceManager.GetObject("Green Point");
                 Socket connection = sock.Accept();
                 Thread clientThread = new Thread(new ParameterizedThreadStart(MultiUser));
                 clientThread.Start(connection);
 
                 if (connection.Connected)
                 {
-                    this.StatusServer.Load(@"C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\Picture\Green Point.png");
+                    Console.Beep();
+                    MessageBox.Show("Client Connected!");
                     StatusServer.Refresh();
                 }
             }
@@ -70,6 +71,7 @@ namespace ChatApplicationLearningSocket
         public ADMINSIZE()
         {
             InitializeComponent();
+            this.StatusServer.Image = (Image) Properties.Resources.ResourceManager.GetObject("Red Point");
             StartSever();
         }
 
