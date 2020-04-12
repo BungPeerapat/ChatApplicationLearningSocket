@@ -22,7 +22,7 @@ namespace ChatApplicationLearningSocket
         public string CO = "Close"; //เปิดปิด Menu
         public string Namesend; //ส่งชื่อ
 
-        public Socket Connection { get; }
+        public Socket Connect { get; private set; }
 
         public void PM(string CodeSend) //ส่ง Code
         {
@@ -30,10 +30,8 @@ namespace ChatApplicationLearningSocket
             Permission.Visible = false;
         }
 
-        public ADMINSIZE()
+        public void StartSever()
         {
-            InitializeComponent();
-            // SetUpServer ====================
             try
             {
                 IPAddress SetupServer = IPAddress.Parse("127.0.0.1");
@@ -47,10 +45,10 @@ namespace ChatApplicationLearningSocket
                 {
                     Socket connection = sock.Accept();
 
-                    Connection = sock.Accept();
+                    Connect = sock.Accept();
 
                     Thread clientThread = new Thread(new ParameterizedThreadStart(MultiUser));
-                    clientThread.Start(Connection);
+                    clientThread.Start(Connect);
 
                     if (sock.Connected)
                     {
@@ -58,12 +56,20 @@ namespace ChatApplicationLearningSocket
                         StatusServer.Refresh();
                     }
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
 
 
+
+        }
+
+        ADMINSIZE()
+        {
+            InitializeComponent();
+            // SetUpServer ====================
 
             // SetUpServer ====================
         }
