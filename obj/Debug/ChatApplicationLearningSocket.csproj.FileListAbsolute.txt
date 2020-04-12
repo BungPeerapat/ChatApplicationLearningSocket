@@ -14,3 +14,13 @@ C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearnin
 C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\bin\Debug\ChatSize[ADMIN].exe
 C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\bin\Debug\ChatSize[ADMIN].pdb
 C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\bin\Debug\ChatSize[ADMIN].exe.config
+C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\bin\Debug\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\bin\Debug\Microsoft.Owin.dll
+C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\bin\Debug\Microsoft.Owin.Security.dll
+C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\bin\Debug\Newtonsoft.Json.dll
+C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\bin\Debug\Owin.dll
+C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\bin\Debug\Microsoft.AspNet.SignalR.Core.pdb
+C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\bin\Debug\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\bin\Debug\Microsoft.Owin.xml
+C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\bin\Debug\Microsoft.Owin.Security.xml
+C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\bin\Debug\Newtonsoft.Json.xml

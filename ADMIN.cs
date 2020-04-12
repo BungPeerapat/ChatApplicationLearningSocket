@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using ChatSize_ADMIN_;
 using System.Threading;
 using Microsoft.AspNet.SignalR.Infrastructure;
+using System.Drawing.Imaging;
 
 namespace ChatApplicationLearningSocket
 {
@@ -27,9 +28,7 @@ namespace ChatApplicationLearningSocket
         {
             Permission.Text = CodeSend.ToString();
             Permission.Visible = false;
-
         }
-
 
         public ADMINSIZE()
         {
@@ -46,13 +45,18 @@ namespace ChatApplicationLearningSocket
 
                 while (true)
                 {
-                    //Socket connection = serverSocket.Accept();
+                    Socket connection = sock.Accept();
 
                     Connection = sock.Accept();
 
                     Thread clientThread = new Thread(new ParameterizedThreadStart(MultiUser));
                     clientThread.Start(Connection);
 
+                    if (sock.Connected)
+                    {
+                        this.StatusServer.Load(@"Green_Point.png");
+                        StatusServer.Refresh();
+                    }
                 }
             }catch(Exception ex)
             {
@@ -91,7 +95,7 @@ namespace ChatApplicationLearningSocket
         {
             if (CO == "Close")
             {
-
+                this.StatusServer.Load(@"Green_Point.png");
                 MenuOpen();
                 USERNAME.Visible = true;
                 Permission.Visible = true;
