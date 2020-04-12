@@ -29,7 +29,6 @@ namespace ChatApplicationLearningSocket
         public ADMINSIZE()
         {
             InitializeComponent();
-            SetupServer();
         }
 
         private void label1_Click(object sender, EventArgs e)
