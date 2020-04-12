@@ -34,6 +34,7 @@ namespace ChatApplicationLearningSocket
         {
             try
             {
+
                 Thread serverThread = new Thread(listenToClient);
                 serverThread.Start();
             }
@@ -54,12 +55,12 @@ namespace ChatApplicationLearningSocket
             sock.Listen(5);
             while (true)
             {
+                this.StatusServer.Load(@"C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\Picture\Green Point.png");
                 Socket connection = sock.Accept();
-
                 Thread clientThread = new Thread(new ParameterizedThreadStart(MultiUser));
                 clientThread.Start(connection);
 
-                if (sock.Connected)
+                if (connection.Connected)
                 {
                     this.StatusServer.Load(@"C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\Picture\Green Point.png");
                     StatusServer.Refresh();
