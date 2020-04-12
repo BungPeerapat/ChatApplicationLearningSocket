@@ -78,7 +78,8 @@ namespace ChatApplicationLearningSocket
         }
         private void MenuClose()
         {
-                MenuZone.Width -= 240;
+                MenuZone.Width -= 210;
+                Task.Delay(500);
         }
 
         private void chatzonebutton_Click(object sender, EventArgs e)
