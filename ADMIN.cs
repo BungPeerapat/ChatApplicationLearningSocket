@@ -19,19 +19,27 @@ namespace ChatApplicationLearningSocket
         public string CO = "Close"; //เปิดปิด Menu
         public string Namesend; //ส่งชื่อ
 
-        //Server Zone
+
+
+
+
+
+
+
+        //Server Zone ==============================================================================================================
 
         private static readonly Socket serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         private static readonly List<Socket> clientSockets = new List<Socket>();
         private const int BUFFER_SIZE = 2048;
         private const int PORT = 100;
         private static readonly byte[] buffer = new byte[BUFFER_SIZE];
+        public string Status_Text;
 
-        private static void SetupServer()
+        private static void SetupServer() //สร้าง Server
         {
-            Console.WriteLine("Setting up server...");
+            StatusText.Text = "Setting up server";
             serverSocket.Bind(new IPEndPoint(IPAddress.Any, PORT));
-            serverSocket.Listen(0);
+            serverSocket.Listen(5);
             serverSocket.BeginAccept(AcceptCallback, null);
             Console.WriteLine("Server setup complete");
         }
@@ -114,7 +122,13 @@ namespace ChatApplicationLearningSocket
 
 
 
-        //Server Zone
+        //Server Zone ==============================================================================================================
+
+
+
+
+
+
 
         public void PM(string CodeSend)
         {

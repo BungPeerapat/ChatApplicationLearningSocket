@@ -42,11 +42,12 @@
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.StatusServer = new System.Windows.Forms.PictureBox();
             this.RealtimeChat = new System.Windows.Forms.TextBox();
+            this.StatusText = new System.Windows.Forms.TextBox();
             this.MenuZone.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StatusServer)).BeginInit();
             this.SuspendLayout();
             // 
             // USERNAME
@@ -302,17 +303,17 @@
             this.bunifuDragControl1.TargetControl = this.MenuZone;
             this.bunifuDragControl1.Vertical = true;
             // 
-            // pictureBox1
+            // StatusServer
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(890, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(128, 72);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.StatusServer.BackColor = System.Drawing.Color.Transparent;
+            this.StatusServer.Image = ((System.Drawing.Image)(resources.GetObject("StatusServer.Image")));
+            this.StatusServer.Location = new System.Drawing.Point(890, 12);
+            this.StatusServer.Name = "StatusServer";
+            this.StatusServer.Size = new System.Drawing.Size(128, 72);
+            this.StatusServer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.StatusServer.TabIndex = 3;
+            this.StatusServer.TabStop = false;
+            this.StatusServer.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // RealtimeChat
             // 
@@ -327,6 +328,20 @@
             this.RealtimeChat.Size = new System.Drawing.Size(315, 169);
             this.RealtimeChat.TabIndex = 4;
             // 
+            // StatusText
+            // 
+            this.StatusText.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.StatusText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.StatusText.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StatusText.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.StatusText.Location = new System.Drawing.Point(890, 90);
+            this.StatusText.Name = "StatusText";
+            this.StatusText.ReadOnly = true;
+            this.StatusText.Size = new System.Drawing.Size(128, 23);
+            this.StatusText.TabIndex = 5;
+            this.StatusText.Text = "Status";
+            this.StatusText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // ADMINSIZE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -334,8 +349,9 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1030, 588);
+            this.Controls.Add(this.StatusText);
             this.Controls.Add(this.RealtimeChat);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.StatusServer);
             this.Controls.Add(this.MenuZone);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -344,7 +360,7 @@
             this.MenuZone.ResumeLayout(false);
             this.MenuZone.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StatusServer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -363,8 +379,9 @@
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox StatusServer;
         private System.Windows.Forms.TextBox RealtimeChat;
         private System.Windows.Forms.Label Permission;
+        private System.Windows.Forms.TextBox StatusText;
     }
 }
