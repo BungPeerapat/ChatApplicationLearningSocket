@@ -350,7 +350,7 @@
             this.Controls.Add(this.StatusServer);
             this.Controls.Add(this.MenuZone);
             this.Cursor = System.Windows.Forms.Cursors.Default;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "ADMINSIZE";
             this.Text = "USER : ADMIN";
             this.Load += new System.EventHandler(this.ADMINSIZE_Load);

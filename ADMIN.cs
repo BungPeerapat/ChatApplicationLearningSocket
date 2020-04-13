@@ -99,15 +99,21 @@ namespace ChatApplicationLearningSocket
                 {
                     // Connect to Remote EndPoint  
                     sender.Connect(remoteEP);
-                    if (sender.Connected)
+                    try
                     {
-                        Console.Beep();
-                        StatusServer.Refresh();
-                        MessageBox.Show("Connected to Server.");
-                        this.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
+                        if (sender.Connected)
+                        {
+                            Console.Beep();
+                            StatusServer.Refresh();
+                            MessageBox.Show("Connected to Server.");
+                            this.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
+                        }
+                    }catch(Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
                     }
 
-                    RealtimeChat.Text = "Socket connected to {0}" + "\n";
+                    RealtimeChat.Text = "Socket connected to {0}" + ":\r\n";
                     sender.RemoteEndPoint.ToString();
 
                     // Encode the data string into a byte array.    
