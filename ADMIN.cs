@@ -86,7 +86,7 @@ namespace ChatApplicationLearningSocket
         }
 
         //Create Client ====================
-        public static void StartClient()
+        public void StartClient()
         {
             byte[] bytes = new byte[1024];
 
@@ -110,8 +110,8 @@ namespace ChatApplicationLearningSocket
                     // Connect to Remote EndPoint  
                     sender.Connect(remoteEP);
 
-                    Console.WriteLine("Socket connected to {0}",
-                        sender.RemoteEndPoint.ToString());
+                    RealtimeChat.Text = "Socket connected to {0}" + "\n";
+                    sender.RemoteEndPoint.ToString();
 
                     // Encode the data string into a byte array.    
                     byte[] msg = Encoding.ASCII.GetBytes("This is a test<EOF>");
@@ -151,14 +151,14 @@ namespace ChatApplicationLearningSocket
 
         //Create Client ============
 
-        public static void MultiUser(object connection)
+        public void MultiUser(object connection)
         {
             byte[] serverBuffer = new byte[10025];
             string message = string.Empty;
 
             int bytes = ((Socket)connection).Receive(serverBuffer, serverBuffer.Length, 0);
             message += Encoding.ASCII.GetString(serverBuffer, 0, bytes);
-            Console.WriteLine(message);
+            RealtimeChat.Text = "Someone : " + message + "\n";
 
             TcpClient client = new TcpClient();
             client.Client = ((Socket)connection);
