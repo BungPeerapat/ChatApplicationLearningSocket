@@ -104,7 +104,7 @@ namespace ChatApplicationLearningSocket
                     sender.RemoteEndPoint.ToString();
 
                     // Encode the data string into a byte array.    
-                    byte[] msg = Encoding.ASCII.GetBytes("This is a test<EOF>");
+                    byte[] msg = Encoding.ASCII.GetBytes(USERNAME.Text + " : " + " Connected " + "\n ");
 
                     // Send the data through the socket.    
                     int bytesSent = sender.Send(msg);
@@ -148,7 +148,7 @@ namespace ChatApplicationLearningSocket
 
             int bytes = ((Socket)connection).Receive(serverBuffer, serverBuffer.Length, 0);
             message += Encoding.ASCII.GetString(serverBuffer, 0, bytes);
-            RealtimeChat.Text = "Someone : " + message + "\n";
+            RealtimeChat.Text = " : " + message + "\n";
 
             TcpClient client = new TcpClient();
             client.Client = ((Socket)connection);
@@ -229,13 +229,17 @@ namespace ChatApplicationLearningSocket
 
         }
 
-        private void ADMINSIZE_Load(object sender, EventArgs e)
+        private void ADMINSIZE_Load(object sender, EventArgs e) //Frist Command
         {
             this.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Red Point");
             if (Permission.Text == "AdminCode")
             {
                 MessageBox.Show("AdminCode Permission");
                 StartSeverAdmin();
+            }else if (Permission.Text == ("Member"))
+            {
+                MessageBox.Show("Member Permission");
+                StartClient();
             }
         }
     }

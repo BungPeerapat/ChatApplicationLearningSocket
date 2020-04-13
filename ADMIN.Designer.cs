@@ -324,6 +324,7 @@
             this.RealtimeChat.Location = new System.Drawing.Point(703, 407);
             this.RealtimeChat.Multiline = true;
             this.RealtimeChat.Name = "RealtimeChat";
+            this.RealtimeChat.ReadOnly = true;
             this.RealtimeChat.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.RealtimeChat.Size = new System.Drawing.Size(315, 169);
             this.RealtimeChat.TabIndex = 4;
