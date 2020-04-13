@@ -352,6 +352,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ADMINSIZE";
             this.Text = "USER : ADMIN";
+            this.Load += new System.EventHandler(this.ADMINSIZE_Load);
             this.MenuZone.ResumeLayout(false);
             this.MenuZone.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();

@@ -57,7 +57,6 @@ namespace ChatApplicationLearningSocket
             while (true)
             {
                 this.StatusServer.Image = (Image) Properties.Resources.ResourceManager.GetObject("Green Point");
-                MessageBox.Show("Hello");
                 Socket connection = sock.Accept();
                 Thread clientThread = new Thread(new ParameterizedThreadStart(MultiUser));
                 clientThread.Start(connection);
@@ -74,12 +73,6 @@ namespace ChatApplicationLearningSocket
         public ADMINSIZE() // Main
         {
             InitializeComponent();
-            this.StatusServer.Image = (Image) Properties.Resources.ResourceManager.GetObject("Red Point");
-            if (Permission.Text == "AdminCode")
-            {
-                MessageBox.Show("AdminCode Permission");
-                StartSeverAdmin();
-            }
         }
 
         //Create Client ====================
@@ -234,6 +227,16 @@ namespace ChatApplicationLearningSocket
         private void Permission_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ADMINSIZE_Load(object sender, EventArgs e)
+        {
+            this.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Red Point");
+            if (Permission.Text == "AdminCode")
+            {
+                MessageBox.Show("AdminCode Permission");
+                StartSeverAdmin();
+            }
         }
     }
 }
