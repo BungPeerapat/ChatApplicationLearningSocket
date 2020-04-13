@@ -31,7 +31,7 @@ namespace ChatApplicationLearningSocket
             Permission.Visible = false;
         }
 
-        public void StartSever()
+        public void StartSeverAdmin()
         {
             try
             {
@@ -57,6 +57,7 @@ namespace ChatApplicationLearningSocket
             while (true)
             {
                 this.StatusServer.Image = (Image) Properties.Resources.ResourceManager.GetObject("Green Point");
+                MessageBox.Show("Hello");
                 Socket connection = sock.Accept();
                 Thread clientThread = new Thread(new ParameterizedThreadStart(MultiUser));
                 clientThread.Start(connection);
@@ -77,7 +78,7 @@ namespace ChatApplicationLearningSocket
             if (Permission.Text == "AdminCode")
             {
                 MessageBox.Show("AdminCode Permission");
-                StartSever();
+                StartSeverAdmin();
             }
         }
 
