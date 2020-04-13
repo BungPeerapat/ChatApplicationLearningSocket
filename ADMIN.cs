@@ -79,9 +79,6 @@ namespace ChatApplicationLearningSocket
         public void StartClient()
         {
             byte[] bytes = new byte[1024];
-
-            try
-            {
                 // Connect to a Remote server  
                 // Get Host IP Address that is used to establish a connection  
                 // In this case, we get one IP address of localhost that is IP : 127.0.0.1  
@@ -95,64 +92,71 @@ namespace ChatApplicationLearningSocket
                     SocketType.Stream, ProtocolType.Tcp);
 
                 // Connect the socket to the remote endpoint. Catch any errors.    
+            try
+            {
                 while (!sender.Connected)
                 {
-                    try
+                    sender.Connect(remoteEP);                            // Connect to Remote EndPoint  
+                }
+                try
+                {
+                    if (sender.Connected)
                     {
-
-                        // Connect to Remote EndPoint  
-                        sender.Connect(remoteEP);
-
-                            if (sender.Connected)
-                            {
-                                Console.Beep();
-                                StatusServer.Refresh();
-                                MessageBox.Show("Connected to Server.");
-                                this.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
-                            }
-                            else
-                            {
-                                MessageBox.Show("Wait responed from Server.");
-                                this.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Red Point");
-                            }
-
-                        RealtimeChat.Text = "Connected to Server" + ":\r\n";
-                        sender.RemoteEndPoint.ToString();
-
-                        // Encode the data string into a byte array.    
-                        byte[] msg = Encoding.ASCII.GetBytes(USERNAME.Text + " : " + " Connected " + " \r\n ");
-
-                        // Send the data through the socket.    
-                        int bytesSent = sender.Send(msg);
-
-                        // Receive the response from the remote device.    
-                        int bytesRec = sender.Receive(bytes);
-                        Console.WriteLine("Echoed test = {0}",
-                            Encoding.ASCII.GetString(bytes, 0, bytesRec));
-
-                        // Release the socket.    
-                        sender.Shutdown(SocketShutdown.Both);
-                        sender.Close();
-
+                        Console.Beep();
+                        StatusServer.Refresh();
+                        MessageBox.Show("Connected to Server.");
+                        this.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
                     }
-                    catch (ArgumentNullException ane)
+                    else
                     {
-                        MessageBox.Show("ArgumentNullException : " + ane);
-                    }
-                    catch (SocketException se)
-                    {
-                        MessageBox.Show("SocketException : " + se);
-                    }
-                    catch (Exception e)
-                    {
-                        MessageBox.Show("Exception : " + e);
+                        MessageBox.Show("Wait responed from Server.");
+                        this.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Red Point");
                     }
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+                RealtimeChat.Text = "Connected to Server" + "\n";
+                sender.RemoteEndPoint.ToString();
+
+                // Encode the data string into a byte array.    
+                byte[] NCT = Encoding.ASCII.GetBytes(USERNAME.Text + " : " + " Connected " + " \r\n ");
+
+                // Send the data through the socket.    
+                int bytesSentNCT = sender.Send(NCT);
+
+                // Receive the response from the remote device.    
+                int bytesRecNCT = sender.Receive(bytes);
+                Console.WriteLine("Echoed test = {0}",
+                Encoding.ASCII.GetString(bytes, 0, bytesRecNCT));
+
             }
-            catch (Exception e)
+            catch (ArgumentNullException ane)
             {
-                MessageBox.Show(e.Message);
+                RealtimeChat.Text = "ArgumentNullException : " + ane.Message;
             }
+            catch (SocketException se)
+            {
+                Console.WriteLine("SocketException : {0}", se.ToString());
+            }
+            Task.Delay(5000);
+
+            // Encode the data string into a byte array.    
+            byte[] msg = Encoding.ASCII.GetBytes(USERNAME.Text + " : " + " Connected " + " \r\n ");
+
+            // Send the data through the socket.    
+            int bytesSent = sender.Send(msg);
+
+            // Receive the response from the remote device.    
+            int bytesRec = sender.Receive(bytes);
+            Console.WriteLine("Echoed test = {0}",
+                            Encoding.ASCII.GetString(bytes, 0, bytesRec));
+
+            // Release the socket.    
+            sender.Shutdown(SocketShutdown.Both);
+            sender.Close();
         }
 
         //Create Client ============
