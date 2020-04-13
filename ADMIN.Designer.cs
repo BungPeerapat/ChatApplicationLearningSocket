@@ -320,7 +320,7 @@
             this.RealtimeChat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(19)))), ((int)(((byte)(13)))));
             this.RealtimeChat.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RealtimeChat.Font = new System.Drawing.Font("Franklin Gothic Medium", 10.2F);
-            this.RealtimeChat.ForeColor = System.Drawing.Color.Maroon;
+            this.RealtimeChat.ForeColor = System.Drawing.Color.White;
             this.RealtimeChat.Location = new System.Drawing.Point(703, 407);
             this.RealtimeChat.Multiline = true;
             this.RealtimeChat.Name = "RealtimeChat";
