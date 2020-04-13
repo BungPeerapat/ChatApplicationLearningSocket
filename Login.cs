@@ -39,13 +39,18 @@ namespace ChatApplicationLearningSocket
 
 
             }
-            if (USERNAMETEXT.Text == "QUEST" && PASSWORDTEXT.Text == "QUEST")
+            if (USERNAMETEXT.Text == "Member" && PASSWORDTEXT.Text == "Pass")
             {
                 USERNAMETEXT.ForeColor = Color.Green;
                 Console.Beep();
                 PASSWORDTEXT.ForeColor = Color.Green;
                 Console.Beep();
                 MessageBox.Show("Welcome Normal Member");
+                ADMINSIZE ADMINSIZEOPEN = new ADMINSIZE();
+                CodeSend = USERNAMETEXT.Text;
+                ADMINSIZEOPEN.PM(CodeSend);
+                ADMINSIZEOPEN.Show();
+                this.Hide();
             }
         }
     }
