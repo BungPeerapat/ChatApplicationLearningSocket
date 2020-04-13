@@ -63,11 +63,12 @@ namespace ChatApplicationLearningSocket
                 if (connection.Connected)
                 {
                     Console.Beep();
-                    MessageBox.Show("Client Connected!");
                     StatusServer.Refresh();
+                    MessageBox.Show("Client Connected!");
                 }
             }
         }
+
         public ADMINSIZE()
         {
             InitializeComponent();
@@ -78,73 +79,67 @@ namespace ChatApplicationLearningSocket
             }else
             {
                 MessageBox.Show("Quest Permission");
+                StartClient();
             }
         }
 
         //Create Client ====================
-        publice static void StartClient()
+        public static void StartClient()
         {
+            // Get Host IP Address that is used to establish a connection  
+            // In this case, we get one IP address of localhost that is IP : 127.0.0.1  
+            // If a host has multiple addresses, you will get a list of addresses  
+            IPHostEntry host = Dns.GetHostEntry("localhost");
+            IPAddress ipAddress = host.AddressList[0];
+            IPEndPoint localEndPoint = new IPEndPoint(ipAddress, 11000);
+
+
             try
             {
-                // Connect to a Remote server  
-                // Get Host IP Address that is used to establish a connection  
-                // In this case, we get one IP address of localhost that is IP : 127.0.0.1  
-                // If a host has multiple addresses, you will get a list of addresses  
-                IPHostEntry host = Dns.GetHostEntry("localhost");
-                IPAddress ipAddress = host.AddressList[0];
-                IPEndPoint remoteEP = new IPEndPoint(ipAddress, 11000);
 
-                // Create a TCP/IP  socket.    
-                Socket sender = new Socket(ipAddress.AddressFamily,
-                    SocketType.Stream, ProtocolType.Tcp);
+                // Create a Socket that will use Tcp protocol      
+                Socket listener = new Socket(ipAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+                // A Socket must be associated with an endpoint using the Bind method  
+                listener.Bind(localEndPoint);
+                // Specify how many requests a Socket can listen before it gives Server busy response.  
+                // We will listen 10 requests at a time  
+                listener.Listen(10);
 
-                // Connect the socket to the remote endpoint. Catch any errors.    
-                try
+                Console.WriteLine("Waiting for a connection...");
+                Socket handler = listener.Accept();
+
+                // Incoming data from the client.    
+                string data = null;
+                byte[] bytes = null;
+
+                while (true)
                 {
-                    // Connect to Remote EndPoint  
-                    sender.Connect(remoteEP);
-
-                    Console.WriteLine("Socket connected to {0}",
-                        sender.RemoteEndPoint.ToString());
-
-                    // Encode the data string into a byte array.    
-                    byte[] msg = Encoding.ASCII.GetBytes("This is a test<EOF>");
-
-                    // Send the data through the socket.    
-                    int bytesSent = sender.Send(msg);
-
-                    // Receive the response from the remote device.    
-                    int bytesRec = sender.Receive(bytes);
-                    Console.WriteLine("Echoed test = {0}",
-                        Encoding.ASCII.GetString(bytes, 0, bytesRec));
-
-                    // Release the socket.    
-                    sender.Shutdown(SocketShutdown.Both);
-                    sender.Close();
-
-                }
-                catch (ArgumentNullException ane)
-                {
-                    Console.WriteLine("ArgumentNullException : {0}", ane.ToString());
-                }
-                catch (SocketException se)
-                {
-                    Console.WriteLine("SocketException : {0}", se.ToString());
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("Unexpected exception : {0}", e.ToString());
+                    bytes = new byte[1024];
+                    int bytesRec = handler.Receive(bytes);
+                    data += Encoding.ASCII.GetString(bytes, 0, bytesRec);
+                    if (data.IndexOf("<EOF>") > -1)
+                    {
+                        break;
+                    }
                 }
 
+                Console.WriteLine("Text received : {0}", data);
+
+                byte[] msg = Encoding.ASCII.GetBytes(data);
+                handler.Send(msg);
+                handler.Shutdown(SocketShutdown.Both);
+                handler.Close();
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
             }
-        }
-    }
 
-    //Create Client ============
+            Console.WriteLine("\n Press any key to continue...");
+            Console.ReadKey();
+        }
+
+        //Create Client ============
 
         public static void MultiUser(object connection)
         {
