@@ -113,11 +113,11 @@ namespace ChatApplicationLearningSocket
                         MessageBox.Show(ex.Message);
                     }
 
-                    RealtimeChat.Text = "Socket connected to {0}" + ":\r\n";
+                    RealtimeChat.Text = "Connected to Server" + ":\r\n";
                     sender.RemoteEndPoint.ToString();
 
                     // Encode the data string into a byte array.    
-                    byte[] msg = Encoding.ASCII.GetBytes(USERNAME.Text + " : " + " Connected " + "\n ");
+                    byte[] msg = Encoding.ASCII.GetBytes(USERNAME.Text + " : " + " Connected " + " \r\n ");
 
                     // Send the data through the socket.    
                     int bytesSent = sender.Send(msg);
