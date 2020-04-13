@@ -86,18 +86,29 @@ namespace ChatApplicationLearningSocket
                 IPHostEntry host = Dns.GetHostEntry("127.0.0.1");
                 IPAddress ipAddress = host.AddressList[0];
                 IPEndPoint remoteEP = new IPEndPoint(ipAddress, 1433);
-
-                // Create a TCP/IP  socket.    
+            // Create a TCP/IP  socket.    
                 Socket sender = new Socket(ipAddress.AddressFamily,
                     SocketType.Stream, ProtocolType.Tcp);
 
-                // Connect the socket to the remote endpoint. Catch any errors.    
-            try
+            // Connect the socket to the remote endpoint. Catch any errors.
+            while (sender == null || !sender.Connected)
             {
-                while (!sender.Connected)
+                Console.Beep(); //Test
+                Console.Beep(); //Test
+                Console.Beep(); //Test
+                Task.Delay(5000);
+                try
                 {
                     sender.Connect(remoteEP);                            // Connect to Remote EndPoint  
                 }
+                catch (Exception ex)
+                {
+                    Exception.Close(ex);
+                }
+
+            }
+            try
+            {
                 try
                 {
                     if (sender.Connected)
@@ -141,7 +152,6 @@ namespace ChatApplicationLearningSocket
             {
                 Console.WriteLine("SocketException : {0}", se.ToString());
             }
-            Task.Delay(5000);
 
             // Encode the data string into a byte array.    
             byte[] msg = Encoding.ASCII.GetBytes(USERNAME.Text + " : " + " Connected " + " \r\n ");
