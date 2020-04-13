@@ -74,14 +74,10 @@ namespace ChatApplicationLearningSocket
         {
             InitializeComponent();
             this.StatusServer.Image = (Image) Properties.Resources.ResourceManager.GetObject("Red Point");
-            if (Permission.Text == "AdminCode Permission")
+            if (Permission.Text == "AdminCode")
             {
                 MessageBox.Show("AdminCode Permission");
                 StartSever();
-            }else
-            {
-                MessageBox.Show("Quest Permission");
-                StartClient();
             }
         }
 

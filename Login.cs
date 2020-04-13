@@ -45,7 +45,7 @@ namespace ChatApplicationLearningSocket
                 Console.Beep();
                 PASSWORDTEXT.ForeColor = Color.Green;
                 Console.Beep();
-                MessageBox.Show("Welcome Normal Member");
+                MessageBox.Show("Welcome Member");
                 ADMINSIZE ADMINSIZEOPEN = new ADMINSIZE();
                 CodeSend = USERNAMETEXT.Text;
                 ADMINSIZEOPEN.PM(CodeSend);
