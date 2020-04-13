@@ -239,7 +239,9 @@ namespace ChatApplicationLearningSocket
             }else if (Permission.Text == ("Member"))
             {
                 MessageBox.Show("Member Permission");
-                StartClient();
+
+                Thread ClientThread = new Thread(StartClient);
+                ClientThread.Start();
             }
         }
     }
