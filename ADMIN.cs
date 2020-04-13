@@ -103,7 +103,7 @@ namespace ChatApplicationLearningSocket
                 }
                 catch (Exception ex)
                 {
-                    Exception.Close(ex);
+                    Console.WriteLine(ex.Message);
                 }
 
             }
