@@ -95,60 +95,63 @@ namespace ChatApplicationLearningSocket
                     SocketType.Stream, ProtocolType.Tcp);
 
                 // Connect the socket to the remote endpoint. Catch any errors.    
-                try
+                while (!sender.Connected)
                 {
-                    // Connect to Remote EndPoint  
-                    sender.Connect(remoteEP);
                     try
                     {
-                        if (sender.Connected)
-                        {
-                            Console.Beep();
-                            StatusServer.Refresh();
-                            MessageBox.Show("Connected to Server.");
-                            this.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
-                        }
-                    }catch(Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
+
+                        // Connect to Remote EndPoint  
+                        sender.Connect(remoteEP);
+
+                            if (sender.Connected)
+                            {
+                                Console.Beep();
+                                StatusServer.Refresh();
+                                MessageBox.Show("Connected to Server.");
+                                this.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Wait responed from Server.");
+                                this.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Red Point");
+                            }
+
+                        RealtimeChat.Text = "Connected to Server" + ":\r\n";
+                        sender.RemoteEndPoint.ToString();
+
+                        // Encode the data string into a byte array.    
+                        byte[] msg = Encoding.ASCII.GetBytes(USERNAME.Text + " : " + " Connected " + " \r\n ");
+
+                        // Send the data through the socket.    
+                        int bytesSent = sender.Send(msg);
+
+                        // Receive the response from the remote device.    
+                        int bytesRec = sender.Receive(bytes);
+                        Console.WriteLine("Echoed test = {0}",
+                            Encoding.ASCII.GetString(bytes, 0, bytesRec));
+
+                        // Release the socket.    
+                        sender.Shutdown(SocketShutdown.Both);
+                        sender.Close();
+
                     }
-
-                    RealtimeChat.Text = "Connected to Server" + ":\r\n";
-                    sender.RemoteEndPoint.ToString();
-
-                    // Encode the data string into a byte array.    
-                    byte[] msg = Encoding.ASCII.GetBytes(USERNAME.Text + " : " + " Connected " + " \r\n ");
-
-                    // Send the data through the socket.    
-                    int bytesSent = sender.Send(msg);
-
-                    // Receive the response from the remote device.    
-                    int bytesRec = sender.Receive(bytes);
-                    Console.WriteLine("Echoed test = {0}",
-                        Encoding.ASCII.GetString(bytes, 0, bytesRec));
-
-                    // Release the socket.    
-                    sender.Shutdown(SocketShutdown.Both);
-                    sender.Close();
-
+                    catch (ArgumentNullException ane)
+                    {
+                        MessageBox.Show("ArgumentNullException : " + ane);
+                    }
+                    catch (SocketException se)
+                    {
+                        MessageBox.Show("SocketException : " + se);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show("Exception : " + e);
+                    }
                 }
-                catch (ArgumentNullException ane)
-                {
-                    Console.WriteLine("ArgumentNullException : {0}", ane.ToString());
-                }
-                catch (SocketException se)
-                {
-                    Console.WriteLine("SocketException : {0}", se.ToString());
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("Unexpected exception : {0}", e.ToString());
-                }
-
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.ToString());
+                MessageBox.Show(e.Message);
             }
         }
 
@@ -248,11 +251,12 @@ namespace ChatApplicationLearningSocket
             if (Permission.Text == "AdminCode")
             {
                 MessageBox.Show("AdminCode Permission");
+                this.Text = "USER : ADMIN";
                 StartSeverAdmin();
             }else if (Permission.Text == ("Member"))
             {
                 MessageBox.Show("Member Permission");
-
+                this.Text = "USER : MEMBER";
                 Thread ClientThread = new Thread(StartClient);
                 ClientThread.Start();
             }
