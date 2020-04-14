@@ -133,7 +133,7 @@ namespace ChatApplicationLearningSocket
                 sender.RemoteEndPoint.ToString();
 
                 // Encode the data string into a byte array.    
-                byte[] NCT = Encoding.ASCII.GetBytes(USERNAME.Text + " : " + " Connected " + " \r\n ");
+                byte[] NCT = Encoding.ASCII.GetBytes(USERNAME.Text + " First Step #1 " + " : " + " Connected " + " \r\n "); //#1
                 // USERNAME.Text + " : " + " Connected " + " \r\n "
 
                 // Send the data through the socket.    
@@ -163,7 +163,7 @@ namespace ChatApplicationLearningSocket
 
             // Receive the response from the remote device.    
             int bytesRec = sender.Receive(bytes);
-            Console.WriteLine("Echoed test = {0}",
+            RealtimeChat.Text +=("Echoed test = {0}",
                             Encoding.ASCII.GetString(bytes, 0, bytesRec));
 
             // Release the socket.    
@@ -287,6 +287,13 @@ namespace ChatApplicationLearningSocket
         private void ASB_Click(object sender, EventArgs e) //Admin SendText Button
         {
             SendTextClient = TextAdminSend.Text;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Login LoginPage = new Login();
+            LoginPage.Close();
         }
     }
 }

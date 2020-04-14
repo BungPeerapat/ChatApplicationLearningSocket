@@ -53,5 +53,10 @@ namespace ChatApplicationLearningSocket
                 this.Hide();
             }
         }
+
+        private void BGLOGIN_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

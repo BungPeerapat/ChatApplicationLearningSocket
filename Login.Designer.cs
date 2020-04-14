@@ -50,6 +50,7 @@
             this.BGLOGIN.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.BGLOGIN.TabIndex = 0;
             this.BGLOGIN.TabStop = false;
+            this.BGLOGIN.Click += new System.EventHandler(this.BGLOGIN_Click);
             // 
             // USERNAMETEXT
             // 

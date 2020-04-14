@@ -47,6 +47,7 @@
             this.ShowStatus = new System.Windows.Forms.Label();
             this.TextAdminSend = new System.Windows.Forms.TextBox();
             this.ASB = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.MenuZone.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StatusServer)).BeginInit();
@@ -368,6 +369,16 @@
             this.ASB.Visible = false;
             this.ASB.Click += new System.EventHandler(this.ASB_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(922, 96);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(86, 54);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Denined";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // ADMIN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -375,6 +386,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1030, 588);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.ASB);
             this.Controls.Add(this.TextAdminSend);
             this.Controls.Add(this.ShowStatus);
@@ -414,5 +426,6 @@
         private System.Windows.Forms.Label ShowStatus;
         private System.Windows.Forms.Button ASB;
         private System.Windows.Forms.TextBox TextAdminSend;
+        private System.Windows.Forms.Button button1;
     }
 }
