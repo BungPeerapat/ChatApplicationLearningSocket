@@ -9,21 +9,30 @@ using System.Threading.Tasks;
 
 namespace ChatApplicationLearningSocket
 {
-    class Server
+    internal class Server
     {
         public static readonly object _lock = new object();
         public static readonly Dictionary<int, TcpClient> list_clients = new Dictionary<int, TcpClient>();
+        public static int count;
+        public static TcpListener ServerSocket;
+        public int port;
+
 
         public static void Start()
         {
-
-            int count = 1;
-
-            TcpListener ServerSocket = new TcpListener(IPAddress.Any, 5000);
+            int port = 1443;
+            TcpListener ServerSocket = new TcpListener(IPAddress.Any,port);
             ServerSocket.Start();
+            Thread StartServer = new Thread(SSIP);
+            StartServer.Start();
 
+        }
+
+        public static void SSIP()
+        {
             while (true)
             {
+                int count = 1;
                 TcpClient client = ServerSocket.AcceptTcpClient();
                 lock (_lock) list_clients.Add(count, client);
                 Console.WriteLine("Someone connected!!");

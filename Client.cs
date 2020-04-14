@@ -39,7 +39,7 @@ namespace ChatApplicationLearningSocket
             {
                 try
                 {
-
+                    client = new TcpClient();
                     client.Connect(ip, port);
                     Console.Beep();
                     Task.Delay(3000);
@@ -49,9 +49,8 @@ namespace ChatApplicationLearningSocket
                     Console.WriteLine(ex.Message);
                 }
                 Task.Delay(1500);
-                Cheackstatusserver();
             }
-
+            Console.Beep();
             //*****
             ns = client.GetStream();
             thread = new Thread(o => ReceiveData((TcpClient)o));
