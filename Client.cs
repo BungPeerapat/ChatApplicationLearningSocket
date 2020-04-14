@@ -17,36 +17,42 @@ namespace ChatApplicationLearningSocket
         public static TcpClient client;
         public static Thread thread;
         public static ADMIN admin;
-        public static IPAddress ip = IPAddress.Parse("127.0.0.1");
-        public static int port = 5000;
+        public static IPAddress ip;
+        public static int port;
 
         public static void Start()
         {
-            client = new TcpClient();
+            IPAddress ip = IPAddress.Parse("127.0.0.1");
+            int port = 1433;
             //*****
-            Thread Check = new Thread(Cheackstatusserver);
-            Check.Start();
-            Thread RL = new Thread(ReconnectLoop);
-            RL.Start();
-            //*****
-            ns = client.GetStream();
-            thread = new Thread(o => ReceiveData((TcpClient)o));
-            thread.Start(client);
-        }
-
-        public static void ReconnectLoop()
-        {
-            while (!client.Connected)
+            while (Client.client.Connected)
             {
                 try
                 {
-                    client.Connect(ip, port);
+                    client = new TcpClient();
+                    try
+                    {
+                        client.Connect(ip, port);
+                        ns = client.GetStream();
+                        Console.Beep();
+                        Task.Delay(3000);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                    Task.Delay(1500);
+                    Cheackstatusserver();
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
                 }
             }
+
+            //*****
+            thread = new Thread(o => ReceiveData((TcpClient)o));
+            thread.Start(client);
         }
 
         public static void sendData(String username, String msg)
