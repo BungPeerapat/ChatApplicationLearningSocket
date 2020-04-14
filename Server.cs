@@ -6,6 +6,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ChatApplicationLearningSocket
 {
@@ -21,10 +22,19 @@ namespace ChatApplicationLearningSocket
         public static void Start()
         {
             int port = 1443;
-            TcpListener ServerSocket = new TcpListener(IPAddress.Any,port);
+            string IP = "127.0.0.1";
+            TcpListener ServerSocket = new TcpListener(IPAddress.Parse(IP),port);
             ServerSocket.Start();
-            Thread StartServer = new Thread(SSIP);
-            StartServer.Start();
+            while (true)
+            {
+                int count = 1;
+                TcpClient client = ServerSocket.AcceptTcpClient();
+                lock (_lock) list_clients.Add(count, client);
+                Console.WriteLine("Someone connected!!");
+                Thread t = new Thread(handle_clients);
+                t.Start(count);
+                count++;
+            }
 
         }
 

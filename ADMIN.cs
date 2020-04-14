@@ -42,8 +42,8 @@ namespace ChatApplicationLearningSocket
             {
                 Thread t = new Thread(Server.Start);
                 t.Start();
-                
-                MessageBox.Show("Start server complete");
+
+                this.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
             }
             catch (Exception ex)
             {
@@ -153,9 +153,8 @@ namespace ChatApplicationLearningSocket
 
         }
 
-        private void ADMINSIZE_Load(object sender, EventArgs e) //Frist Command
+        public void ADMINSIZE_Load(object sender, EventArgs e) //Frist Command
         {
-            this.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Red Point");
             if (Permission.Text == "AdminCode")
             {
                 MessageBox.Show("AdminCode Permission");
