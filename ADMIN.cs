@@ -31,13 +31,19 @@ namespace ChatApplicationLearningSocket
             Permission.Visible = false;
         }
 
+        public void updateChat(string msg)
+        {
+            RealtimeChat.Text += msg;
+        }
+
         public void StartSeverAdmin()
         {
             try
             {
-
-                Thread serverThread = new Thread(listenToClient);
-                serverThread.Start();
+                Thread t = new Thread(Server.Start);
+                t.Start();
+                
+                MessageBox.Show("Start server complete");
             }
             catch (Exception ex)
             {
@@ -45,132 +51,17 @@ namespace ChatApplicationLearningSocket
             }
         }
 
-        public void listenToClient()
-        {
-            IPAddress SetupServer = IPAddress.Parse("127.0.0.1");
-            IPEndPoint SetupServerEP = new IPEndPoint(SetupServer, 1433);
-            Socket sock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-
-
-            sock.Bind(SetupServerEP);
-            sock.Listen(10);
-            while (true)
-            {
-                this.StatusServer.Image = (Image) Properties.Resources.ResourceManager.GetObject("Green Point");
-                Socket connection = sock.Accept();
-                Thread clientThread = new Thread(new ParameterizedThreadStart(MultiUser));
-                clientThread.Start(connection);
-
-                if (connection.Connected)
-                {
-                    Console.Beep();
-                    StatusServer.Refresh();
-                    MessageBox.Show("Client Connected!");
-                }
-            }
-        }
-
         public ADMIN() // Main
         {
+            Client.admin = this;
+            Thread ChackStatusserver = new Thread(Cheackstatusserver);
+            ChackStatusserver.Start();
             InitializeComponent();
-        }
-
-        //Create Client ====================
-        public void StartClient()
-        {
-            byte[] bytes = new byte[1024];
-                // Connect to a Remote server  
-                // Get Host IP Address that is used to establish a connection  
-                // In this case, we get one IP address of localhost that is IP : 127.0.0.1  
-                // If a host has multiple addresses, you will get a list of addresses  
-                IPHostEntry host = Dns.GetHostEntry("127.0.0.1");
-                IPAddress ipAddress = host.AddressList[0];
-                IPEndPoint remoteEP = new IPEndPoint(ipAddress, 1433);
-            // Create a TCP/IP  socket.    
-                Socket sender = new Socket(ipAddress.AddressFamily,
-                    SocketType.Stream, ProtocolType.Tcp);
-
-            // Connect the socket to the remote endpoint. Catch any errors.
-            while (sender == null || !sender.Connected)
-            {
-                Console.Beep(); //Test
-                Console.Beep(); //Test
-                Console.Beep(); //Test
-                Task.Delay(5000);
-                try
-                {
-                    sender.Connect(remoteEP);                            // Connect to Remote EndPoint  
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-
-            }
-            try
-            {
-                try
-                {
-                    if (sender.Connected)
-                    {
-                        Console.Beep();
-                        StatusServer.Refresh();
-                        MessageBox.Show("Connected to Server.");
-                        this.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Wait responed from Server.");
-                        this.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Red Point");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-
-                RealtimeChat.Text = "Connected to Server" + "\n";
-                sender.RemoteEndPoint.ToString();
-
-                // Encode the data string into a byte array.    
-                byte[] NCT = Encoding.ASCII.GetBytes(USERNAME.Text + " First Step #1 " + " : " + " Connected " + " \r\n "); //#1
-                // USERNAME.Text + " : " + " Connected " + " \r\n "
-
-                // Send the data through the socket.    
-                int bytesSentNCT = sender.Send(NCT);
-
-                // Receive the response from the remote device.    
-                int bytesRecNCT = sender.Receive(bytes);
-                (string, string) Receive = (USERNAME.Text + " : ",
-                                Encoding.ASCII.GetString(bytes, 0, bytesRecNCT));
-                RealtimeChat.Text += Receive;
-            }
-            catch (ArgumentNullException ane)
-            {
-                RealtimeChat.Text = "ArgumentNullException : " + ane.Message;
-            }
-            catch (SocketException se)
-            {
-                Console.WriteLine("SocketException : {0}", se.ToString());
-            }
-//            byte[] msg = Encoding.ASCII.GetBytes(USERNAME.Text + " Test Position " + IPAddress.Any + " : " + " Connected " + " \r\n ");
-//
-////            // Send the data through the socket.    
-//            int bytesSent = sender.Send(msg);
-//
-//            // Receive the response from the remote device.    
- //           int bytesRec = sender.Receive(bytes);
- //           RealtimeChat.Text += ("Echoed test = {0}",
-//                            Encoding.ASCII.GetString(bytes, 0, bytesRec));
-//
- //           // Release the socket.    
- //           sender.Shutdown(SocketShutdown.Both);
- //           sender.Close();
         }
 
         //Create Client ============
 
-        public void MultiUser(object connection)
+        public void MultiUser2(object connection)
         {
             byte[] serverBuffer = new byte[10025];
             string message = string.Empty;
@@ -185,6 +76,12 @@ namespace ChatApplicationLearningSocket
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+            Server.broadcast(USERNAME.Text, TextAdminSend.Text);
+            TextAdminSend.Text = "";
+        }
+
+        public static void recieveData()
         {
 
         }
@@ -248,7 +145,7 @@ namespace ChatApplicationLearningSocket
             }
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        public void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }
@@ -256,6 +153,21 @@ namespace ChatApplicationLearningSocket
         private void Permission_Click(object sender, EventArgs e)
         {
 
+        }
+
+        public void Cheackstatusserver()
+        {
+            while (true)
+            {
+                if (Client.client.Connected)
+                {
+                    this.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
+                }
+                else if (!Client.client.Connected)
+                {
+                    this.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Red Point");
+                }
+            }
         }
 
         private void ADMINSIZE_Load(object sender, EventArgs e) //Frist Command
@@ -273,54 +185,30 @@ namespace ChatApplicationLearningSocket
                 MessageBox.Show("Member Permission");
                 this.Text = "USER : MEMBER";
                 ASB.Visible = false;
-                TextAdminSend.Visible = true;
-                Thread ClientThread = new Thread(StartClient);
-                ClientThread.Start();
+                TextAdminSend.Visible = false;
+                TextAdminSend.Enabled = false;
+                StartClient();
             }
         }
 
+        public void StartClient()
+        {
+            Client.Start();
+            
+        }
         string SendTextClient;
 
         private void ASB_Click(object sender, EventArgs e) //Admin SendText Button
         {
-            byte[] bytes = new byte[1024];
-            IPHostEntry host = Dns.GetHostEntry("127.0.0.1");
-            IPAddress ipAddress = host.AddressList[0];
-            // Create a TCP/IP  socket.    
-            Socket senderText = new Socket(ipAddress.AddressFamily,
-                    SocketType.Stream, ProtocolType.Tcp);
-
-            // Encode the data string into a byte array.    
-            byte[] NCT = Encoding.ASCII.GetBytes(USERNAME.Text + " : " + TextAdminSend.Text + " \r\n "); //#1
-                                                                                                                        // USERNAME.Text + " : " + " Connected " + " \r\n "
-
-            // Send the data through the socket.    
-            int bytesSentNCT = senderText.Send(NCT);
-
-            // Receive the response from the remote device.    
-            int bytesRecNCT = senderText.Receive(bytes);
-            Console.WriteLine("Echoed test = {0}",
-                Encoding.ASCII.GetString(bytes, 0, bytesRecNCT));
-                //            byte[] msg = Encoding.ASCII.GetBytes(USERNAME.Text + " Test Position " + IPAddress.Any + " : " + " Connected " + " \r\n ");
-                //
-                ////            // Send the data through the socket.    
-                //            int bytesSent = sender.Send(msg);
-                //
-                //            // Receive the response from the remote device.    
-                //           int bytesRec = sender.Receive(bytes);
-                //           RealtimeChat.Text += ("Echoed test = {0}",
-                //                            Encoding.ASCII.GetString(bytes, 0, bytesRec));
-                //
-                //           // Release the socket.    
-                //           sender.Shutdown(SocketShutdown.Both);
-                //           sender.Close();
+            Server.broadcast(USERNAME.Text,"Hello Client");
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            System.Windows.Forms.Application.ExitThread();
+            System.Windows.Forms.Application.Exit();
+            //System.Environment.Exit(0);
             this.Close();
-            Login LoginPage = new Login();
-            LoginPage.Close();
         }
     }
 }

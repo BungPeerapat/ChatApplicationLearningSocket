@@ -66,6 +66,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Client.cs" />
+    <Compile Include="Server.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
