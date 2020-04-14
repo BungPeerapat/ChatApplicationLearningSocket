@@ -24,6 +24,8 @@ namespace ChatApplicationLearningSocket
         {
             client = new TcpClient();
             //*****
+            Thread Check = new Thread(Cheackstatusserver);
+            Check.Start();
             Thread RL = new Thread(ReconnectLoop);
             RL.Start();
             //*****
@@ -39,7 +41,6 @@ namespace ChatApplicationLearningSocket
                 try
                 {
                     client.Connect(ip, port);
-                    MessageBox.Show("client connected!!");
                 }
                 catch (Exception ex)
                 {
@@ -83,6 +84,7 @@ namespace ChatApplicationLearningSocket
             if (Client.client.Connected)
             {
                 admin.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
+                MessageBox.Show("Connected!");
             }
             if (!Client.client.Connected)
             {
