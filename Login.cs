@@ -31,7 +31,7 @@ namespace ChatApplicationLearningSocket
                 PASSWORDTEXT.ForeColor = Color.Green;
                 Console.Beep();
                 MessageBox.Show("Welcome Admin");
-                ADMINSIZE ADMINSIZEOPEN = new ADMINSIZE();
+                ADMIN ADMINSIZEOPEN = new ADMIN();
                 CodeSend = USERNAMETEXT.Text;
                 ADMINSIZEOPEN.PM(CodeSend);
                 ADMINSIZEOPEN.Show();
@@ -46,7 +46,7 @@ namespace ChatApplicationLearningSocket
                 PASSWORDTEXT.ForeColor = Color.Green;
                 Console.Beep();
                 MessageBox.Show("Welcome Member");
-                ADMINSIZE ADMINSIZEOPEN = new ADMINSIZE();
+                ADMIN ADMINSIZEOPEN = new ADMIN();
                 CodeSend = USERNAMETEXT.Text;
                 ADMINSIZEOPEN.PM(CodeSend);
                 ADMINSIZEOPEN.Show();

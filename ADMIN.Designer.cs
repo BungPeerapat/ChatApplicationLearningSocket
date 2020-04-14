@@ -1,6 +1,6 @@
 ﻿namespace ChatApplicationLearningSocket
 {
-    partial class ADMINSIZE
+    partial class ADMIN
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ADMINSIZE));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ADMIN));
             this.USERNAME = new System.Windows.Forms.TextBox();
             this.MenuZone = new System.Windows.Forms.Panel();
             this.Permission = new System.Windows.Forms.Label();
@@ -45,6 +45,8 @@
             this.StatusServer = new System.Windows.Forms.PictureBox();
             this.RealtimeChat = new System.Windows.Forms.TextBox();
             this.ShowStatus = new System.Windows.Forms.Label();
+            this.TextAdminSend = new System.Windows.Forms.TextBox();
+            this.ASB = new System.Windows.Forms.Button();
             this.MenuZone.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StatusServer)).BeginInit();
@@ -338,20 +340,47 @@
             this.ShowStatus.Size = new System.Drawing.Size(0, 21);
             this.ShowStatus.TabIndex = 5;
             // 
-            // ADMINSIZE
+            // TextAdminSend
+            // 
+            this.TextAdminSend.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(19)))), ((int)(((byte)(13)))));
+            this.TextAdminSend.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TextAdminSend.Font = new System.Drawing.Font("Franklin Gothic Medium", 10.2F);
+            this.TextAdminSend.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.TextAdminSend.Location = new System.Drawing.Point(703, 358);
+            this.TextAdminSend.Multiline = true;
+            this.TextAdminSend.Name = "TextAdminSend";
+            this.TextAdminSend.Size = new System.Drawing.Size(315, 31);
+            this.TextAdminSend.TabIndex = 6;
+            // 
+            // ASB
+            // 
+            this.ASB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(19)))), ((int)(((byte)(13)))));
+            this.ASB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ASB.Font = new System.Drawing.Font("Franklin Gothic Medium", 10.2F);
+            this.ASB.ForeColor = System.Drawing.Color.White;
+            this.ASB.Location = new System.Drawing.Point(935, 312);
+            this.ASB.Name = "ASB";
+            this.ASB.Size = new System.Drawing.Size(83, 30);
+            this.ASB.TabIndex = 7;
+            this.ASB.Text = "SEND";
+            this.ASB.UseVisualStyleBackColor = false;
+            // 
+            // ADMIN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1030, 588);
+            this.Controls.Add(this.ASB);
+            this.Controls.Add(this.TextAdminSend);
             this.Controls.Add(this.ShowStatus);
             this.Controls.Add(this.RealtimeChat);
             this.Controls.Add(this.StatusServer);
             this.Controls.Add(this.MenuZone);
             this.Cursor = System.Windows.Forms.Cursors.Default;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-            this.Name = "ADMINSIZE";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "ADMIN";
             this.Text = "USER : ADMIN";
             this.Load += new System.EventHandler(this.ADMINSIZE_Load);
             this.MenuZone.ResumeLayout(false);
@@ -380,5 +409,7 @@
         private System.Windows.Forms.TextBox RealtimeChat;
         private System.Windows.Forms.Label Permission;
         private System.Windows.Forms.Label ShowStatus;
+        private System.Windows.Forms.Button ASB;
+        private System.Windows.Forms.TextBox TextAdminSend;
     }
 }
