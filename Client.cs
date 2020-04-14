@@ -24,33 +24,36 @@ namespace ChatApplicationLearningSocket
         {
             IPAddress ip = IPAddress.Parse("127.0.0.1");
             int port = 1433;
+            client = new TcpClient();
+            try
+            {
+                client.Connect(ip, port);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
             //*****
-            while (Client.client.Connected)
+            MessageBox.Show("Server Don't Online. and will reconnected now.");
+            while (!client.Connected)
             {
                 try
                 {
-                    client = new TcpClient();
-                    try
-                    {
-                        client.Connect(ip, port);
-                        ns = client.GetStream();
-                        Console.Beep();
-                        Task.Delay(3000);
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine(ex.Message);
-                    }
-                    Task.Delay(1500);
-                    Cheackstatusserver();
+
+                    client.Connect(ip, port);
+                    Console.Beep();
+                    Task.Delay(3000);
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
                 }
+                Task.Delay(1500);
+                Cheackstatusserver();
             }
 
             //*****
+            ns = client.GetStream();
             thread = new Thread(o => ReceiveData((TcpClient)o));
             thread.Start(client);
         }

@@ -170,7 +170,8 @@ namespace ChatApplicationLearningSocket
                 ASB.Visible = false;
                 TextAdminSend.Visible = false;
                 TextAdminSend.Enabled = false;
-                StartClient();
+                Thread scn = new Thread(StartClient);
+                scn.Start();
             }
         }
 
