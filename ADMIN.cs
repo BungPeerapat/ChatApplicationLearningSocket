@@ -141,9 +141,9 @@ namespace ChatApplicationLearningSocket
 
                 // Receive the response from the remote device.    
                 int bytesRecNCT = sender.Receive(bytes);
-                Console.WriteLine("Echoed test = {0}",
-                Encoding.ASCII.GetString(bytes, 0, bytesRecNCT));
-
+                (string, string) Receive = (USERNAME.Text + " : ",
+                                Encoding.ASCII.GetString(bytes, 0, bytesRecNCT));
+                RealtimeChat.Text += Receive;
             }
             catch (ArgumentNullException ane)
             {
@@ -153,22 +153,19 @@ namespace ChatApplicationLearningSocket
             {
                 Console.WriteLine("SocketException : {0}", se.ToString());
             }
-
-            // Encode the data string into a byte array.    
-
-            byte[] msg = Encoding.ASCII.GetBytes(USERNAME.Text + " Test Position " + IPAddress.Any + " : " + " Connected " + " \r\n ");
-
-            // Send the data through the socket.    
-            int bytesSent = sender.Send(msg);
-
-            // Receive the response from the remote device.    
-            int bytesRec = sender.Receive(bytes);
-            RealtimeChat.Text +=("Echoed test = {0}",
-                            Encoding.ASCII.GetString(bytes, 0, bytesRec));
-
-            // Release the socket.    
-            sender.Shutdown(SocketShutdown.Both);
-            sender.Close();
+//            byte[] msg = Encoding.ASCII.GetBytes(USERNAME.Text + " Test Position " + IPAddress.Any + " : " + " Connected " + " \r\n ");
+//
+////            // Send the data through the socket.    
+//            int bytesSent = sender.Send(msg);
+//
+//            // Receive the response from the remote device.    
+ //           int bytesRec = sender.Receive(bytes);
+ //           RealtimeChat.Text += ("Echoed test = {0}",
+//                            Encoding.ASCII.GetString(bytes, 0, bytesRec));
+//
+ //           // Release the socket.    
+ //           sender.Shutdown(SocketShutdown.Both);
+ //           sender.Close();
         }
 
         //Create Client ============
@@ -286,7 +283,37 @@ namespace ChatApplicationLearningSocket
 
         private void ASB_Click(object sender, EventArgs e) //Admin SendText Button
         {
-            SendTextClient = TextAdminSend.Text;
+            byte[] bytes = new byte[1024];
+            IPHostEntry host = Dns.GetHostEntry("127.0.0.1");
+            IPAddress ipAddress = host.AddressList[0];
+            // Create a TCP/IP  socket.    
+            Socket senderText = new Socket(ipAddress.AddressFamily,
+                    SocketType.Stream, ProtocolType.Tcp);
+
+            // Encode the data string into a byte array.    
+            byte[] NCT = Encoding.ASCII.GetBytes(USERNAME.Text + " : " + TextAdminSend.Text + " \r\n "); //#1
+                                                                                                                        // USERNAME.Text + " : " + " Connected " + " \r\n "
+
+            // Send the data through the socket.    
+            int bytesSentNCT = senderText.Send(NCT);
+
+            // Receive the response from the remote device.    
+            int bytesRecNCT = senderText.Receive(bytes);
+            Console.WriteLine("Echoed test = {0}",
+                Encoding.ASCII.GetString(bytes, 0, bytesRecNCT));
+                //            byte[] msg = Encoding.ASCII.GetBytes(USERNAME.Text + " Test Position " + IPAddress.Any + " : " + " Connected " + " \r\n ");
+                //
+                ////            // Send the data through the socket.    
+                //            int bytesSent = sender.Send(msg);
+                //
+                //            // Receive the response from the remote device.    
+                //           int bytesRec = sender.Receive(bytes);
+                //           RealtimeChat.Text += ("Echoed test = {0}",
+                //                            Encoding.ASCII.GetString(bytes, 0, bytesRec));
+                //
+                //           // Release the socket.    
+                //           sender.Shutdown(SocketShutdown.Both);
+                //           sender.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
