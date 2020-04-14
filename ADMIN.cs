@@ -54,8 +54,6 @@ namespace ChatApplicationLearningSocket
         public ADMIN() // Main
         {
             Client.admin = this;
-            Thread ChackStatusserver = new Thread(Cheackstatusserver);
-            ChackStatusserver.Start();
             InitializeComponent();
         }
 
@@ -153,21 +151,6 @@ namespace ChatApplicationLearningSocket
         private void Permission_Click(object sender, EventArgs e)
         {
 
-        }
-
-        public void Cheackstatusserver()
-        {
-            while (true)
-            {
-                if (Client.client.Connected)
-                {
-                    this.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
-                }
-                else if (!Client.client.Connected)
-                {
-                    this.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Red Point");
-                }
-            }
         }
 
         private void ADMINSIZE_Load(object sender, EventArgs e) //Frist Command

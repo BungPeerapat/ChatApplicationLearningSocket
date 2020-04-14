@@ -408,8 +408,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox USERNAME;
         private System.Windows.Forms.Panel MenuZone;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private Bunifu.Framework.UI.BunifuFlatButton chatzonebutton;
@@ -420,12 +418,13 @@
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.PictureBox StatusServer;
         private System.Windows.Forms.TextBox RealtimeChat;
         private System.Windows.Forms.Label Permission;
         private System.Windows.Forms.Label ShowStatus;
         private System.Windows.Forms.Button ASB;
         private System.Windows.Forms.TextBox TextAdminSend;
         private System.Windows.Forms.Button button1;
+        public System.Windows.Forms.TextBox USERNAME;
+        public System.Windows.Forms.PictureBox StatusServer;
     }
 }

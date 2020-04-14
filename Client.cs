@@ -17,16 +17,35 @@ namespace ChatApplicationLearningSocket
         public static TcpClient client;
         public static Thread thread;
         public static ADMIN admin;
+        public static IPAddress ip = IPAddress.Parse("127.0.0.1");
+        public static int port = 5000;
+
         public static void Start()
         {
-            IPAddress ip = IPAddress.Parse("127.0.0.1");
-            int port = 5000;
             client = new TcpClient();
-            client.Connect(ip, port);
-            MessageBox.Show("client connected!!");
+            //*****
+            Thread RL = new Thread(ReconnectLoop);
+            RL.Start();
+            //*****
             ns = client.GetStream();
             thread = new Thread(o => ReceiveData((TcpClient)o));
             thread.Start(client);
+        }
+
+        public static void ReconnectLoop()
+        {
+            while (!client.Connected)
+            {
+                try
+                {
+                    client.Connect(ip, port);
+                    MessageBox.Show("client connected!!");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
         }
 
         public static void sendData(String username, String msg)
@@ -56,6 +75,18 @@ namespace ChatApplicationLearningSocket
             {
                 //Console.Write(Encoding.ASCII.GetString(receivedBytes, 0, byte_count));
                 admin.updateChat(Encoding.ASCII.GetString(receivedBytes, 0, byte_count));
+            }
+        }
+
+        public static void Cheackstatusserver()
+        {
+            if (Client.client.Connected)
+            {
+                admin.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
+            }
+            if (!Client.client.Connected)
+            {
+                admin.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Red Point");
             }
         }
     }
