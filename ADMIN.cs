@@ -53,7 +53,7 @@ namespace ChatApplicationLearningSocket
 
 
             sock.Bind(SetupServerEP);
-            sock.Listen(5);
+            sock.Listen(10);
             while (true)
             {
                 this.StatusServer.Image = (Image) Properties.Resources.ResourceManager.GetObject("Green Point");
@@ -134,6 +134,7 @@ namespace ChatApplicationLearningSocket
 
                 // Encode the data string into a byte array.    
                 byte[] NCT = Encoding.ASCII.GetBytes(USERNAME.Text + " : " + " Connected " + " \r\n ");
+                // USERNAME.Text + " : " + " Connected " + " \r\n "
 
                 // Send the data through the socket.    
                 int bytesSentNCT = sender.Send(NCT);
@@ -154,7 +155,8 @@ namespace ChatApplicationLearningSocket
             }
 
             // Encode the data string into a byte array.    
-            byte[] msg = Encoding.ASCII.GetBytes(USERNAME.Text + " : " + " Connected " + " \r\n ");
+
+            byte[] msg = Encoding.ASCII.GetBytes(USERNAME.Text + " : " + IPAddress.Any + " : " + " Connected " + " \r\n ");
 
             // Send the data through the socket.    
             int bytesSent = sender.Send(msg);
