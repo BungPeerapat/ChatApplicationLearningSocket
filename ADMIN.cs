@@ -133,7 +133,7 @@ namespace ChatApplicationLearningSocket
                 sender.RemoteEndPoint.ToString();
 
                 // Encode the data string into a byte array.    
-                byte[] NCT = Encoding.ASCII.GetBytes(USERNAME.Text + " : " + " Connected " + " \r\n ");
+                byte[] NCT = Encoding.ASCII.GetBytes(USERNAME.Text + " : " + IPAddress.Any + " : " + " Connected " + " \r\n ");
                 // USERNAME.Text + " : " + " Connected " + " \r\n "
 
                 // Send the data through the socket.    
@@ -156,7 +156,7 @@ namespace ChatApplicationLearningSocket
 
             // Encode the data string into a byte array.    
 
-            byte[] msg = Encoding.ASCII.GetBytes(USERNAME.Text + " : " + IPAddress.Any + " : " + " Connected " + " \r\n ");
+            byte[] msg = Encoding.ASCII.GetBytes(USERNAME.Text + " : " + " Connected " + " \r\n ");
 
             // Send the data through the socket.    
             int bytesSent = sender.Send(msg);
