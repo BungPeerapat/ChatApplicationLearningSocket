@@ -9,7 +9,6 @@ C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearnin
 C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\obj\Debug\ChatApplicationLearningSocket.exe
 C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\obj\Debug\ChatApplicationLearningSocket.pdb
 C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\bin\Debug\Bunifu_UI_v1.52.dll
-C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\obj\Debug\ChatApplicationLearningSocket.ADMINSIZE.resources
 C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\obj\Debug\ChatApplicationLearningSocket.csproj.CopyComplete
 C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\bin\Debug\ChatSize[ADMIN].exe
 C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\bin\Debug\ChatSize[ADMIN].pdb
@@ -24,3 +23,4 @@ C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearnin
 C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\bin\Debug\Microsoft.Owin.xml
 C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\bin\Debug\Microsoft.Owin.Security.xml
 C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\bin\Debug\Newtonsoft.Json.xml
+C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\obj\Debug\ChatApplicationLearningSocket.ADMIN.resources

@@ -351,6 +351,7 @@
             this.TextAdminSend.Name = "TextAdminSend";
             this.TextAdminSend.Size = new System.Drawing.Size(315, 31);
             this.TextAdminSend.TabIndex = 6;
+            this.TextAdminSend.Visible = false;
             // 
             // ASB
             // 
@@ -364,6 +365,8 @@
             this.ASB.TabIndex = 7;
             this.ASB.Text = "SEND";
             this.ASB.UseVisualStyleBackColor = false;
+            this.ASB.Visible = false;
+            this.ASB.Click += new System.EventHandler(this.ASB_Click);
             // 
             // ADMIN
             // 

@@ -156,7 +156,7 @@ namespace ChatApplicationLearningSocket
 
             // Encode the data string into a byte array.    
 
-            byte[] msg = Encoding.ASCII.GetBytes(USERNAME.Text + " : " + IPAddress.Any + " : " + " Connected " + " \r\n ");
+            byte[] msg = Encoding.ASCII.GetBytes(USERNAME.Text + " Test Position " + IPAddress.Any + " : " + " Connected " + " \r\n ");
 
             // Send the data through the socket.    
             int bytesSent = sender.Send(msg);
@@ -268,14 +268,25 @@ namespace ChatApplicationLearningSocket
             {
                 MessageBox.Show("AdminCode Permission");
                 this.Text = "USER : ADMIN";
+                ASB.Visible = true;
+                TextAdminSend.Visible = true;
                 StartSeverAdmin();
             }else if (Permission.Text == ("Member"))
             {
                 MessageBox.Show("Member Permission");
                 this.Text = "USER : MEMBER";
+                ASB.Visible = false;
+                TextAdminSend.Visible = true;
                 Thread ClientThread = new Thread(StartClient);
                 ClientThread.Start();
             }
+        }
+
+        string SendTextClient;
+
+        private void ASB_Click(object sender, EventArgs e) //Admin SendText Button
+        {
+            SendTextClient = TextAdminSend.Text;
         }
     }
 }
