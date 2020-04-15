@@ -21,7 +21,7 @@ namespace ChatApplicationLearningSocket
     public partial class MainMenu : Form
     {
         public static MainMenu mainMenu = null;
-        public static string Cheackstatusserver;
+        public static int Cheackstatusserver;
         public string CO = "Close"; //เปิดปิด Menu
         public string Namesend; //ส่งชื่อ
 
@@ -206,7 +206,7 @@ namespace ChatApplicationLearningSocket
         {
             try
             {
-                if (MainMenu.Cheackstatusserver == "on")
+                if (MainMenu.Cheackstatusserver == 1)
                 {
                     MainMenu.mainMenu.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
                 }

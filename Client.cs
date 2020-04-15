@@ -63,7 +63,7 @@ namespace ChatApplicationLearningSocket
             if (client.Connected)
             {
                 MessageBox.Show("Connected");
-                MainMenu.Cheackstatusserver = "on";
+                MainMenu.Cheackstatusserver = 1;
             }
             Thread clientReceive = new Thread(o => ReceiveData((TcpClient)o));
             clientReceive.Start(client);
@@ -78,8 +78,12 @@ namespace ChatApplicationLearningSocket
             //    admin.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Red Point");
             //    admin.RealtimeChat.Text += "Disconect from Server" + " \r\n ";
             //}
-            Thread cheackstatusserver = new Thread(ConnectedStatusclient);
-            cheackstatusserver.Start();
+
+            MainMenu.mainMenu.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
+
+
+            //Thread cheackstatusserver = new Thread(ConnectedStatusclient);
+            //cheackstatusserver.Start();
         }
         public static void sendData(String usernamesend, String bytesToSend)
         {
@@ -115,9 +119,9 @@ namespace ChatApplicationLearningSocket
         {
             while (client.Connected)
             {
-                MainMenu.Cheackstatusserver = "on";
+                MainMenu.Cheackstatusserver = 1;
             }
-            MainMenu.Cheackstatusserver = "off";
+            MainMenu.Cheackstatusserver = 0;
         }
     }
 }
