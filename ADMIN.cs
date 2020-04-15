@@ -183,7 +183,10 @@ namespace ChatApplicationLearningSocket
 
         private void ASB_Click(object sender, EventArgs e) //Admin SendText Button
         {
-            Server.broadcast(USERNAME.Text,TextAdminSend.Text);
+            if (TextAdminSend.Text != null && !string.IsNullOrWhiteSpace(TextAdminSend.Text))
+            {
+                Server.broadcast(USERNAME.Text, TextAdminSend.Text);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
