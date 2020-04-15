@@ -96,9 +96,9 @@ namespace ChatApplicationLearningSocket
             }
         }
 
-        public static void ReceiveData(TcpClient client)
+        public static void ReceiveData(TcpClient ServerSocket)
         {
-            NetworkStream ns = client.GetStream();
+            NetworkStream ns = ServerSocket.GetStream();
             byte[] receivedBytes = new byte[1024];
             int byte_count;
 

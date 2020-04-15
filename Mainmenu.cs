@@ -36,6 +36,11 @@ namespace ChatApplicationLearningSocket
             RealtimeChat.Text += TextAdminSend;
         }
 
+        public void updateChatClientConnected (string broadcast)
+        {
+            RealtimeChat.Text += broadcast;
+        }
+
         public void StartSeverAdmin()
         {
             try

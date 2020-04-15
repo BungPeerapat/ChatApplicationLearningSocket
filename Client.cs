@@ -39,7 +39,10 @@ namespace ChatApplicationLearningSocket
                 Console.WriteLine(ex);
             }
             //*****
-            MessageBox.Show("Server Don't Online. and will reconnected now.");
+            if (!client.Connected)
+            {
+                MessageBox.Show("Server Don't Online. and will reconnected now.");
+            }
             while (!client.Connected)
             {
                 try
@@ -65,9 +68,9 @@ namespace ChatApplicationLearningSocket
             Cheackstatusserver();
         }
 
-        public static void sendData(String username, String TextAdminSend)
+        public static void sendData(String usernamesend, String broadcast)
         {
-            byte[] buffer = Encoding.ASCII.GetBytes(TextAdminSend);
+            byte[] buffer = Encoding.ASCII.GetBytes(broadcast);
             ns.Write(buffer, 0, buffer.Length);
 
         }
