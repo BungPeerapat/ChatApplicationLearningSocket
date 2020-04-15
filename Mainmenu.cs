@@ -205,16 +205,13 @@ namespace ChatApplicationLearningSocket
         }
         public static void CheackstatusserverClient()
         {
-            while (MainMenu.mainMenu != null)
+            if (Cheackstatusserver == "on")
             {
-                if (Cheackstatusserver == "on")
-                {
-                    MainMenu.mainMenu.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
-                }
-                else
-                {
-                    MainMenu.mainMenu.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Red Point");
-                }
+                MainMenu.mainMenu.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
+            }
+            else
+            {
+                MainMenu.mainMenu.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Red Point");
             }
         }
 

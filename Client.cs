@@ -60,6 +60,10 @@ namespace ChatApplicationLearningSocket
             //ns.Write(bytesToSend, 0, bytesToSend.Length);
             Console.Beep();
             //*****
+            if (client.Connected)
+            {
+                MainMenu.Cheackstatusserver = "on";
+            }
             Thread clientReceive = new Thread(o => ReceiveData((TcpClient)o));
             clientReceive.Start(client);
 
