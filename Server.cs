@@ -77,7 +77,7 @@ namespace ChatApplicationLearningSocket
 
                 string data = Encoding.ASCII.GetString(buffer, 0, byte_count);
                 String[] msg = data.Split(':');
-                if (msg[0] == "qweazsdf235dfgaer4_username") // qweazsdf235dfgaer4_username:Bung
+                if (msg[0] == "MemberCode") // MemberCode:YOURNAME
                 {
                     list_clients_name[id] = msg[1];
                 }

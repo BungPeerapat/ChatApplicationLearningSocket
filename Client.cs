@@ -60,9 +60,11 @@ namespace ChatApplicationLearningSocket
             Console.Beep();
             //*****
             MessageBox.Show("Connected");
+            admin.RealtimeChat.Text = "Connected to Server";
             MainMenu.mainMenu.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
             Thread clientReceive = new Thread(o => ReceiveData((TcpClient)o));
             clientReceive.Start(client);
+            sendData(admin.USERNAME.Text, "MemberCode:" + admin.USERNAME.Text);
 
             //if (client.Connected)
             //{
