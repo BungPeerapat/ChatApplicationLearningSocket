@@ -20,11 +20,9 @@ namespace ChatApplicationLearningSocket
 {
     public partial class MainMenu : Form
     {
+        public static MainMenu mainMenu = null;
         public string CO = "Close"; //เปิดปิด Menu
         public string Namesend; //ส่งชื่อ
-
-        public Socket Connect { get; private set; }
-        public string ReceiveData { get; private set; }
 
         public void PM(string CodeSend) //ส่ง Code
         {
@@ -32,15 +30,6 @@ namespace ChatApplicationLearningSocket
             Permission.Visible = false;
         }
 
-        public void UpdateChat(string TextAdminSend)
-        {
-            RealtimeChat.Text += TextAdminSend;
-        }
-
-        public void UpdateChatClientConnected (string brocast)//Test
-        {
-            Console.WriteLine("Received : " + ReceiveData);
-        }
 
         public void StartSeverAdmin()
         {
@@ -60,6 +49,7 @@ namespace ChatApplicationLearningSocket
         public MainMenu() // Main
         {
             Client.admin = this;
+            mainMenu = this;
             InitializeComponent();
         }
 
@@ -151,6 +141,29 @@ namespace ChatApplicationLearningSocket
                 CSA.ADMINNAME(Namesend);
                 CSA.Show();
             }
+        }
+
+        private delegate void ChatDelegate(string msg);
+
+        // Static method, call the non-static version if the form exist.
+        public static void UpdateRealtimeChat(string msg)
+        {
+            if (mainMenu != null)
+                mainMenu.updateRealtimeChat(msg);
+        }
+
+        private void updateRealtimeChat(string msg)
+        {
+            // If this returns true, it means it was called from an external thread.
+            if (InvokeRequired)
+            {
+                // Create a delegate of this method and let the form run it.
+                this.Invoke(new ChatDelegate(updateRealtimeChat), new object[] { msg });
+                return; // Important
+            }
+
+            // Set textBox
+            RealtimeChat.Text += msg;
         }
 
         public void pictureBox1_Click(object sender, EventArgs e)

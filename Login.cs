@@ -58,5 +58,21 @@ namespace ChatApplicationLearningSocket
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MainMenu ADMINSIZEOPEN = new MainMenu();
+            CodeSend = "AdminCode";
+            ADMINSIZEOPEN.PM(CodeSend);
+            ADMINSIZEOPEN.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            MainMenu ADMINSIZEOPEN = new MainMenu();
+            CodeSend = "Member";
+            ADMINSIZEOPEN.PM(CodeSend);
+            ADMINSIZEOPEN.Show();
+        }
     }
 }

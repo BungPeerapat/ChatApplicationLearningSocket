@@ -38,11 +38,6 @@ namespace ChatApplicationLearningSocket
                 Console.WriteLine(ex);
             }
             //*****
-            if (!client.Connected)
-            {
-                MessageBox.Show("Server Don't Online. and will reconnected now.");
-
-            }
             while (!client.Connected)
             {
                 try
@@ -60,24 +55,23 @@ namespace ChatApplicationLearningSocket
             }
             ns = client.GetStream();
             Task.Delay(1000);
-            byte[] bytesToSend = ASCIIEncoding.ASCII.GetBytes(admin.USERNAME.Text + " : " + " Conneceted ");
-            ns.Write(bytesToSend, 0, bytesToSend.Length);
-            MessageBox.Show("เข้าสู่ BytesToSend ไปแล้ว Edit2");
+            //byte[] bytesToSend = ASCIIEncoding.ASCII.GetBytes(admin.USERNAME.Text + " : " + " Conneceted ");
+            //ns.Write(bytesToSend, 0, bytesToSend.Length);
             Console.Beep();
             //*****
             Thread clientReceive = new Thread(o => ReceiveData((TcpClient)o));
-            clientReceive.Start();
+            clientReceive.Start(client);
 
-            if (client.Connected)
-            {
-                admin.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
-                admin.RealtimeChat.Text += "Connected To Server" + " \r\n ";
-            }
-            if (!client.Connected)
-            {
-                admin.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Red Point");
-                admin.RealtimeChat.Text += "Disconect from Server" + " \r\n ";
-            }
+            //if (client.Connected)
+            //{
+            //    admin.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
+            //    admin.RealtimeChat.Text += "Connected To Server" + " \r\n ";
+            //}
+            //if (!client.Connected)
+            //{
+            //    admin.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Red Point");
+            //    admin.RealtimeChat.Text += "Disconect from Server" + " \r\n ";
+            //}
         }
         public static void sendData(String usernamesend, String bytesToSend)
         {
@@ -97,29 +91,30 @@ namespace ChatApplicationLearningSocket
         public static void ReceiveData(TcpClient client)
         {
             NetworkStream ns = client.GetStream();
+            Client.client = client;
             byte[] receivedBytes = new byte[1024];
             int byte_count;
 
             while ((byte_count = ns.Read(receivedBytes, 0, receivedBytes.Length)) > 0)
             {
                 //Console.Write(Encoding.ASCII.GetString(receivedBytes, 0, byte_count));
-                admin.UpdateChat(Encoding.ASCII.GetString(receivedBytes, 0, byte_count));
+                MainMenu.UpdateRealtimeChat(Encoding.ASCII.GetString(receivedBytes, 0, byte_count));
 
             }
         }
 
-        public static void Cheackstatusserver()
-        {
-            if (client.Connected)
-            {
-                admin.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
-                admin.RealtimeChat.Text += "Connected To Server" + " \r\n ";
-            }
-            if (!client.Connected)
-            {
-                admin.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Red Point");
-                admin.RealtimeChat.Text += "Disconect from Server" + " \r\n ";
-            }
-        }
+        //public static void Cheackstatusserver()
+        //{
+        //    if (client.Connected)
+        //    {
+        //        admin.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
+        //        admin.RealtimeChat.Text += "Connected To Server" + " \r\n ";
+        //    }
+        //    if (!client.Connected)
+        //    {
+        //        admin.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Red Point");
+        //        admin.RealtimeChat.Text += "Disconect from Server" + " \r\n ";
+        //    }
+        //}
     }
 }
