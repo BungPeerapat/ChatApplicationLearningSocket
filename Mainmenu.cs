@@ -24,6 +24,7 @@ namespace ChatApplicationLearningSocket
         public static int Cheackstatusserver;
         public string CO = "Close"; //เปิดปิด Menu
         public string Namesend; //ส่งชื่อ
+        public int ConnectedtoserverText = 0;
 
         public void PM(string CodeSend) //ส่ง Code
         {
@@ -198,6 +199,20 @@ namespace ChatApplicationLearningSocket
                 Thread Startclient = new Thread(StartClient);
                 Startclient.Start();
                 RealtimeChat.Text = " Loading..... ";
+            }
+        }
+
+        public static void Connectedtoservertext()
+        {
+            while (true)
+            {
+                if (MainMenu.mainMenu.Permission.Text == "Member")
+                {
+                    if (MainMenu.mainMenu.ConnectedtoserverText == 1)
+                    {
+                        MainMenu.mainMenu.RealtimeChat.Text = "Connected";
+                    }
+                }
             }
         }
         public void StartClient()

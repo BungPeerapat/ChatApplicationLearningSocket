@@ -16,11 +16,11 @@ namespace ChatApplicationLearningSocket
         public static NetworkStream ns;
         public static TcpClient client;
         public static MainMenu UpdateRealtimechat;
+        public static MainMenu ConnectedtoserverText;
         public static MainMenu Cheackstatusserver;
         public static Thread thread;
         public static MainMenu admin;
         public static IPAddress ip;
-        public static string usernamesend = admin.USERNAME.Text;
         public static int port;
 
 
@@ -60,7 +60,7 @@ namespace ChatApplicationLearningSocket
             Console.Beep();
             //*****
             MessageBox.Show("Connected");
-            admin.RealtimeChat.Text = "Connected to Server";
+            MainMenu.mainMenu.ConnectedtoserverText = 1;
             MainMenu.mainMenu.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
             Thread clientReceive = new Thread(o => ReceiveData((TcpClient)o));
             clientReceive.Start(client);
