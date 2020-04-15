@@ -22,6 +22,7 @@ namespace ChatApplicationLearningSocket
         public static int port;
         public static readonly object _lock = new object();
         public static readonly Dictionary<int, TcpClient> list_clients = new Dictionary<int, TcpClient>();
+        public static string ClientConnected = usersend.USERNAME.Text + " " + "Connected";
 
 
 
@@ -59,7 +60,6 @@ namespace ChatApplicationLearningSocket
                 Task.Delay(1500);
             }
             admin.RealtimeChat.Text += ("Connected To Server" + "\n ");
-            broadcast(usersend.USERNAME.Text, " " + "Connected");
             Console.Beep();
             //*****
             ns = client.GetStream();
@@ -108,6 +108,33 @@ namespace ChatApplicationLearningSocket
             {
                 admin.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Red Point");
             }
+        }
+
+        public static void handle_server(object o)
+        {
+            int id = (int)o;
+            TcpClient client;
+
+            lock (_lock) client = list_clients[id];
+
+            while (true)
+            {
+                NetworkStream stream = client.GetStream();
+                byte[] buffer = new byte[1024];
+                int byte_count = stream.Read(buffer, 0, buffer.Length);
+
+                if (byte_count == 0)
+                {
+                    break;
+                }
+
+                string data = Encoding.ASCII.GetString(buffer, 0, byte_count);
+                broadcast("", data);
+            }
+
+            lock (_lock) list_clients.Remove(id);
+            client.Client.Shutdown(SocketShutdown.Both);
+            client.Close();
         }
 
         public static void broadcast(string username, string data)

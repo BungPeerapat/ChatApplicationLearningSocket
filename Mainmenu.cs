@@ -81,8 +81,19 @@ namespace ChatApplicationLearningSocket
 
         private void label1_Click(object sender, EventArgs e)
         {
-            Server.broadcast(USERNAME.Text, TextAdminSend.Text);
-            TextAdminSend.Text = "";
+            if (Permission.Text == "AdminCode")
+            {
+                Server.broadcast(USERNAME.Text, TextAdminSend.Text);
+                TextAdminSend.Text = "";
+            }
+        }
+
+        private static void ClientConnected()
+        {
+            if (Permission.Text == "Member")
+            {
+                Client.broadcast(USERNAME.Text, );
+            }
         }
 
         public static void recieveData()
