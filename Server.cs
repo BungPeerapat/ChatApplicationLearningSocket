@@ -17,8 +17,6 @@ namespace ChatApplicationLearningSocket
         public static int count;
         public static TcpListener ServerSocket;
         public int port;
-        public static MainMenu receiveconnected;
-        private static Thread thread;
 
         public static void Start()
         {

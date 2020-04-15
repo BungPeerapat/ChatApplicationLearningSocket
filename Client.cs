@@ -15,17 +15,15 @@ namespace ChatApplicationLearningSocket
     {
         public static NetworkStream ns;
         public static TcpClient client;
+        public static MainMenu UpdateRealtimechat;
         public static Thread thread;
         public static MainMenu admin;
-        public static MainMenu usersend;
         public static IPAddress ip;
         public static int port;
-        public static readonly object _lock = new object();
-        public static readonly Dictionary<int, TcpClient> list_clients = new Dictionary<int, TcpClient>();
 
 
 
-        public static async void Start()
+        public static void Start()
         {
             IPAddress ip = IPAddress.Parse("127.0.0.1");
             int port = 1443;
@@ -41,7 +39,14 @@ namespace ChatApplicationLearningSocket
             //*****
             if (!client.Connected)
             {
-                admin.RealtimeChat.Text += "Loading..." + " \n ";
+                try
+                {
+                    UpdateRealtimechat.RealtimeChat.Text = "Loading..." + " \n ";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
                 MessageBox.Show("Server Don't Online. and will reconnected now.");
 
             }
@@ -52,17 +57,17 @@ namespace ChatApplicationLearningSocket
                     client = new TcpClient();
                     client.Connect(ip, port);
                     Console.Beep();
-                    await Task.Delay(3000);
+                    Task.Delay(3000);
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
                 }
-                await Task.Delay(1500);
+                Task.Delay(1500);
             }
-            string textConnectedtoserver = usersend.USERNAME.Text + " : " + " Conneceted ";
+            string textConnectedtoserver = admin.USERNAME.Text + " : " + " Conneceted ";
             admin.RealtimeChat.Text += "Connected To Server" + " \r\n ";
-            await Task.Delay(1000);
+            Task.Delay(1000);
             byte[] bytesToSend = ASCIIEncoding.ASCII.GetBytes(textConnectedtoserver);
             Console.WriteLine(textConnectedtoserver);
             ns.Write(bytesToSend, 0, bytesToSend.Length);
@@ -74,7 +79,6 @@ namespace ChatApplicationLearningSocket
             thread.Start(client);
             Cheackstatusserver();
         }
-
         public static void sendData(String usernamesend, String bytesToSend)
         {
             byte[] buffer = Encoding.ASCII.GetBytes(bytesToSend);

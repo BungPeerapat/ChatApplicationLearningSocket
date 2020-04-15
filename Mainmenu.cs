@@ -60,8 +60,6 @@ namespace ChatApplicationLearningSocket
         public MainMenu() // Main
         {
             Client.admin = this;
-            Client.usersend = this;
-            Server.receiveconnected = this;
             InitializeComponent();
         }
 
@@ -181,16 +179,17 @@ namespace ChatApplicationLearningSocket
                 ASB.Visible = false;
                 TextAdminSend.Visible = false;
                 TextAdminSend.Enabled = false;
-                Thread StartClient1 = new Thread(StartClient);
-                StartClient1.Start();
+                Thread Startclient = new Thread(StartClient);
+                Startclient.Start();
+                RealtimeChat.Text = " Loading..... ";
             }
         }
 
         public void StartClient()
         {
             Client.Start();
+            Client.UpdateRealtimechat = this;
         }
-        string SendTextClient;
 
         private void ASB_Click(object sender, EventArgs e) //Admin SendText Button
         {
