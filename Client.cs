@@ -88,10 +88,10 @@ namespace ChatApplicationLearningSocket
         public static void disconnect()
         {
             client.Client.Shutdown(SocketShutdown.Send);
+            MainMenu.mainMenu.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Red Point");
             ns.Close();
             client.Close();
             MessageBox.Show("disconnect from server!!");
-            MainMenu.mainMenu.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
             //Console.ReadKey();
         }
 
