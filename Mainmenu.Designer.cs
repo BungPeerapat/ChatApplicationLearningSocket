@@ -1,6 +1,6 @@
 ﻿namespace ChatApplicationLearningSocket
 {
-    partial class ADMIN
+    partial class MainMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ADMIN));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             this.USERNAME = new System.Windows.Forms.TextBox();
             this.MenuZone = new System.Windows.Forms.Panel();
             this.Permission = new System.Windows.Forms.Label();
@@ -379,7 +379,7 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // ADMIN
+            // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -395,7 +395,7 @@
             this.Controls.Add(this.MenuZone);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "ADMIN";
+            this.Name = "MainMenu";
             this.Text = "USER : ADMIN";
             this.Load += new System.EventHandler(this.ADMINSIZE_Load);
             this.MenuZone.ResumeLayout(false);
@@ -418,7 +418,6 @@
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.TextBox RealtimeChat;
         private System.Windows.Forms.Label Permission;
         private System.Windows.Forms.Label ShowStatus;
         private System.Windows.Forms.Button ASB;
@@ -426,5 +425,6 @@
         private System.Windows.Forms.Button button1;
         public System.Windows.Forms.TextBox USERNAME;
         public System.Windows.Forms.PictureBox StatusServer;
+        public System.Windows.Forms.TextBox RealtimeChat;
     }
 }

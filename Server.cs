@@ -45,11 +45,11 @@ namespace ChatApplicationLearningSocket
                 int count = 1;
                 TcpClient client = ServerSocket.AcceptTcpClient();
                 lock (_lock) list_clients.Add(count, client);
-                Console.WriteLine("Someone connected!!");
 
                 Thread t = new Thread(handle_clients);
                 t.Start(count);
                 count++;
+                MessageBox.Show(" Client Connected Now : " + count);
             }
         }
 

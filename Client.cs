@@ -16,8 +16,8 @@ namespace ChatApplicationLearningSocket
         public static NetworkStream ns;
         public static TcpClient client;
         public static Thread thread;
-        public static ADMIN admin;
-        public static ADMIN usersend;
+        public static MainMenu admin;
+        public static MainMenu usersend;
         public static IPAddress ip;
         public static int port;
 
@@ -53,7 +53,7 @@ namespace ChatApplicationLearningSocket
                 }
                 Task.Delay(1500);
             }
-            Server.broadcast(admin.USERNAME.Text, " " + "Connected");
+            admin.RealtimeChat.Text += (admin.RealtimeChat.Text, " " + "Connected" + "\n ");
             Console.Beep();
             //*****
             ns = client.GetStream();

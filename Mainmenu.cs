@@ -18,7 +18,7 @@ using Microsoft.Owin.BuilderProperties;
 
 namespace ChatApplicationLearningSocket
 {
-    public partial class ADMIN : Form
+    public partial class MainMenu : Form
     {
         public string CO = "Close"; //เปิดปิด Menu
         public string Namesend; //ส่งชื่อ
@@ -51,7 +51,7 @@ namespace ChatApplicationLearningSocket
             }
         }
 
-        public ADMIN() // Main
+        public MainMenu() // Main
         {
             Client.admin = this;
             Client.usersend = this;
