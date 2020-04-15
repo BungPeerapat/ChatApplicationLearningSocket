@@ -185,7 +185,8 @@ namespace ChatApplicationLearningSocket
         {
             if (TextAdminSend.Text != null && !string.IsNullOrWhiteSpace(TextAdminSend.Text))
             {
-                Server.broadcast(USERNAME.Text, TextAdminSend.Text);
+                Server.broadcast(USERNAME.Text," " + TextAdminSend.Text);
+                TextAdminSend.Text = null;
             }
         }
 
