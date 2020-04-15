@@ -62,6 +62,7 @@ namespace ChatApplicationLearningSocket
             //*****
             if (client.Connected)
             {
+                MessageBox.Show("Connected");
                 MainMenu.Cheackstatusserver = "on";
             }
             Thread clientReceive = new Thread(o => ReceiveData((TcpClient)o));

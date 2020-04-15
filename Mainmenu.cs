@@ -198,23 +198,29 @@ namespace ChatApplicationLearningSocket
                 Thread Startclient = new Thread(StartClient);
                 Startclient.Start();
                 RealtimeChat.Text = " Loading..... ";
-                Thread cheackstatusserver = new Thread(CheackstatusserverClient);
-                cheackstatusserver.Start();
             }
-
+            Thread cheackstatusserver = new Thread(CheackstatusserverClient);
+            cheackstatusserver.Start();
         }
         public static void CheackstatusserverClient()
         {
-            if (Cheackstatusserver == "on")
+            try
             {
-                MainMenu.mainMenu.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
+                if (MainMenu.Cheackstatusserver == "on")
+                {
+                    MainMenu.mainMenu.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
+                }
+                else
+                {
+                    MainMenu.mainMenu.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Red Point");
+                }
+                Task.Delay(100000);
             }
-            else
+            catch (Exception ex)
             {
-                MainMenu.mainMenu.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Red Point");
+                Console.WriteLine(ex.Message);
             }
         }
-
         public void StartClient()
         {
             Client.Start();
