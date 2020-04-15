@@ -13,7 +13,6 @@ namespace ChatApplicationLearningSocket
 {
     internal class Server
     {
-        public static MainMenu Cheackstatusserver;
         public static readonly object _lock = new object();
         public static readonly Dictionary<int, TcpClient> list_clients = new Dictionary<int, TcpClient>();
         public static readonly Dictionary<int, String> list_clients_name = new Dictionary<int, String>();

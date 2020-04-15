@@ -198,23 +198,9 @@ namespace ChatApplicationLearningSocket
                 TextAdminSend.Enabled = false;
                 Thread Startclient = new Thread(StartClient);
                 Startclient.Start();
-                RealtimeChat.Text = " Loading..... ";
             }
         }
 
-        public static void Connectedtoservertext()
-        {
-            while (true)
-            {
-                if (MainMenu.mainMenu.Permission.Text == "Member")
-                {
-                    if (MainMenu.mainMenu.ConnectedtoserverText == 1)
-                    {
-                        MainMenu.mainMenu.RealtimeChat.Text = "Connected";
-                    }
-                }
-            }
-        }
         public void StartClient()
         {
             Client.Start();
