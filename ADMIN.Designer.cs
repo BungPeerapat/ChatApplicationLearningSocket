@@ -80,7 +80,7 @@
             this.MenuZone.Controls.Add(this.USERNAME);
             this.MenuZone.Location = new System.Drawing.Point(0, 0);
             this.MenuZone.Name = "MenuZone";
-            this.MenuZone.Size = new System.Drawing.Size(81, 603);
+            this.MenuZone.Size = new System.Drawing.Size(80, 603);
             this.MenuZone.TabIndex = 2;
             // 
             // Permission

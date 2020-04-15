@@ -57,6 +57,12 @@ namespace ChatApplicationLearningSocket
             InitializeComponent();
         }
 
+        public string usernamesend
+        {
+            get { return USERNAME.Text; }
+            set { USERNAME.Text = value; }
+        }
+
         //Create Client ============
 
         public void MultiUser2(object connection)

@@ -17,8 +17,11 @@ namespace ChatApplicationLearningSocket
         public static TcpClient client;
         public static Thread thread;
         public static ADMIN admin;
+        public static ADMIN username;
         public static IPAddress ip;
         public static int port;
+
+
 
         public static void Start()
         {
@@ -50,7 +53,7 @@ namespace ChatApplicationLearningSocket
                 }
                 Task.Delay(1500);
             }
-            MessageBox.Show("หลุด While !client.Connected");
+            Server.broadcast(usernamesend.Text, " " + "Connected");
             Console.Beep();
             //*****
             ns = client.GetStream();
