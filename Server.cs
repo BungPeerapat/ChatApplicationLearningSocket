@@ -105,7 +105,7 @@ namespace ChatApplicationLearningSocket
             while ((byte_count = ns.Read(receivedBytes, 0, receivedBytes.Length)) > 0)
             {
                 //Console.Write(Encoding.ASCII.GetString(receivedBytes, 0, byte_count));
-                receiveconnected.updateChat(Encoding.ASCII.GetString(receivedBytes, 0, byte_count));
+                receiveconnected.updateChatClientConnected(Encoding.ASCII.GetString(receivedBytes, 0, byte_count));
             }
         }
     }
