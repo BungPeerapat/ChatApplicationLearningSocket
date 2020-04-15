@@ -104,7 +104,8 @@ namespace ChatApplicationLearningSocket
                 bunifuFlatButton4.Visible = true;
                 await Task.Delay(250);
                 CO = "Open";
-            }else if ( CO == "Open")
+            }
+            else if (CO == "Open")
             {
                 USERNAME.Visible = false;
                 chatzonebutton.Visible = false;
@@ -120,7 +121,7 @@ namespace ChatApplicationLearningSocket
 
         private void MenuOpen()
         {
-            while(MenuZone.Width <= 270)
+            while (MenuZone.Width <= 270)
             {
                 MenuZone.Width += 1;
                 Task.Delay(500);
@@ -128,8 +129,8 @@ namespace ChatApplicationLearningSocket
         }
         private void MenuClose()
         {
-                MenuZone.Width -= 210;
-                Task.Delay(500);
+            MenuZone.Width -= 210;
+            Task.Delay(500);
         }
 
         private void chatzonebutton_Click(object sender, EventArgs e)
@@ -186,7 +187,8 @@ namespace ChatApplicationLearningSocket
                 ASB.Visible = true;
                 TextAdminSend.Visible = true;
                 StartSeverAdmin();
-            }else if (Permission.Text == ("Member"))
+            }
+            else if (Permission.Text == ("Member"))
             {
                 MessageBox.Show("Member Permission");
                 this.Text = "USER : MEMBER";
@@ -196,22 +198,22 @@ namespace ChatApplicationLearningSocket
                 Thread Startclient = new Thread(StartClient);
                 Startclient.Start();
                 RealtimeChat.Text = " Loading..... ";
-                CheackstatusserverClient();
-
+                Thread cheackstatusserver = new Thread(CheackstatusserverClient);
+                cheackstatusserver.Start();
             }
-        }
 
-        public void CheackstatusserverClient()
+        }
+        public static void CheackstatusserverClient()
         {
-            while (true)
+            while (MainMenu.mainMenu != null)
             {
                 if (Cheackstatusserver == "on")
                 {
-                    StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
+                    MainMenu.mainMenu.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
                 }
                 else
                 {
-                    StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Red Point");
+                    MainMenu.mainMenu.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Red Point");
                 }
             }
         }
@@ -226,7 +228,7 @@ namespace ChatApplicationLearningSocket
         {
             if (TextAdminSend.Text != null && !string.IsNullOrWhiteSpace(TextAdminSend.Text))
             {
-                Server.broadcast(USERNAME.Text," " + TextAdminSend.Text);
+                Server.broadcast(USERNAME.Text, " " + TextAdminSend.Text);
                 TextAdminSend.Text = null;
             }
         }
