@@ -145,10 +145,6 @@ namespace ChatApplicationLearningSocket
             }
         }
 
-        private void updateClientList()
-        {
-            AddressFamily[] result = Server.list_clients.Values.Select(x => x.Client.AddressFamily).ToArray();
-        }
         private delegate void ChatDelegate(string msg);
 
         // Static method, call the non-static version if the form exist.
@@ -203,28 +199,28 @@ namespace ChatApplicationLearningSocket
                 Startclient.Start();
                 RealtimeChat.Text = " Loading..... ";
             }
-            Thread cheackstatusserver = new Thread(CheackstatusserverClient);
-            cheackstatusserver.Start();
+            //Thread cheackstatusserver = new Thread(CheackstatusserverClient);
+            //cheackstatusserver.Start();
         }
-        public static void CheackstatusserverClient()
-        {
-            try
-            {
-                if (MainMenu.Cheackstatusserver == 1)
-                {
-                    MainMenu.mainMenu.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
-                }
-                else
-                {
-                    MainMenu.mainMenu.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Red Point");
-                }
-                Task.Delay(100000);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-        }
+        //public static void CheackstatusserverClient()
+        //{
+        //    try
+        //    {
+        //        if (MainMenu.Cheackstatusserver == 1)
+        //        {
+        //            MainMenu.mainMenu.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
+        //        }
+        //        else
+        //        {
+        //            MainMenu.mainMenu.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Red Point");
+        //        }
+        //        Task.Delay(100000);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.WriteLine(ex.Message);
+        //    }
+        //}
         public void StartClient()
         {
             Client.Start();
@@ -235,15 +231,8 @@ namespace ChatApplicationLearningSocket
         {
             if (TextAdminSend.Text != null && !string.IsNullOrWhiteSpace(TextAdminSend.Text))
             {
-                if(Permission.Text == "AdminCode")
-                {
-                    Server.broadcast(USERNAME.Text, " " + TextAdminSend.Text);
-                    TextAdminSend.Text = null;
-                }
-                else
-                {
-                    Client.sendData(USERNAME.Text, " " + TextAdminSend.Text);
-                }
+                Server.broadcast(USERNAME.Text, " " + TextAdminSend.Text);
+                TextAdminSend.Text = null;
             }
         }
 

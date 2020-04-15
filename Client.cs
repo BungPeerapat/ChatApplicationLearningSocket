@@ -20,6 +20,7 @@ namespace ChatApplicationLearningSocket
         public static Thread thread;
         public static MainMenu admin;
         public static IPAddress ip;
+        public static string usernamesend = admin.USERNAME.Text;
         public static int port;
 
 
