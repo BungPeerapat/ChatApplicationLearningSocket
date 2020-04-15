@@ -27,7 +27,8 @@ namespace ChatApplicationLearningSocket
         {
             IPAddress ip = IPAddress.Parse("127.0.0.1");
             int port = 1443;
-            client = new TcpClient();
+            TcpClient client = new TcpClient();
+
             try
             {
                 client.Connect(ip, port);
@@ -39,14 +40,6 @@ namespace ChatApplicationLearningSocket
             //*****
             if (!client.Connected)
             {
-                try
-                {
-                    UpdateRealtimechat.RealtimeChat.Text = "Loading..." + " \n ";
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
                 MessageBox.Show("Server Don't Online. and will reconnected now.");
 
             }
@@ -65,25 +58,31 @@ namespace ChatApplicationLearningSocket
                 }
                 Task.Delay(1500);
             }
-            string textConnectedtoserver = admin.USERNAME.Text + " : " + " Conneceted ";
-            admin.RealtimeChat.Text += "Connected To Server" + " \r\n ";
+            ns = client.GetStream();
             Task.Delay(1000);
-            byte[] bytesToSend = ASCIIEncoding.ASCII.GetBytes(textConnectedtoserver);
-            Console.WriteLine(textConnectedtoserver);
+            byte[] bytesToSend = ASCIIEncoding.ASCII.GetBytes(admin.USERNAME.Text + " : " + " Conneceted ");
             ns.Write(bytesToSend, 0, bytesToSend.Length);
             MessageBox.Show("เข้าสู่ BytesToSend ไปแล้ว Edit2");
             Console.Beep();
             //*****
-            ns = client.GetStream();
-            thread = new Thread(o => ReceiveData((TcpClient)o));
-            thread.Start(client);
-            Cheackstatusserver();
+            Thread clientReceive = new Thread(o => ReceiveData((TcpClient)o));
+            clientReceive.Start();
+
+            if (client.Connected)
+            {
+                admin.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
+                admin.RealtimeChat.Text += "Connected To Server" + " \r\n ";
+            }
+            if (!client.Connected)
+            {
+                admin.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Red Point");
+                admin.RealtimeChat.Text += "Disconect from Server" + " \r\n ";
+            }
         }
         public static void sendData(String usernamesend, String bytesToSend)
         {
             byte[] buffer = Encoding.ASCII.GetBytes(bytesToSend);
             ns.Write(buffer, 0, buffer.Length);
-
         }
         public static void disconnect()
         {
@@ -104,20 +103,22 @@ namespace ChatApplicationLearningSocket
             while ((byte_count = ns.Read(receivedBytes, 0, receivedBytes.Length)) > 0)
             {
                 //Console.Write(Encoding.ASCII.GetString(receivedBytes, 0, byte_count));
-                admin.updateChat(Encoding.ASCII.GetString(receivedBytes, 0, byte_count));
+                admin.UpdateChat(Encoding.ASCII.GetString(receivedBytes, 0, byte_count));
+
             }
         }
 
         public static void Cheackstatusserver()
         {
-            if (Client.client.Connected)
+            if (client.Connected)
             {
                 admin.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
-                MessageBox.Show("Connected!");
+                admin.RealtimeChat.Text += "Connected To Server" + " \r\n ";
             }
-            if (!Client.client.Connected)
+            if (!client.Connected)
             {
                 admin.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Red Point");
+                admin.RealtimeChat.Text += "Disconect from Server" + " \r\n ";
             }
         }
     }

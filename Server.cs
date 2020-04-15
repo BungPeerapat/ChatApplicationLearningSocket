@@ -16,7 +16,8 @@ namespace ChatApplicationLearningSocket
         public static readonly Dictionary<int, TcpClient> list_clients = new Dictionary<int, TcpClient>();
         public static int count;
         public static TcpListener ServerSocket;
-        public int port;
+        public int Sport;
+        private static Thread thread;
 
         public static void Start()
         {

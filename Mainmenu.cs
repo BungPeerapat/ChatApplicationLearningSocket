@@ -32,7 +32,7 @@ namespace ChatApplicationLearningSocket
             Permission.Visible = false;
         }
 
-        public void updateChat(string TextAdminSend)
+        public void UpdateChat(string TextAdminSend)
         {
             RealtimeChat.Text += TextAdminSend;
         }
