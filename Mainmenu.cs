@@ -21,7 +21,7 @@ namespace ChatApplicationLearningSocket
     public partial class MainMenu : Form
     {
         public static MainMenu mainMenu = null;
-        public static MainMenu ClientconnectedText = null;
+        public static string ClientconnectedText = "on";
         public string CO = "Close"; //เปิดปิด Menu
         public string Namesend; //ส่งชื่อ
 
@@ -204,7 +204,19 @@ namespace ChatApplicationLearningSocket
                 Thread Startclient = new Thread(StartClient);
                 Startclient.Start();
                 RealtimeChat.Text = " Loading..... ";
+                Thread cheackstatusserver = new Thread(Cheackstatusserver);
+                cheackstatusserver.Start();
+
             }
+        }
+
+        public static void Cheackstatusserver() //Check Server Status for Client
+        {
+            while (Client.client.Connected)
+            {
+                MainMenu.mainMenu.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
+            }
+            MainMenu.mainMenu.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Red Point");
         }
 
         public void StartClient()

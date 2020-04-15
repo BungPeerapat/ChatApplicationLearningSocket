@@ -73,8 +73,6 @@ namespace ChatApplicationLearningSocket
             //    admin.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Red Point");
             //    admin.RealtimeChat.Text += "Disconect from Server" + " \r\n ";
             //}
-            Thread cheackstatusserver = new Thread(Cheackstatusserver);
-            cheackstatusserver.Start();
         }
         public static void sendData(String usernamesend, String bytesToSend)
         {
@@ -104,15 +102,6 @@ namespace ChatApplicationLearningSocket
                 MainMenu.UpdateRealtimeChat(Encoding.ASCII.GetString(receivedBytes, 0, byte_count));
 
             }
-        }
-
-        public static void Cheackstatusserver()
-        {
-            while (client.Connected)
-            {
-                admin.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
-            }
-            admin.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Red Point");
         }
     }
 }
