@@ -16,6 +16,7 @@ namespace ChatApplicationLearningSocket
         public static NetworkStream ns;
         public static TcpClient client;
         public static MainMenu UpdateRealtimechat;
+        public static MainMenu Cheackstatusserver;
         public static Thread thread;
         public static MainMenu admin;
         public static IPAddress ip;
@@ -59,6 +60,11 @@ namespace ChatApplicationLearningSocket
             //ns.Write(bytesToSend, 0, bytesToSend.Length);
             Console.Beep();
             //*****
+            if (client.Connected)
+            {
+                MessageBox.Show("Connected");
+                MainMenu.Cheackstatusserver = 1;
+            }
             Thread clientReceive = new Thread(o => ReceiveData((TcpClient)o));
             clientReceive.Start(client);
 
@@ -72,6 +78,12 @@ namespace ChatApplicationLearningSocket
             //    admin.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Red Point");
             //    admin.RealtimeChat.Text += "Disconect from Server" + " \r\n ";
             //}
+
+            MainMenu.mainMenu.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
+
+
+            //Thread cheackstatusserver = new Thread(ConnectedStatusclient);
+            //cheackstatusserver.Start();
         }
         public static void sendData(String usernamesend, String bytesToSend)
         {
@@ -103,18 +115,13 @@ namespace ChatApplicationLearningSocket
             }
         }
 
-        //public static void Cheackstatusserver()
-        //{
-        //    if (client.Connected)
-        //    {
-        //        admin.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
-        //        admin.RealtimeChat.Text += "Connected To Server" + " \r\n ";
-        //    }
-        //    if (!client.Connected)
-        //    {
-        //        admin.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Red Point");
-        //        admin.RealtimeChat.Text += "Disconect from Server" + " \r\n ";
-        //    }
-        //}
+        public static void ConnectedStatusclient()
+        {
+            while (client.Connected)
+            {
+                MainMenu.Cheackstatusserver = 1;
+            }
+            MainMenu.Cheackstatusserver = 0;
+        }
     }
 }

@@ -21,6 +21,7 @@ namespace ChatApplicationLearningSocket
     public partial class MainMenu : Form
     {
         public static MainMenu mainMenu = null;
+        public static int Cheackstatusserver;
         public string CO = "Close"; //เปิดปิด Menu
         public string Namesend; //ส่งชื่อ
 
@@ -103,7 +104,8 @@ namespace ChatApplicationLearningSocket
                 bunifuFlatButton4.Visible = true;
                 await Task.Delay(250);
                 CO = "Open";
-            }else if ( CO == "Open")
+            }
+            else if (CO == "Open")
             {
                 USERNAME.Visible = false;
                 chatzonebutton.Visible = false;
@@ -119,7 +121,7 @@ namespace ChatApplicationLearningSocket
 
         private void MenuOpen()
         {
-            while(MenuZone.Width <= 270)
+            while (MenuZone.Width <= 270)
             {
                 MenuZone.Width += 1;
                 Task.Delay(500);
@@ -127,8 +129,8 @@ namespace ChatApplicationLearningSocket
         }
         private void MenuClose()
         {
-                MenuZone.Width -= 210;
-                Task.Delay(500);
+            MenuZone.Width -= 210;
+            Task.Delay(500);
         }
 
         private void chatzonebutton_Click(object sender, EventArgs e)
@@ -189,7 +191,8 @@ namespace ChatApplicationLearningSocket
                 ASB.Visible = true;
                 TextAdminSend.Visible = true;
                 StartSeverAdmin();
-            }else if (Permission.Text == ("Member"))
+            }
+            else if (Permission.Text == ("Member"))
             {
                 MessageBox.Show("Member Permission");
                 this.Text = "USER : MEMBER";
@@ -200,8 +203,28 @@ namespace ChatApplicationLearningSocket
                 Startclient.Start();
                 RealtimeChat.Text = " Loading..... ";
             }
+            Thread cheackstatusserver = new Thread(CheackstatusserverClient);
+            cheackstatusserver.Start();
         }
-
+        public static void CheackstatusserverClient()
+        {
+            try
+            {
+                if (MainMenu.Cheackstatusserver == 1)
+                {
+                    MainMenu.mainMenu.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
+                }
+                else
+                {
+                    MainMenu.mainMenu.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Red Point");
+                }
+                Task.Delay(100000);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
         public void StartClient()
         {
             Client.Start();
@@ -212,6 +235,7 @@ namespace ChatApplicationLearningSocket
         {
             if (TextAdminSend.Text != null && !string.IsNullOrWhiteSpace(TextAdminSend.Text))
             {
+<<<<<<< HEAD
                 if(Permission.Text == "AdminCode")
                 {
                     Server.broadcast(USERNAME.Text, " " + TextAdminSend.Text);
@@ -221,6 +245,10 @@ namespace ChatApplicationLearningSocket
                 {
                     Client.sendData(USERNAME.Text, " " + TextAdminSend.Text);
                 }
+=======
+                Server.broadcast(USERNAME.Text, " " + TextAdminSend.Text);
+                TextAdminSend.Text = null;
+>>>>>>> feature
             }
         }
 

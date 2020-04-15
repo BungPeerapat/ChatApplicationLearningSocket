@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -12,6 +13,7 @@ namespace ChatApplicationLearningSocket
 {
     internal class Server
     {
+        public static MainMenu Cheackstatusserver;
         public static readonly object _lock = new object();
         public static readonly Dictionary<int, TcpClient> list_clients = new Dictionary<int, TcpClient>();
         public static readonly Dictionary<int, String> list_clients_name = new Dictionary<int, String>();
@@ -26,6 +28,7 @@ namespace ChatApplicationLearningSocket
             string IP = "127.0.0.1";
             TcpListener ServerSocket = new TcpListener(IPAddress.Parse(IP),port);
             ServerSocket.Start();
+            MainMenu.mainMenu.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
             while (true)
             {
                 int count = 1;
