@@ -14,6 +14,7 @@ namespace ChatApplicationLearningSocket
     {
         public static readonly object _lock = new object();
         public static readonly Dictionary<int, TcpClient> list_clients = new Dictionary<int, TcpClient>();
+        public static readonly Dictionary<int, String> list_clients_name = new Dictionary<int, String>();
         public static int count;
         public static TcpListener ServerSocket;
         public int Sport;
@@ -72,6 +73,11 @@ namespace ChatApplicationLearningSocket
                 }
 
                 string data = Encoding.ASCII.GetString(buffer, 0, byte_count);
+                String[] msg = data.Split(':');
+                if (msg[0] == "qweazsdf235dfgaer4_username") // qweazsdf235dfgaer4_username:Bung
+                {
+                    list_clients_name[id] = msg[1];
+                }
                 broadcast("",data);
             }
 

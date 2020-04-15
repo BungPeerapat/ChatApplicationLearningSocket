@@ -75,8 +75,8 @@ namespace ChatApplicationLearningSocket
         }
         public static void sendData(String usernamesend, String bytesToSend)
         {
-            byte[] buffer = Encoding.ASCII.GetBytes(bytesToSend);
-            ns.Write(buffer, 0, buffer.Length);//
+            byte[] buffer = Encoding.ASCII.GetBytes(usernamesend + " : " + bytesToSend);
+            ns.Write(buffer, 0, buffer.Length);
         }
         public static void disconnect()
         {
