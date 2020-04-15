@@ -23,7 +23,7 @@ namespace ChatApplicationLearningSocket
         public static void Start()
         {
             IPAddress ip = IPAddress.Parse("127.0.0.1");
-            int port = 1433;
+            int port = 1443;
             client = new TcpClient();
             try
             {
@@ -50,17 +50,18 @@ namespace ChatApplicationLearningSocket
                 }
                 Task.Delay(1500);
             }
+            MessageBox.Show("หลุด While !client.Connected");
             Console.Beep();
             //*****
             ns = client.GetStream();
             thread = new Thread(o => ReceiveData((TcpClient)o));
             thread.Start(client);
+            Cheackstatusserver();
         }
 
-        public static void sendData(String username, String msg)
+        public static void sendData(String username, String TextAdminSend)
         {
-            string s;
-            byte[] buffer = Encoding.ASCII.GetBytes(msg);
+            byte[] buffer = Encoding.ASCII.GetBytes(TextAdminSend);
             ns.Write(buffer, 0, buffer.Length);
 
         }

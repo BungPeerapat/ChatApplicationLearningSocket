@@ -31,9 +31,9 @@ namespace ChatApplicationLearningSocket
             Permission.Visible = false;
         }
 
-        public void updateChat(string msg)
+        public void updateChat(string TextAdminSend)
         {
-            RealtimeChat.Text += msg;
+            RealtimeChat.Text += TextAdminSend;
         }
 
         public void StartSeverAdmin()
@@ -183,7 +183,7 @@ namespace ChatApplicationLearningSocket
 
         private void ASB_Click(object sender, EventArgs e) //Admin SendText Button
         {
-            Server.broadcast(USERNAME.Text,"Hello Client");
+            Server.broadcast(USERNAME.Text,TextAdminSend.Text);
         }
 
         private void button1_Click(object sender, EventArgs e)
