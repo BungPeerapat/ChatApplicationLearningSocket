@@ -21,7 +21,7 @@ namespace ChatApplicationLearningSocket
     public partial class MainMenu : Form
     {
         public static MainMenu mainMenu = null;
-        public static string ClientconnectedText;
+        public static string Cheackstatusserver;
         public string CO = "Close"; //เปิดปิด Menu
         public string Namesend; //ส่งชื่อ
 
@@ -146,21 +146,6 @@ namespace ChatApplicationLearningSocket
 
         private delegate void ChatDelegate(string msg);
 
-        public void ConnectedTextclient()
-        {
-            if (ClientconnectedText != null)
-            {
-                
-            }else if (ClientconnectedText == "on")
-            {
-                this.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
-            }
-            else
-            {
-                this.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Red Point");
-            }
-        }
-
         // Static method, call the non-static version if the form exist.
         public static void UpdateRealtimeChat(string msg)
         {
@@ -211,19 +196,24 @@ namespace ChatApplicationLearningSocket
                 Thread Startclient = new Thread(StartClient);
                 Startclient.Start();
                 RealtimeChat.Text = " Loading..... ";
-                Thread cheackstatusserver = new Thread(Cheackstatusserver);
-                cheackstatusserver.Start();
+                CheackstatusserverClient();
 
             }
         }
 
-        public static void Cheackstatusserver() //Check Server Status for Client
+        public void CheackstatusserverClient()
         {
-            while (Client.client.Connected)
+            while (true)
             {
-                MainMenu.mainMenu.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
+                if (Cheackstatusserver == "on")
+                {
+                    StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
+                }
+                else
+                {
+                    StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Red Point");
+                }
             }
-            MainMenu.mainMenu.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Red Point");
         }
 
         public void StartClient()

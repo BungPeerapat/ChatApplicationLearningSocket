@@ -16,7 +16,7 @@ namespace ChatApplicationLearningSocket
         public static NetworkStream ns;
         public static TcpClient client;
         public static MainMenu UpdateRealtimechat;
-        public static MainMenu ClientconnectedText;
+        public static MainMenu Cheackstatusserver;
         public static Thread thread;
         public static MainMenu admin;
         public static IPAddress ip;
@@ -73,7 +73,7 @@ namespace ChatApplicationLearningSocket
             //    admin.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Red Point");
             //    admin.RealtimeChat.Text += "Disconect from Server" + " \r\n ";
             //}
-            Thread cheackstatusserver = new Thread(Cheackstatusserver);
+            Thread cheackstatusserver = new Thread(ConnectedStatusclient);
             cheackstatusserver.Start();
         }
         public static void sendData(String usernamesend, String bytesToSend)
@@ -106,13 +106,13 @@ namespace ChatApplicationLearningSocket
             }
         }
 
-        public static void Cheackstatusserver()
+        public static void ConnectedStatusclient()
         {
             while (client.Connected)
             {
-                MainMenu.ClientconnectedText = "on";
+                MainMenu.Cheackstatusserver = "on";
             }
-            MainMenu.ClientconnectedText = "off";
+            MainMenu.Cheackstatusserver = "off";
         }
     }
 }
