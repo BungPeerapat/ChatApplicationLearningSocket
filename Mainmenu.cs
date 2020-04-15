@@ -150,7 +150,14 @@ namespace ChatApplicationLearningSocket
         {
             if (ClientconnectedText != null)
             {
-                mainMenu.RealtimeChat.Text = USERNAME.Text + " : Connected ";
+                
+            }else if (ClientconnectedText == "on")
+            {
+                this.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
+            }
+            else
+            {
+                this.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Red Point");
             }
         }
 
