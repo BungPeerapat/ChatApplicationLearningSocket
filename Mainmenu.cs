@@ -21,6 +21,7 @@ namespace ChatApplicationLearningSocket
     public partial class MainMenu : Form
     {
         public static MainMenu mainMenu = null;
+        public static MainMenu ClientconnectedText = null;
         public string CO = "Close"; //เปิดปิด Menu
         public string Namesend; //ส่งชื่อ
 
@@ -144,6 +145,14 @@ namespace ChatApplicationLearningSocket
         }
 
         private delegate void ChatDelegate(string msg);
+
+        public void ConnectedTextclient()
+        {
+            if (ClientconnectedText != null)
+            {
+                mainMenu.RealtimeChat.Text = USERNAME.Text + " : Connected ";
+            }
+        }
 
         // Static method, call the non-static version if the form exist.
         public static void UpdateRealtimeChat(string msg)
