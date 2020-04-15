@@ -21,7 +21,7 @@ namespace ChatApplicationLearningSocket
     public partial class MainMenu : Form
     {
         public static MainMenu mainMenu = null;
-        public static string ClientconnectedText = "on";
+        public static string ClientconnectedText;
         public string CO = "Close"; //เปิดปิด Menu
         public string Namesend; //ส่งชื่อ
 
