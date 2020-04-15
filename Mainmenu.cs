@@ -24,6 +24,7 @@ namespace ChatApplicationLearningSocket
         public string Namesend; //ส่งชื่อ
 
         public Socket Connect { get; private set; }
+        public string ReceiveData { get; private set; }
 
         public void PM(string CodeSend) //ส่ง Code
         {
@@ -36,9 +37,9 @@ namespace ChatApplicationLearningSocket
             RealtimeChat.Text += TextAdminSend;
         }
 
-        public void updateChatClientConnected (string broadcast)
+        public void UpdateChatClientConnected (string brocast)//Test
         {
-            RealtimeChat.Text += broadcast;
+            Console.WriteLine("Received : " + ReceiveData);
         }
 
         public void StartSeverAdmin()
@@ -60,6 +61,7 @@ namespace ChatApplicationLearningSocket
         {
             Client.admin = this;
             Client.usersend = this;
+            Server.receiveconnected = this;
             InitializeComponent();
         }
 
@@ -84,15 +86,8 @@ namespace ChatApplicationLearningSocket
             if (Permission.Text == "AdminCode")
             {
                 Server.broadcast(USERNAME.Text, TextAdminSend.Text);
+                RealtimeChat.Text += TextAdminSend.Text + "\n";
                 TextAdminSend.Text = "";
-            }
-        }
-
-        private static void ClientConnected()
-        {
-            if (Permission.Text == "Member")
-            {
-                Client.broadcast(USERNAME.Text, );
             }
         }
 
@@ -186,15 +181,14 @@ namespace ChatApplicationLearningSocket
                 ASB.Visible = false;
                 TextAdminSend.Visible = false;
                 TextAdminSend.Enabled = false;
-                Thread scn = new Thread(StartClient);
-                scn.Start();
+                Thread StartClient1 = new Thread(StartClient);
+                StartClient1.Start();
             }
         }
 
         public void StartClient()
         {
             Client.Start();
-            
         }
         string SendTextClient;
 

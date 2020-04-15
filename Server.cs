@@ -18,7 +18,7 @@ namespace ChatApplicationLearningSocket
         public static TcpListener ServerSocket;
         public int port;
         public static MainMenu receiveconnected;
-
+        private static Thread thread;
 
         public static void Start()
         {
@@ -93,19 +93,6 @@ namespace ChatApplicationLearningSocket
 
                     stream.Write(buffer, 0, buffer.Length);
                 }
-            }
-        }
-
-        public static void ReceiveData(TcpClient ServerSocket)
-        {
-            NetworkStream ns = ServerSocket.GetStream();
-            byte[] receivedBytes = new byte[1024];
-            int byte_count;
-
-            while ((byte_count = ns.Read(receivedBytes, 0, receivedBytes.Length)) > 0)
-            {
-                //Console.Write(Encoding.ASCII.GetString(receivedBytes, 0, byte_count));
-                receiveconnected.updateChatClientConnected(Encoding.ASCII.GetString(receivedBytes, 0, byte_count));
             }
         }
     }

@@ -22,11 +22,10 @@ namespace ChatApplicationLearningSocket
         public static int port;
         public static readonly object _lock = new object();
         public static readonly Dictionary<int, TcpClient> list_clients = new Dictionary<int, TcpClient>();
-        public static string ClientConnected = usersend.USERNAME.Text + " " + "Connected";
 
 
 
-        public static void Start()
+        public static async void Start()
         {
             IPAddress ip = IPAddress.Parse("127.0.0.1");
             int port = 1443;
@@ -42,7 +41,9 @@ namespace ChatApplicationLearningSocket
             //*****
             if (!client.Connected)
             {
+                admin.RealtimeChat.Text += "Loading..." + " \n ";
                 MessageBox.Show("Server Don't Online. and will reconnected now.");
+
             }
             while (!client.Connected)
             {
@@ -51,15 +52,21 @@ namespace ChatApplicationLearningSocket
                     client = new TcpClient();
                     client.Connect(ip, port);
                     Console.Beep();
-                    Task.Delay(3000);
+                    await Task.Delay(3000);
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
                 }
-                Task.Delay(1500);
+                await Task.Delay(1500);
             }
-            admin.RealtimeChat.Text += ("Connected To Server" + "\n ");
+            string textConnectedtoserver = usersend.USERNAME.Text + " : " + " Conneceted ";
+            admin.RealtimeChat.Text += "Connected To Server" + " \r\n ";
+            await Task.Delay(1000);
+            byte[] bytesToSend = ASCIIEncoding.ASCII.GetBytes(textConnectedtoserver);
+            Console.WriteLine(textConnectedtoserver);
+            ns.Write(bytesToSend, 0, bytesToSend.Length);
+            MessageBox.Show("เข้าสู่ BytesToSend ไปแล้ว Edit2");
             Console.Beep();
             //*****
             ns = client.GetStream();
@@ -68,9 +75,9 @@ namespace ChatApplicationLearningSocket
             Cheackstatusserver();
         }
 
-        public static void sendData(String usernamesend, String broadcast)
+        public static void sendData(String usernamesend, String bytesToSend)
         {
-            byte[] buffer = Encoding.ASCII.GetBytes(broadcast);
+            byte[] buffer = Encoding.ASCII.GetBytes(bytesToSend);
             ns.Write(buffer, 0, buffer.Length);
 
         }
@@ -109,49 +116,5 @@ namespace ChatApplicationLearningSocket
                 admin.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Red Point");
             }
         }
-
-        public static void handle_server(object o)
-        {
-            int id = (int)o;
-            TcpClient client;
-
-            lock (_lock) client = list_clients[id];
-
-            while (true)
-            {
-                NetworkStream stream = client.GetStream();
-                byte[] buffer = new byte[1024];
-                int byte_count = stream.Read(buffer, 0, buffer.Length);
-
-                if (byte_count == 0)
-                {
-                    break;
-                }
-
-                string data = Encoding.ASCII.GetString(buffer, 0, byte_count);
-                broadcast("", data);
-            }
-
-            lock (_lock) list_clients.Remove(id);
-            client.Client.Shutdown(SocketShutdown.Both);
-            client.Close();
-        }
-
-        public static void broadcast(string username, string data)
-        {
-            byte[] buffer = Encoding.ASCII.GetBytes(username + ":" + data + Environment.NewLine);
-
-            lock (_lock)
-            {
-                foreach (TcpClient c in list_clients.Values)
-                {
-                    NetworkStream stream = c.GetStream();
-
-                    stream.Write(buffer, 0, buffer.Length);
-                }
-            }
-        }
-
-
     }
 }
