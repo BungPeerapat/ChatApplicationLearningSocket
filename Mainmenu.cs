@@ -235,7 +235,6 @@ namespace ChatApplicationLearningSocket
         {
             if (TextAdminSend.Text != null && !string.IsNullOrWhiteSpace(TextAdminSend.Text))
             {
-<<<<<<< HEAD
                 if(Permission.Text == "AdminCode")
                 {
                     Server.broadcast(USERNAME.Text, " " + TextAdminSend.Text);
@@ -245,10 +244,6 @@ namespace ChatApplicationLearningSocket
                 {
                     Client.sendData(USERNAME.Text, " " + TextAdminSend.Text);
                 }
-=======
-                Server.broadcast(USERNAME.Text, " " + TextAdminSend.Text);
-                TextAdminSend.Text = null;
->>>>>>> feature
             }
         }
 

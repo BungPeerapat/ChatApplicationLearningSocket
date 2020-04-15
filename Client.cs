@@ -52,19 +52,14 @@ namespace ChatApplicationLearningSocket
                 {
                     Console.WriteLine(ex.Message);
                 }
-                Task.Delay(1500);
             }
             ns = client.GetStream();
-            Task.Delay(1000);
             //byte[] bytesToSend = ASCIIEncoding.ASCII.GetBytes(admin.USERNAME.Text + " : " + " Conneceted ");
             //ns.Write(bytesToSend, 0, bytesToSend.Length);
             Console.Beep();
             //*****
-            if (client.Connected)
-            {
-                MessageBox.Show("Connected");
-                MainMenu.Cheackstatusserver = 1;
-            }
+            MessageBox.Show("Connected");
+            MainMenu.mainMenu.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
             Thread clientReceive = new Thread(o => ReceiveData((TcpClient)o));
             clientReceive.Start(client);
 
@@ -93,10 +88,10 @@ namespace ChatApplicationLearningSocket
         public static void disconnect()
         {
             client.Client.Shutdown(SocketShutdown.Send);
-            thread.Join();
             ns.Close();
             client.Close();
             MessageBox.Show("disconnect from server!!");
+            MainMenu.mainMenu.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
             //Console.ReadKey();
         }
 
@@ -107,12 +102,21 @@ namespace ChatApplicationLearningSocket
             byte[] receivedBytes = new byte[1024];
             int byte_count;
 
-            while ((byte_count = ns.Read(receivedBytes, 0, receivedBytes.Length)) > 0)
+            try
             {
-                //Console.Write(Encoding.ASCII.GetString(receivedBytes, 0, byte_count));
-                MainMenu.UpdateRealtimeChat(Encoding.ASCII.GetString(receivedBytes, 0, byte_count));
-
+                while ((byte_count = ns.Read(receivedBytes, 0, receivedBytes.Length)) > 0)
+                {
+                    //Console.Write(Encoding.ASCII.GetString(receivedBytes, 0, byte_count));
+                    MainMenu.UpdateRealtimeChat(Encoding.ASCII.GetString(receivedBytes, 0, byte_count));
+                }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                disconnect();
+                Start();
+            }
+
         }
 
         public static void ConnectedStatusclient()
