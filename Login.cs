@@ -46,10 +46,10 @@ namespace ChatApplicationLearningSocket
                 PASSWORDTEXT.ForeColor = Color.Green;
                 Console.Beep();
                 MessageBox.Show("Welcome Member");
-                MainMenu ADMINSIZEOPEN = new MainMenu();
+                MainMenu MainMenu = new MainMenu();
                 CodeSend = USERNAMETEXT.Text;
-                ADMINSIZEOPEN.PM(CodeSend);
-                ADMINSIZEOPEN.Show();
+                MainMenu.PM(CodeSend);
+                MainMenu.Show();
                 this.Hide();
             }
         }
