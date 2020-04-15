@@ -54,13 +54,8 @@ namespace ChatApplicationLearningSocket
         public ADMIN() // Main
         {
             Client.admin = this;
+            Client.usersend = this;
             InitializeComponent();
-        }
-
-        public string usernamesend
-        {
-            get { return USERNAME.Text; }
-            set { USERNAME.Text = value; }
         }
 
         //Create Client ============

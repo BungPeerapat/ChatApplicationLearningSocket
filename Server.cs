@@ -53,6 +53,11 @@ namespace ChatApplicationLearningSocket
             }
         }
 
+        internal static void broadcast(object text, string v)
+        {
+            throw new NotImplementedException();
+        }
+
         public static void handle_clients(object o)
         {
             int id = (int)o;
