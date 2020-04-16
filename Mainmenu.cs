@@ -189,6 +189,8 @@ namespace ChatApplicationLearningSocket
                 this.Text = "USER : ADMIN";
                 ASB.Visible = true;
                 TextAdminSend.Visible = true;
+                Coronamap.Navigate("https://www.youtube.com/watch?v=N5HxbW_OcJI&list=RDIFd-5K7WWEk&index=9");
+                Coronamap.Size = Coronamap.Document.Body.ScrollRectangle.Size;
                 StartSeverAdmin();
             }
             else if (Permission.Text == ("Member"))
@@ -225,6 +227,11 @@ namespace ChatApplicationLearningSocket
             System.Windows.Forms.Application.Exit();
             //System.Environment.Exit(0);
             this.Close();
+        }
+
+        private void Coronamap_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+
         }
     }
 }

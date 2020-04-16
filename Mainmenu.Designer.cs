@@ -310,8 +310,9 @@
             this.Coronamap.Name = "Coronamap";
             this.Coronamap.Size = new System.Drawing.Size(304, 218);
             this.Coronamap.TabIndex = 4;
-            this.Coronamap.Url = new System.Uri("https://coronavirus.jhu.edu/map.html", System.UriKind.Absolute);
+            this.Coronamap.Url = new System.Uri("", System.UriKind.Relative);
             this.Coronamap.Visible = false;
+            this.Coronamap.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.Coronamap_DocumentCompleted);
             // 
             // MainMenu
             // 
@@ -358,6 +359,6 @@
         public System.Windows.Forms.TextBox USERNAME;
         public System.Windows.Forms.PictureBox StatusServer;
         public System.Windows.Forms.TextBox RealtimeChat;
-        private System.Windows.Forms.WebBrowser Coronamap;
+        public System.Windows.Forms.WebBrowser Coronamap;
     }
 }
