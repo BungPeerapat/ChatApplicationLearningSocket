@@ -27,6 +27,7 @@ namespace ChatApplicationLearningSocket
 
         public static void Start()
         {
+            MessageBox.Show("HelloWorld : 2 Count");
             IPAddress ip = IPAddress.Parse("127.0.0.1");
             int port = 1443;
             TcpClient client = new TcpClient();
@@ -93,9 +94,10 @@ namespace ChatApplicationLearningSocket
         {
             client.Client.Shutdown(SocketShutdown.Send);
             MainMenu.mainMenu.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Red Point");
+            MessageBox.Show("Server Down.");
             ns.Close();
             client.Close();
-            MessageBox.Show("Server Down.");
+            Start();
             //Console.ReadKey();
         }
 
@@ -103,17 +105,21 @@ namespace ChatApplicationLearningSocket
         {
             while (true)
             {
-                NetworkStream ns = client.GetStream();
-                Client.client = client;
-                byte[] receivedBytes = new byte[1024];
-                int byte_count = ns.Read(receivedBytes, 0, receivedBytes.Length);
 
                 try
                 {
+                    NetworkStream ns = client.GetStream();
+                    Client.client = client;
+                    byte[] receivedBytes = new byte[1024];
+                    int byte_count = ns.Read(receivedBytes, 0, receivedBytes.Length);
                     while ((byte_count) > 0)
                     {
                         //Console.Write(Encoding.ASCII.GetString(receivedBytes, 0, byte_count));
                         MainMenu.UpdateRealtimeChat(Encoding.ASCII.GetString(receivedBytes, 0, byte_count));
+                        break;
+                    }
+                    if ((byte_count) == 0)
+                    {
                         break;
                     }
                 }
@@ -121,7 +127,6 @@ namespace ChatApplicationLearningSocket
                 {
                     Console.WriteLine(ex.Message);
                     disconnect();
-                    Start();
                 }
             }
         }
