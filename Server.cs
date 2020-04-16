@@ -76,10 +76,9 @@ namespace ChatApplicationLearningSocket
                     {
                         //Console.Write(Encoding.ASCII.GetString(receivedBytes, 0, byte_count));
                         MainMenu.UpdateRealtimeChat(Encoding.ASCII.GetString(buffer, 0, byte_count));
-                        if (byte_count == 0)
-                        {
-                            break;
-                        }
+                        MessageBox.Show("Stop!");
+                        break;
+
                     }
                     if (byte_count == 0)
                     {

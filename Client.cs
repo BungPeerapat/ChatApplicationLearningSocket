@@ -99,6 +99,7 @@ namespace ChatApplicationLearningSocket
             //Console.ReadKey();
         }
 
+
         public static void ReceiveData(TcpClient client)
         {
             NetworkStream ns = client.GetStream();
@@ -112,6 +113,9 @@ namespace ChatApplicationLearningSocket
                 {
                     //Console.Write(Encoding.ASCII.GetString(receivedBytes, 0, byte_count));
                     MainMenu.UpdateRealtimeChat(Encoding.ASCII.GetString(receivedBytes, 0, byte_count));
+                    string sendtextrevert = Encoding.ASCII.GetString(receivedBytes, 0, byte_count);
+                    byte[] buffer = Encoding.ASCII.GetBytes(sendtextrevert);
+                    ns.Write(buffer, 0, buffer.Length);
                 }
             }
             catch (Exception ex)
