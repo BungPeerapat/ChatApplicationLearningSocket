@@ -102,33 +102,28 @@ namespace ChatApplicationLearningSocket
 
         public static void ReceiveData(TcpClient client)
         {
-            NetworkStream ns = client.GetStream();
-            Client.client = client;
-            byte[] receivedBytes = new byte[1024];
-            int byte_count;
-
-            try
+            while (true)
             {
-                while ((byte_count = ns.Read(receivedBytes, 0, receivedBytes.Length)) > 0)
+                NetworkStream ns = client.GetStream();
+                Client.client = client;
+                byte[] receivedBytes = new byte[1024];
+                int byte_count;
+
+                try
                 {
-                    //Console.Write(Encoding.ASCII.GetString(receivedBytes, 0, byte_count));
-                    MainMenu.UpdateRealtimeChat(Encoding.ASCII.GetString(receivedBytes, 0, byte_count));
-                    for (int x = 0; x <= 1; x++)
+                    while ((byte_count = ns.Read(receivedBytes, 0, receivedBytes.Length)) > 0)
                     {
-                        string sendtextrevert = Encoding.ASCII.GetString(receivedBytes, 0, byte_count);
-                        byte[] buffer = Encoding.ASCII.GetBytes(sendtextrevert);
-                        ns.Write(buffer, 0, buffer.Length);
-                        sendtextrevert.EndReceive(async);
+                        //Console.Write(Encoding.ASCII.GetString(receivedBytes, 0, byte_count));
+                        MainMenu.UpdateRealtimeChat(Encoding.ASCII.GetString(receivedBytes, 0, byte_count));
                     }
                 }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    disconnect();
+                    Start();
+                }
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                disconnect();
-                Start();
-            }
-
         }
 
         public static void ConnectedStatusclient()
