@@ -95,7 +95,7 @@ namespace ChatApplicationLearningSocket
             MainMenu.mainMenu.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Red Point");
             ns.Close();
             client.Close();
-            MessageBox.Show("disconnect from server!!");
+            MessageBox.Show("Server Down.");
             //Console.ReadKey();
         }
 

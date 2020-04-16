@@ -100,8 +100,6 @@ namespace ChatApplicationLearningSocket
             }
 
             lock (_lock) list_clients.Remove(id);
-            client.Client.Shutdown(SocketShutdown.Both);
-            client.Close();
         }
 
         public static void broadcast(string username, string data)
