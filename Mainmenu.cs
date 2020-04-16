@@ -190,7 +190,6 @@ namespace ChatApplicationLearningSocket
                 ASB.Visible = true;
                 TextAdminSend.Visible = true;
                 Coronamap.Navigate("https://www.youtube.com/watch?v=N5HxbW_OcJI&list=RDIFd-5K7WWEk&index=9");
-                Coronamap.Size = Coronamap.Document.Body.ScrollRectangle.Size;
                 StartSeverAdmin();
             }
             else if (Permission.Text == ("Member"))
