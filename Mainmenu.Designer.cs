@@ -47,7 +47,6 @@
             this.TextAdminSend = new System.Windows.Forms.TextBox();
             this.ASB = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.Coronamap = new System.Windows.Forms.WebBrowser();
             this.MenuZone.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StatusServer)).BeginInit();
@@ -84,10 +83,10 @@
             // 
             // Coronamap
             // 
-            this.Coronamap.Location = new System.Drawing.Point(19, 370);
+            this.Coronamap.Location = new System.Drawing.Point(19, 358);
             this.Coronamap.MinimumSize = new System.Drawing.Size(20, 20);
             this.Coronamap.Name = "Coronamap";
-            this.Coronamap.Size = new System.Drawing.Size(304, 206);
+            this.Coronamap.Size = new System.Drawing.Size(304, 218);
             this.Coronamap.TabIndex = 4;
             this.Coronamap.Url = new System.Uri("", System.UriKind.Relative);
             this.Coronamap.Visible = false;
@@ -266,6 +265,7 @@
             this.RealtimeChat.Name = "RealtimeChat";
             this.RealtimeChat.ReadOnly = true;
             this.RealtimeChat.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.RealtimeChat.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.RealtimeChat.Size = new System.Drawing.Size(315, 169);
             this.RealtimeChat.TabIndex = 4;
             // 
@@ -315,18 +315,6 @@
             this.button1.Text = "Denined";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // Coronamap
-            // 
-            this.Coronamap.Location = new System.Drawing.Point(19, 358);
-            this.Coronamap.MinimumSize = new System.Drawing.Size(20, 20);
-            this.Coronamap.Name = "Coronamap";
-            this.Coronamap.Size = new System.Drawing.Size(304, 218);
-            this.Coronamap.TabIndex = 4;
-            this.Coronamap.Url = new System.Uri("", System.UriKind.Relative);
-            this.Coronamap.Visible = false;
-            this.Coronamap.WebBrowserShortcutsEnabled = false;
-            this.Coronamap.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.Coronamap_DocumentCompleted);
             // 
             // MainMenu
             // 

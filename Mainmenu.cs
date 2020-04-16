@@ -111,6 +111,7 @@ namespace ChatApplicationLearningSocket
                 bunifuFlatButton1.Visible = false;
                 bunifuFlatButton2.Visible = false;
                 Permission.Visible = false;
+                Coronamap.Visible = false;
                 MenuClose();
                 CO = "Close";
             }
