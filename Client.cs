@@ -99,7 +99,6 @@ namespace ChatApplicationLearningSocket
             //Console.ReadKey();
         }
 
-
         public static void ReceiveData(TcpClient client)
         {
             while (true)
@@ -107,14 +106,15 @@ namespace ChatApplicationLearningSocket
                 NetworkStream ns = client.GetStream();
                 Client.client = client;
                 byte[] receivedBytes = new byte[1024];
-                int byte_count;
+                int byte_count = ns.Read(receivedBytes, 0, receivedBytes.Length);
 
                 try
                 {
-                    while ((byte_count = ns.Read(receivedBytes, 0, receivedBytes.Length)) > 0)
+                    while ((byte_count) > 0)
                     {
                         //Console.Write(Encoding.ASCII.GetString(receivedBytes, 0, byte_count));
                         MainMenu.UpdateRealtimeChat(Encoding.ASCII.GetString(receivedBytes, 0, byte_count));
+                        break;
                     }
                 }
                 catch (Exception ex)
