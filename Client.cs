@@ -27,7 +27,6 @@ namespace ChatApplicationLearningSocket
 
         public static void Start()
         {
-            MessageBox.Show("HelloWorld : 2 Count");
             IPAddress ip = IPAddress.Parse("127.0.0.1");
             int port = 1443;
             TcpClient client = new TcpClient();
