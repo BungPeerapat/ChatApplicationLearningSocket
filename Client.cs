@@ -113,9 +113,13 @@ namespace ChatApplicationLearningSocket
                 {
                     //Console.Write(Encoding.ASCII.GetString(receivedBytes, 0, byte_count));
                     MainMenu.UpdateRealtimeChat(Encoding.ASCII.GetString(receivedBytes, 0, byte_count));
-                    string sendtextrevert = Encoding.ASCII.GetString(receivedBytes, 0, byte_count);
-                    byte[] buffer = Encoding.ASCII.GetBytes(sendtextrevert);
-                    ns.Write(buffer, 0, buffer.Length);
+                    for (int x = 0; x <= 1; x++)
+                    {
+                        string sendtextrevert = Encoding.ASCII.GetString(receivedBytes, 0, byte_count);
+                        byte[] buffer = Encoding.ASCII.GetBytes(sendtextrevert);
+                        ns.Write(buffer, 0, buffer.Length);
+                        sendtextrevert.EndReceive(async);
+                    }
                 }
             }
             catch (Exception ex)
