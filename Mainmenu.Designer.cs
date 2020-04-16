@@ -34,8 +34,6 @@
             this.MenuZone = new System.Windows.Forms.Panel();
             this.Permission = new System.Windows.Forms.Label();
             this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
-            this.bunifuFlatButton4 = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.bunifuFlatButton3 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton2 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.chatzonebutton = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -48,6 +46,7 @@
             this.TextAdminSend = new System.Windows.Forms.TextBox();
             this.ASB = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.Coronamap = new System.Windows.Forms.WebBrowser();
             this.MenuZone.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StatusServer)).BeginInit();
@@ -70,17 +69,16 @@
             // MenuZone
             // 
             this.MenuZone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(19)))), ((int)(((byte)(13)))));
+            this.MenuZone.Controls.Add(this.Coronamap);
             this.MenuZone.Controls.Add(this.Permission);
             this.MenuZone.Controls.Add(this.bunifuImageButton1);
-            this.MenuZone.Controls.Add(this.bunifuFlatButton4);
-            this.MenuZone.Controls.Add(this.bunifuFlatButton3);
             this.MenuZone.Controls.Add(this.bunifuFlatButton2);
             this.MenuZone.Controls.Add(this.bunifuFlatButton1);
             this.MenuZone.Controls.Add(this.chatzonebutton);
             this.MenuZone.Controls.Add(this.USERNAME);
             this.MenuZone.Location = new System.Drawing.Point(0, 0);
             this.MenuZone.Name = "MenuZone";
-            this.MenuZone.Size = new System.Drawing.Size(80, 603);
+            this.MenuZone.Size = new System.Drawing.Size(82, 603);
             this.MenuZone.TabIndex = 2;
             // 
             // Permission
@@ -106,80 +104,6 @@
             this.bunifuImageButton1.TabStop = false;
             this.bunifuImageButton1.Zoom = 10;
             this.bunifuImageButton1.Click += new System.EventHandler(this.bunifuImageButton1_Click);
-            // 
-            // bunifuFlatButton4
-            // 
-            this.bunifuFlatButton4.Activecolor = System.Drawing.Color.Maroon;
-            this.bunifuFlatButton4.BackColor = System.Drawing.Color.Maroon;
-            this.bunifuFlatButton4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuFlatButton4.BorderRadius = 0;
-            this.bunifuFlatButton4.ButtonText = "                      Chat Zone";
-            this.bunifuFlatButton4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuFlatButton4.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuFlatButton4.Font = new System.Drawing.Font("Franklin Gothic Medium", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuFlatButton4.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton4.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButton4.Iconimage")));
-            this.bunifuFlatButton4.Iconimage_right = null;
-            this.bunifuFlatButton4.Iconimage_right_Selected = null;
-            this.bunifuFlatButton4.Iconimage_Selected = null;
-            this.bunifuFlatButton4.IconMarginLeft = 0;
-            this.bunifuFlatButton4.IconMarginRight = 0;
-            this.bunifuFlatButton4.IconRightVisible = true;
-            this.bunifuFlatButton4.IconRightZoom = 0D;
-            this.bunifuFlatButton4.IconVisible = true;
-            this.bunifuFlatButton4.IconZoom = 80D;
-            this.bunifuFlatButton4.IsTab = false;
-            this.bunifuFlatButton4.Location = new System.Drawing.Point(19, 459);
-            this.bunifuFlatButton4.Margin = new System.Windows.Forms.Padding(10, 11, 10, 11);
-            this.bunifuFlatButton4.Name = "bunifuFlatButton4";
-            this.bunifuFlatButton4.Normalcolor = System.Drawing.Color.Maroon;
-            this.bunifuFlatButton4.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.bunifuFlatButton4.OnHoverTextColor = System.Drawing.Color.White;
-            this.bunifuFlatButton4.selected = false;
-            this.bunifuFlatButton4.Size = new System.Drawing.Size(304, 52);
-            this.bunifuFlatButton4.TabIndex = 1;
-            this.bunifuFlatButton4.Text = "                      Chat Zone";
-            this.bunifuFlatButton4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuFlatButton4.Textcolor = System.Drawing.Color.White;
-            this.bunifuFlatButton4.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuFlatButton4.Visible = false;
-            // 
-            // bunifuFlatButton3
-            // 
-            this.bunifuFlatButton3.Activecolor = System.Drawing.Color.Maroon;
-            this.bunifuFlatButton3.BackColor = System.Drawing.Color.Maroon;
-            this.bunifuFlatButton3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuFlatButton3.BorderRadius = 0;
-            this.bunifuFlatButton3.ButtonText = "                      Chat Zone";
-            this.bunifuFlatButton3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuFlatButton3.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuFlatButton3.Font = new System.Drawing.Font("Franklin Gothic Medium", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuFlatButton3.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton3.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButton3.Iconimage")));
-            this.bunifuFlatButton3.Iconimage_right = null;
-            this.bunifuFlatButton3.Iconimage_right_Selected = null;
-            this.bunifuFlatButton3.Iconimage_Selected = null;
-            this.bunifuFlatButton3.IconMarginLeft = 0;
-            this.bunifuFlatButton3.IconMarginRight = 0;
-            this.bunifuFlatButton3.IconRightVisible = true;
-            this.bunifuFlatButton3.IconRightZoom = 0D;
-            this.bunifuFlatButton3.IconVisible = true;
-            this.bunifuFlatButton3.IconZoom = 80D;
-            this.bunifuFlatButton3.IsTab = false;
-            this.bunifuFlatButton3.Location = new System.Drawing.Point(19, 376);
-            this.bunifuFlatButton3.Margin = new System.Windows.Forms.Padding(10, 11, 10, 11);
-            this.bunifuFlatButton3.Name = "bunifuFlatButton3";
-            this.bunifuFlatButton3.Normalcolor = System.Drawing.Color.Maroon;
-            this.bunifuFlatButton3.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.bunifuFlatButton3.OnHoverTextColor = System.Drawing.Color.White;
-            this.bunifuFlatButton3.selected = false;
-            this.bunifuFlatButton3.Size = new System.Drawing.Size(304, 52);
-            this.bunifuFlatButton3.TabIndex = 1;
-            this.bunifuFlatButton3.Text = "                      Chat Zone";
-            this.bunifuFlatButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuFlatButton3.Textcolor = System.Drawing.Color.White;
-            this.bunifuFlatButton3.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuFlatButton3.Visible = false;
             // 
             // bunifuFlatButton2
             // 
@@ -379,6 +303,16 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // Coronamap
+            // 
+            this.Coronamap.Location = new System.Drawing.Point(19, 358);
+            this.Coronamap.MinimumSize = new System.Drawing.Size(20, 20);
+            this.Coronamap.Name = "Coronamap";
+            this.Coronamap.Size = new System.Drawing.Size(304, 218);
+            this.Coronamap.TabIndex = 4;
+            this.Coronamap.Url = new System.Uri("https://coronavirus.jhu.edu/map.html", System.UriKind.Absolute);
+            this.Coronamap.Visible = false;
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -412,8 +346,6 @@
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private Bunifu.Framework.UI.BunifuFlatButton chatzonebutton;
         private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton1;
-        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton4;
-        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton3;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton2;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
@@ -426,5 +358,6 @@
         public System.Windows.Forms.TextBox USERNAME;
         public System.Windows.Forms.PictureBox StatusServer;
         public System.Windows.Forms.TextBox RealtimeChat;
+        private System.Windows.Forms.WebBrowser Coronamap;
     }
 }

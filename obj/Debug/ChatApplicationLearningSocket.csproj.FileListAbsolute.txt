@@ -24,3 +24,6 @@ C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearnin
 C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\obj\Debug\ChatApplicationLearningSocket.exe
 C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\obj\Debug\ChatApplicationLearningSocket.pdb
 C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\obj\Debug\ChatApplicationLearningSocket.MainMenu.resources
+C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\bin\Debug\ChatSizeClient.exe
+C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\bin\Debug\ChatSizeClient.pdb
+C:\Users\BungK\source\repos\ChatApplicationLearningSocket\ChatApplicationLearningSocket\bin\Debug\ChatSizeClient.exe.config

@@ -86,7 +86,7 @@ namespace ChatApplicationLearningSocket
 
         }
 
-        async private void bunifuImageButton1_Click(object sender, EventArgs e)
+        async public void bunifuImageButton1_Click(object sender, EventArgs e)
         {
             if (CO == "Close")
             {
@@ -100,9 +100,7 @@ namespace ChatApplicationLearningSocket
                 await Task.Delay(250);
                 bunifuFlatButton2.Visible = true;
                 await Task.Delay(250);
-                bunifuFlatButton3.Visible = true;
-                await Task.Delay(250);
-                bunifuFlatButton4.Visible = true;
+                Coronamap.Visible = true;
                 await Task.Delay(250);
                 CO = "Open";
             }
@@ -112,8 +110,6 @@ namespace ChatApplicationLearningSocket
                 chatzonebutton.Visible = false;
                 bunifuFlatButton1.Visible = false;
                 bunifuFlatButton2.Visible = false;
-                bunifuFlatButton3.Visible = false;
-                bunifuFlatButton4.Visible = false;
                 Permission.Visible = false;
                 MenuClose();
                 CO = "Close";
@@ -143,6 +139,12 @@ namespace ChatApplicationLearningSocket
                 ChatSize_ADMIN_.ChatAppAdminSize CSA = new ChatSize_ADMIN_.ChatAppAdminSize();
                 CSA.ADMINNAME(Namesend);
                 CSA.Show();
+            }
+            else
+            {
+                Namesend = USERNAME.Text;
+                ChatSizeClient.ChatSizeClient CSC = new ChatSizeClient.ChatSizeClient();
+                CSC.Show();
             }
         }
 
@@ -212,6 +214,7 @@ namespace ChatApplicationLearningSocket
             if (TextAdminSend.Text != null && !string.IsNullOrWhiteSpace(TextAdminSend.Text))
             {
                 Server.broadcast(USERNAME.Text, " " + TextAdminSend.Text);
+                this.RealtimeChat.Text += (USERNAME.Text + " : " + TextAdminSend.Text + "\r\n");
                 TextAdminSend.Text = null;
             }
         }
