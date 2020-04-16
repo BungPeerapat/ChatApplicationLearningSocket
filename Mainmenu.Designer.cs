@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             this.USERNAME = new System.Windows.Forms.TextBox();
             this.MenuZone = new System.Windows.Forms.Panel();
+            this.Coronamap = new System.Windows.Forms.WebBrowser();
             this.Permission = new System.Windows.Forms.Label();
             this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
             this.bunifuFlatButton2 = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -46,7 +47,6 @@
             this.TextAdminSend = new System.Windows.Forms.TextBox();
             this.ASB = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.Coronamap = new System.Windows.Forms.WebBrowser();
             this.MenuZone.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StatusServer)).BeginInit();
@@ -80,6 +80,18 @@
             this.MenuZone.Name = "MenuZone";
             this.MenuZone.Size = new System.Drawing.Size(82, 603);
             this.MenuZone.TabIndex = 2;
+            // 
+            // Coronamap
+            // 
+            this.Coronamap.Location = new System.Drawing.Point(19, 370);
+            this.Coronamap.MinimumSize = new System.Drawing.Size(20, 20);
+            this.Coronamap.Name = "Coronamap";
+            this.Coronamap.Size = new System.Drawing.Size(304, 206);
+            this.Coronamap.TabIndex = 4;
+            this.Coronamap.Url = new System.Uri("", System.UriKind.Relative);
+            this.Coronamap.Visible = false;
+            this.Coronamap.WebBrowserShortcutsEnabled = false;
+            this.Coronamap.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.Coronamap_DocumentCompleted);
             // 
             // Permission
             // 
@@ -302,18 +314,6 @@
             this.button1.Text = "Denined";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // Coronamap
-            // 
-            this.Coronamap.Location = new System.Drawing.Point(19, 358);
-            this.Coronamap.MinimumSize = new System.Drawing.Size(20, 20);
-            this.Coronamap.Name = "Coronamap";
-            this.Coronamap.Size = new System.Drawing.Size(304, 218);
-            this.Coronamap.TabIndex = 4;
-            this.Coronamap.Url = new System.Uri("", System.UriKind.Relative);
-            this.Coronamap.Visible = false;
-            this.Coronamap.WebBrowserShortcutsEnabled = false;
-            this.Coronamap.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.Coronamap_DocumentCompleted);
             // 
             // MainMenu
             // 
