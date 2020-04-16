@@ -312,6 +312,7 @@
             this.Coronamap.TabIndex = 4;
             this.Coronamap.Url = new System.Uri("", System.UriKind.Relative);
             this.Coronamap.Visible = false;
+            this.Coronamap.WebBrowserShortcutsEnabled = false;
             this.Coronamap.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.Coronamap_DocumentCompleted);
             // 
             // MainMenu
