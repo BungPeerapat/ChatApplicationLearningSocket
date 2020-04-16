@@ -64,7 +64,8 @@ namespace ChatApplicationLearningSocket
             MainMenu.mainMenu.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
             Thread clientReceive = new Thread(o => ReceiveData((TcpClient)o));
             clientReceive.Start(client);
-            sendData(admin.USERNAME.Text, "MemberCode:" + "Connected to Server");
+            sendData(admin.USERNAME.Text, "Connected to Server");
+            
 
             //if (client.Connected)
             //{

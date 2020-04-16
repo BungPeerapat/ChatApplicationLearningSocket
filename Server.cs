@@ -30,7 +30,7 @@ namespace ChatApplicationLearningSocket
             MainMenu.mainMenu.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
             while (true)
             {
-                int count = 1;
+                //int count = 1;
                 TcpClient client = ServerSocket.AcceptTcpClient();
                 lock (_lock) list_clients.Add(count, client);
                 Console.WriteLine("Someone connected!!");
@@ -67,12 +67,30 @@ namespace ChatApplicationLearningSocket
             {
                 NetworkStream stream = client.GetStream();
                 byte[] buffer = new byte[1024];
+                //Test
                 int byte_count = stream.Read(buffer, 0, buffer.Length);
 
-                if (byte_count == 0)
+                try
                 {
-                    break;
+                    while ((byte_count) > 0)
+                    {
+                        //Console.Write(Encoding.ASCII.GetString(receivedBytes, 0, byte_count));
+                        MainMenu.UpdateRealtimeChat(Encoding.ASCII.GetString(buffer, 0, byte_count));
+                        if (byte_count == 0)
+                        {
+                            break;
+                        }
+                    }
+                    if (byte_count == 0)
+                    {
+                        break;
+                    }
                 }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                //Test
 
                 string data = Encoding.ASCII.GetString(buffer, 0, byte_count);
                 String[] msg = data.Split(':');
