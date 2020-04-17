@@ -64,7 +64,7 @@ namespace ChatApplicationLearningSocket
             MainMenu.mainMenu.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
             Thread clientReceive = new Thread(o => ReceiveData((TcpClient)o));
             clientReceive.Start(client);
-            sendData(admin.USERNAME.Text, "Connected to Server" + "\r\n");
+            sendData(admin.Permission.Text,admin.USERNAME.Text, "Connected to Server" + "\r\n");
             
 
             //if (client.Connected)
@@ -84,9 +84,9 @@ namespace ChatApplicationLearningSocket
             //Thread cheackstatusserver = new Thread(ConnectedStatusclient);
             //cheackstatusserver.Start();
         }
-        public static void sendData(String usernamesend, String bytesToSend)
+        public static void sendData(string PermissionText, String usernamesend, String bytesToSend)
         {
-            byte[] buffer = Encoding.ASCII.GetBytes(usernamesend + " : " + bytesToSend);
+            byte[] buffer = Encoding.ASCII.GetBytes(PermissionText + usernamesend + " : " + bytesToSend);
             ns.Write(buffer, 0, buffer.Length);
         }
         public static void disconnect()

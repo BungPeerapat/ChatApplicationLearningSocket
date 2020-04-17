@@ -80,6 +80,7 @@
             this.MenuZone.Name = "MenuZone";
             this.MenuZone.Size = new System.Drawing.Size(82, 603);
             this.MenuZone.TabIndex = 2;
+            this.MenuZone.Paint += new System.Windows.Forms.PaintEventHandler(this.MenuZone_Paint);
             // 
             // Coronamap
             // 
@@ -353,7 +354,6 @@
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label Permission;
         private System.Windows.Forms.Label ShowStatus;
         private System.Windows.Forms.Button ASB;
         private System.Windows.Forms.TextBox TextAdminSend;
@@ -362,5 +362,6 @@
         public System.Windows.Forms.PictureBox StatusServer;
         public System.Windows.Forms.TextBox RealtimeChat;
         public System.Windows.Forms.WebBrowser Coronamap;
+        public System.Windows.Forms.Label Permission;
     }
 }

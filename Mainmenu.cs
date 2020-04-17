@@ -234,5 +234,10 @@ namespace ChatApplicationLearningSocket
         {
 
         }
+
+        private void MenuZone_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -88,13 +88,15 @@ namespace ChatApplicationLearningSocket
                 {
                     Console.WriteLine(ex.Message);
                 }
-                //Test
+
+                //Test Usernamesend [ TOEI ]
 
                 string data = Encoding.ASCII.GetString(buffer, 0, byte_count);
                 String[] msg = data.Split(':');
-                if (msg[0] == "MemberCode") // MemberCode:YOURNAME
+                if (msg[0] == "Member") // Member:YOURNAME
                 {
                     list_clients_name[id] = msg[1];
+                    MessageBox.Show(list_clients_name[id]);
                 }
                 broadcast("",data);
             }
