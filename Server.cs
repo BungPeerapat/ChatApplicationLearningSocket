@@ -68,7 +68,8 @@ namespace ChatApplicationLearningSocket
                 NetworkStream stream = client.GetStream();
                 byte[] buffer = new byte[1024];
                 //Test
-                int byte_count = stream.Read(buffer, 0, buffer.Length);
+
+                    int byte_count = stream.Read(buffer, 0, buffer.Length);
 
                 try
                 {
@@ -98,7 +99,7 @@ namespace ChatApplicationLearningSocket
                     list_clients_name[id] = msg[1];
                     MessageBox.Show(list_clients_name[id]);
                 }
-                broadcast("",data);
+                broadcast(null,data);
             }
 
             lock (_lock) list_clients.Remove(id);
