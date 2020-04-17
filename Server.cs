@@ -97,9 +97,11 @@ namespace ChatApplicationLearningSocket
                 if (msg[0] == "Member") // Member:YOURNAME
                 {
                     list_clients_name[id] = msg[1];
-                    MessageBox.Show(list_clients_name[id]);
+                    MessageBox.Show(msg[0]);
                 }
-                broadcast(null,data);
+                Console.Write(msg[0]);
+
+                //Test Usernamesend [ TOEI ]
             }
 
             lock (_lock) list_clients.Remove(id);

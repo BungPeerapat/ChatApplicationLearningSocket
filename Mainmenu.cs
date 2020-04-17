@@ -15,6 +15,7 @@ using System.Threading;
 using Microsoft.AspNet.SignalR.Infrastructure;
 using System.Drawing.Imaging;
 using Microsoft.Owin.BuilderProperties;
+using ChatSizeClient;
 
 namespace ChatApplicationLearningSocket
 {
@@ -130,6 +131,7 @@ namespace ChatApplicationLearningSocket
             MenuZone.Width -= 210;
             Task.Delay(500);
         }
+        public string RealtimeupdateClientSize;
 
         private void chatzonebutton_Click(object sender, EventArgs e)
         {
@@ -143,9 +145,19 @@ namespace ChatApplicationLearningSocket
             }
             else
             {
-                Namesend = USERNAME.Text;
-                ChatSizeClient.ChatSizeClient CSC = new ChatSizeClient.ChatSizeClient();
+                ChatSizeClient.ChatSizeClientMain CSC = new ChatSizeClient.ChatSizeClientMain();
                 CSC.Show();
+            }
+        }
+
+        public void UpdateRealtimechatClientSizeLoop()
+        {
+            while (true)
+            {
+                RealtimeupdateClientSize = RealtimeChat.Text;
+                Console.WriteLine("UpdateRealtimechatClientSizeLoop Work!");
+                ChatSizeClient.ChatSizeClientMain CSC = new ChatSizeClient.ChatSizeClientMain();
+                CSC.UpdateRealtimechatClientSize(RealtimeupdateClientSize);
             }
         }
 
@@ -203,6 +215,8 @@ namespace ChatApplicationLearningSocket
                 TextAdminSend.Enabled = false;
                 Thread Startclient = new Thread(StartClient);
                 Startclient.Start();
+                Thread CSCRTLoop = new Thread(UpdateRealtimechatClientSizeLoop);
+                CSCRTLoop.Start();
             }
         }
 
