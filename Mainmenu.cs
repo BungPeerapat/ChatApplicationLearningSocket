@@ -150,11 +150,12 @@ namespace ChatApplicationLearningSocket
             }
         }
 
-        public void UpdateRealtimechatClientSizeLoop() //อัพเดต Chat ฝั่ง Client
+        public void UpdateRealtimechatClientSizeLoop()
         {
             while (true)
             {
                 RealtimeupdateClientSize = RealtimeChat.Text;
+                Console.WriteLine("UpdateRealtimechatClientSizeLoop Work!");
                 ChatSizeClient.ChatSizeClientMain CSC = new ChatSizeClient.ChatSizeClientMain();
                 CSC.UpdateRealtimechatClientSize(RealtimeupdateClientSize);
             }
