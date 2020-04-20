@@ -155,8 +155,7 @@ namespace ChatApplicationLearningSocket
             while (true)
             {
                 RealtimeupdateClientSize = RealtimeChat.Text;
-                ChatSizeClient.ChatSizeClientMain CSC = new ChatSizeClient.ChatSizeClientMain();
-                CSC.UpdateRealtimechatClientSize(RealtimeupdateClientSize);
+                ChatSizeClient.ChatSizeClientMain.UpdateRealtimechatClientSize(RealtimeupdateClientSize);
             }
         }
 
@@ -249,6 +248,11 @@ namespace ChatApplicationLearningSocket
         }
 
         private void MenuZone_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
 
         }

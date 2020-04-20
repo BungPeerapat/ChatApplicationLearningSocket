@@ -47,6 +47,7 @@
             this.TextAdminSend = new System.Windows.Forms.TextBox();
             this.ASB = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.MenuZone.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StatusServer)).BeginInit();
@@ -317,6 +318,10 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -363,5 +368,6 @@
         public System.Windows.Forms.TextBox RealtimeChat;
         public System.Windows.Forms.WebBrowser Coronamap;
         public System.Windows.Forms.Label Permission;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
