@@ -213,8 +213,6 @@ namespace ChatApplicationLearningSocket
                 TextAdminSend.Enabled = false;
                 Thread Startclient = new Thread(StartClient);
                 Startclient.Start();
-                Thread CSCRTLoop = new Thread(UpdateRealtimechatClientSizeLoop);
-                CSCRTLoop.Start();
             }
         }
 
