@@ -23,6 +23,7 @@ namespace ChatApplicationLearningSocket
 
         public static void Start()
         {
+
             int port = 1443;
             string IP = "192.168.2.33";
             TcpListener ServerSocket = new TcpListener(IPAddress.Parse(IP),port);
