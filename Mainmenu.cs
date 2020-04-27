@@ -15,6 +15,7 @@ using System.Threading;
 using Microsoft.AspNet.SignalR.Infrastructure;
 using System.Drawing.Imaging;
 using Microsoft.Owin.BuilderProperties;
+using ChatSizeClient2;
 using ChatSizeClient;
 
 namespace ChatApplicationLearningSocket
@@ -131,7 +132,6 @@ namespace ChatApplicationLearningSocket
             MenuZone.Width -= 210;
             Task.Delay(500);
         }
-        public string RealtimeupdateClientSize;
 
         private void chatzonebutton_Click(object sender, EventArgs e)
         {
@@ -146,17 +146,23 @@ namespace ChatApplicationLearningSocket
             else
             {
                 ChatSizeClient.ChatSizeClientMain CSC = new ChatSizeClient.ChatSizeClientMain();
+                string namesend = USERNAME.Text;
+                CSC.Receivename(namesend);
                 CSC.Show();
+                Thread URCS = new Thread(UpdateRealtimechatClientSizeLoop);
+                URCS.Start();
             }
         }
-
+        public string RealtimeupdateClientSize;
         public void UpdateRealtimechatClientSizeLoop() //อัพเดต Chat ฝั่ง Client
         {
-            while (true)
-            {
+            //while (true)
+            //{
                 RealtimeupdateClientSize = RealtimeChat.Text;
-                ChatSizeClient.ChatSizeClientMain.UpdateRealtimechatClientSize(RealtimeupdateClientSize);
-            }
+                ChatSizeClient.ChatSizeClientMain TEST = new ChatSizeClient.ChatSizeClientMain();
+                TEST.UpdateRealtimechatClientSize(RealtimeupdateClientSize);
+                TEST.REChat(RealtimeupdateClientSize);
+            //}
         }
 
         private delegate void ChatDelegate(string msg);
@@ -251,6 +257,11 @@ namespace ChatApplicationLearningSocket
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+        }
+
+        private void RealtimeChat_TextChanged(object sender, EventArgs e)
         {
 
         }

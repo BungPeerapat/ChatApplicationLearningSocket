@@ -270,6 +270,7 @@
             this.RealtimeChat.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.RealtimeChat.Size = new System.Drawing.Size(315, 169);
             this.RealtimeChat.TabIndex = 4;
+            this.RealtimeChat.TextChanged += new System.EventHandler(this.RealtimeChat_TextChanged);
             // 
             // ShowStatus
             // 

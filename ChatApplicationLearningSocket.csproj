@@ -113,8 +113,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ChatSizeClient\ChatSizeClient.csproj">
-      <Project>{91ed83b5-6c56-4292-b7dc-fc30d4b1e9fa}</Project>
+    <ProjectReference Include="..\ChatSizeClient2\ChatSizeClient.csproj">
+      <Project>{3aa78781-e984-4575-93b2-311574e1f2cc}</Project>
       <Name>ChatSizeClient</Name>
     </ProjectReference>
     <ProjectReference Include="..\ChatSize[ADMIN]\ChatSizeAdmin.csproj">

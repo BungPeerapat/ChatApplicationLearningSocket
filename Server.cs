@@ -24,7 +24,7 @@ namespace ChatApplicationLearningSocket
         public static void Start()
         {
             int port = 1443;
-            string IP = "127.0.0.1";
+            string IP = "192.168.2.33";
             TcpListener ServerSocket = new TcpListener(IPAddress.Parse(IP),port);
             ServerSocket.Start();
             MainMenu.mainMenu.StatusServer.Image = (Image)Properties.Resources.ResourceManager.GetObject("Green Point");
@@ -68,8 +68,7 @@ namespace ChatApplicationLearningSocket
                 NetworkStream stream = client.GetStream();
                 byte[] buffer = new byte[1024];
                 //Test
-
-                    int byte_count = stream.Read(buffer, 0, buffer.Length);
+                int byte_count = stream.Read(buffer, 0, buffer.Length);
 
                 try
                 {

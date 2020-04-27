@@ -26,14 +26,19 @@ namespace ChatApplicationLearningSocket
 
 
         public static void Start()
-        {
-            IPAddress ip = IPAddress.Parse("127.0.0.1");
+        {   
+            string hostname = "mashirotan.ddns.net";
+
+            IPAddress[] hostIP = Dns.GetHostAddresses(hostname);
+
+            //IPAddress ip = IPAddress.Parse("192.168.2.33"); สำหรับ IP;
+
             int port = 1443;
             TcpClient client = new TcpClient();
 
             try
             {
-                client.Connect(ip, port);
+                client.Connect(hostIP, port); //ถ้าจะเปลี่ยนเป็น IP ให้เปลี่ยน hostIP เป็น ip
             }
             catch(Exception ex)
             {
@@ -45,7 +50,7 @@ namespace ChatApplicationLearningSocket
                 try
                 {
                     client = new TcpClient();
-                    client.Connect(ip, port);
+                    client.Connect(hostIP, port);
                     Console.Beep();
                     Task.Delay(3000);
                 }
@@ -86,6 +91,7 @@ namespace ChatApplicationLearningSocket
         }
         public static void sendData(string PermissionText, String usernamesend, String bytesToSend)
         {
+            MessageBox.Show(bytesToSend);
             byte[] buffer = Encoding.ASCII.GetBytes(PermissionText + usernamesend + " : " + bytesToSend);
             ns.Write(buffer, 0, buffer.Length);
         }
