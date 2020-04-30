@@ -36,7 +36,7 @@
             this.Permission = new System.Windows.Forms.Label();
             this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
             this.bunifuFlatButton2 = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.ccmodebutton = new Bunifu.Framework.UI.BunifuFlatButton();
             this.chatzonebutton = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
@@ -74,7 +74,7 @@
             this.MenuZone.Controls.Add(this.Permission);
             this.MenuZone.Controls.Add(this.bunifuImageButton1);
             this.MenuZone.Controls.Add(this.bunifuFlatButton2);
-            this.MenuZone.Controls.Add(this.bunifuFlatButton1);
+            this.MenuZone.Controls.Add(this.ccmodebutton);
             this.MenuZone.Controls.Add(this.chatzonebutton);
             this.MenuZone.Controls.Add(this.USERNAME);
             this.MenuZone.Location = new System.Drawing.Point(0, 0);
@@ -156,42 +156,42 @@
             this.bunifuFlatButton2.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuFlatButton2.Visible = false;
             // 
-            // bunifuFlatButton1
+            // ccmodebutton
             // 
-            this.bunifuFlatButton1.Activecolor = System.Drawing.Color.Maroon;
-            this.bunifuFlatButton1.BackColor = System.Drawing.Color.Maroon;
-            this.bunifuFlatButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuFlatButton1.BorderRadius = 0;
-            this.bunifuFlatButton1.ButtonText = "                      Chat Zone";
-            this.bunifuFlatButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuFlatButton1.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuFlatButton1.Font = new System.Drawing.Font("Franklin Gothic Medium", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuFlatButton1.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton1.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButton1.Iconimage")));
-            this.bunifuFlatButton1.Iconimage_right = null;
-            this.bunifuFlatButton1.Iconimage_right_Selected = null;
-            this.bunifuFlatButton1.Iconimage_Selected = null;
-            this.bunifuFlatButton1.IconMarginLeft = 0;
-            this.bunifuFlatButton1.IconMarginRight = 0;
-            this.bunifuFlatButton1.IconRightVisible = true;
-            this.bunifuFlatButton1.IconRightZoom = 0D;
-            this.bunifuFlatButton1.IconVisible = true;
-            this.bunifuFlatButton1.IconZoom = 80D;
-            this.bunifuFlatButton1.IsTab = false;
-            this.bunifuFlatButton1.Location = new System.Drawing.Point(19, 206);
-            this.bunifuFlatButton1.Margin = new System.Windows.Forms.Padding(10, 11, 10, 11);
-            this.bunifuFlatButton1.Name = "bunifuFlatButton1";
-            this.bunifuFlatButton1.Normalcolor = System.Drawing.Color.Maroon;
-            this.bunifuFlatButton1.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.bunifuFlatButton1.OnHoverTextColor = System.Drawing.Color.White;
-            this.bunifuFlatButton1.selected = false;
-            this.bunifuFlatButton1.Size = new System.Drawing.Size(304, 52);
-            this.bunifuFlatButton1.TabIndex = 1;
-            this.bunifuFlatButton1.Text = "                      Chat Zone";
-            this.bunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuFlatButton1.Textcolor = System.Drawing.Color.White;
-            this.bunifuFlatButton1.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuFlatButton1.Visible = false;
+            this.ccmodebutton.Activecolor = System.Drawing.Color.Maroon;
+            this.ccmodebutton.BackColor = System.Drawing.Color.Maroon;
+            this.ccmodebutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ccmodebutton.BorderRadius = 0;
+            this.ccmodebutton.ButtonText = "                      Chat Zone";
+            this.ccmodebutton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ccmodebutton.DisabledColor = System.Drawing.Color.Gray;
+            this.ccmodebutton.Font = new System.Drawing.Font("Franklin Gothic Medium", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ccmodebutton.Iconcolor = System.Drawing.Color.Transparent;
+            this.ccmodebutton.Iconimage = ((System.Drawing.Image)(resources.GetObject("ccmodebutton.Iconimage")));
+            this.ccmodebutton.Iconimage_right = null;
+            this.ccmodebutton.Iconimage_right_Selected = null;
+            this.ccmodebutton.Iconimage_Selected = null;
+            this.ccmodebutton.IconMarginLeft = 0;
+            this.ccmodebutton.IconMarginRight = 0;
+            this.ccmodebutton.IconRightVisible = true;
+            this.ccmodebutton.IconRightZoom = 0D;
+            this.ccmodebutton.IconVisible = true;
+            this.ccmodebutton.IconZoom = 80D;
+            this.ccmodebutton.IsTab = false;
+            this.ccmodebutton.Location = new System.Drawing.Point(19, 206);
+            this.ccmodebutton.Margin = new System.Windows.Forms.Padding(10, 11, 10, 11);
+            this.ccmodebutton.Name = "ccmodebutton";
+            this.ccmodebutton.Normalcolor = System.Drawing.Color.Maroon;
+            this.ccmodebutton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.ccmodebutton.OnHoverTextColor = System.Drawing.Color.White;
+            this.ccmodebutton.selected = false;
+            this.ccmodebutton.Size = new System.Drawing.Size(304, 52);
+            this.ccmodebutton.TabIndex = 1;
+            this.ccmodebutton.Text = "                      Chat Zone";
+            this.ccmodebutton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ccmodebutton.Textcolor = System.Drawing.Color.White;
+            this.ccmodebutton.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ccmodebutton.Visible = false;
             // 
             // chatzonebutton
             // 
@@ -357,7 +357,7 @@
         private Bunifu.Framework.UI.BunifuFlatButton chatzonebutton;
         private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton1;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton2;
-        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
+        private Bunifu.Framework.UI.BunifuFlatButton ccmodebutton;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label ShowStatus;

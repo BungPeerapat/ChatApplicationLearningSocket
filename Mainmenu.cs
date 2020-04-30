@@ -98,7 +98,7 @@ namespace ChatApplicationLearningSocket
                 await Task.Delay(250);
                 chatzonebutton.Visible = true;
                 await Task.Delay(250);
-                bunifuFlatButton1.Visible = true;
+                ccmodebutton.Visible = true;
                 await Task.Delay(250);
                 bunifuFlatButton2.Visible = true;
                 await Task.Delay(250);
@@ -110,7 +110,7 @@ namespace ChatApplicationLearningSocket
             {
                 USERNAME.Visible = false;
                 chatzonebutton.Visible = false;
-                bunifuFlatButton1.Visible = false;
+                ccmodebutton.Visible = false;
                 bunifuFlatButton2.Visible = false;
                 Permission.Visible = false;
                 Coronamap.Visible = false;
